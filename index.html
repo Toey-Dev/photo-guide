@@ -164,6 +164,7 @@ footer p{color:var(--ink3);font-size:.85rem}
     <a class="lnk" href="#triangle">3 ค่าหลัก</a>
     <a class="lnk" href="#modes">โหมด P/A/S/M</a>
     <a class="lnk" href="#expo">ชดเชยแสง</a>
+    <a class="lnk" href="#metering">วัดแสง/Histogram</a>
     <a class="lnk" href="#wb">White Balance</a>
     <a class="lnk" href="#focus">โฟกัส</a>
     <a class="lnk" href="#focal">ระยะเลนส์</a>
@@ -172,6 +173,9 @@ footer p{color:var(--ink3);font-size:.85rem}
     <a class="lnk" href="#raw">RAW vs JPEG</a>
     <a class="lnk" href="#settings">ตั้งค่าจริง</a>
     <a class="lnk" href="#video">วิดีโอ 180°</a>
+    <a class="lnk" href="#g97">ฟีเจอร์ G97</a>
+    <a class="lnk" href="#mistakes">ข้อผิดพลาด</a>
+    <a class="lnk" href="#care">ดูแลกล้อง</a>
     <a class="lnk" href="#gear">เลนส์ของคุณ</a>
   </div>
 </nav>
@@ -344,9 +348,54 @@ footer p{color:var(--ink3);font-size:.85rem}
 </section>
 
 <!-- 04 WHITE BALANCE -->
+<!-- METERING + HISTOGRAM -->
+<section id="metering">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">04</span><h2>โหมดวัดแสง และ Histogram</h2></div>
+    <p class="slead reveal">ระบบวัดแสงเป็นตัวตัดสินว่า "พอดี" คือเท่าไหร่ ส่วน Histogram คือกราฟที่บอกความจริงว่าภาพมืด/สว่างเกินไปไหม — แม่นกว่าการดูบนจอที่แสงรอบตัวอาจหลอกตาได้</p>
+
+    <h3 style="font-family:var(--serif);font-size:1.25rem;margin:8px 0 16px" class="reveal">โหมดวัดแสง (Metering)</h3>
+    <div class="grid g3">
+      <div class="card reveal"><span class="ic">MULTI / MATRIX</span><h3>เฉลี่ยทั้งเฟรม</h3><p>กล้องวัดแสงทั้งภาพแล้วหาค่าเฉลี่ย ใช้ได้ดี ~90% ของสถานการณ์ ตั้งไว้แบบนี้เป็นหลักได้เลย</p></div>
+      <div class="card reveal"><span class="ic">CENTER</span><h3>เน้นกลางเฟรม</h3><p>ให้น้ำหนักกลางภาพมากกว่า เหมาะเมื่อตัวแบบอยู่กลางเฟรมและฉากหลังสว่าง/มืดต่างจากตัวแบบมาก</p></div>
+      <div class="card reveal"><span class="ic">SPOT</span><h3>วัดจุดเล็กๆ</h3><p>วัดเฉพาะจุดเดียว เหมาะฉากแสงยาก — ย้อนแสง คอนเสิร์ต พระจันทร์ วัดที่ "สิ่งที่อยากให้พอดี" ตรงๆ</p></div>
+    </div>
+    <div class="tip reveal"><b>บน G97:</b> เปลี่ยนได้ที่ Quick Menu (ปุ่ม Q) หรือ Photo menu → Metering Mode · เริ่มจาก Multi ก่อน แล้วสลับเป็น Spot เมื่อเจอฉากแสงยาก</div>
+
+    <h3 style="font-family:var(--serif);font-size:1.25rem;margin:42px 0 8px" class="reveal">อ่าน Histogram ให้เป็น</h3>
+    <p class="reveal" style="color:var(--ink2);margin-bottom:6px">กราฟนี้บอกการกระจายความสว่างของภาพ — แกนนอน ซ้าย=เงามืด ขวา=ไฮไลต์สว่าง · แกนตั้ง=จำนวนพิกเซล</p>
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 620 210" role="img" aria-label="ตัวอย่าง Histogram สามแบบ">
+        <defs><linearGradient id="tone" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>
+        <!-- under -->
+        <rect x="20" y="26" width="170" height="112" fill="none" stroke="rgba(240,230,210,.14)"/>
+        <polygon points="20,138 20,66 34,46 50,74 76,112 120,135 190,138" fill="#e0a44a" opacity="0.8"/>
+        <line x1="20" y1="26" x2="20" y2="138" stroke="#dd8a5e" stroke-width="2"/>
+        <rect x="20" y="142" width="170" height="7" fill="url(#tone)"/>
+        <text x="105" y="172" text-anchor="middle" fill="#dd8a5e" font-family="IBM Plex Sans Thai" font-size="13">มืดเกิน</text>
+        <text x="105" y="190" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="11">เงาตัน → ดัน +EV</text>
+        <!-- good -->
+        <rect x="225" y="26" width="170" height="112" fill="none" stroke="rgba(240,230,210,.14)"/>
+        <polygon points="225,138 250,136 278,118 300,66 310,58 320,66 342,118 370,136 395,138" fill="#5fb6a2" opacity="0.8"/>
+        <rect x="225" y="142" width="170" height="7" fill="url(#tone)"/>
+        <text x="310" y="172" text-anchor="middle" fill="#5fb6a2" font-family="IBM Plex Sans Thai" font-size="13">พอดี</text>
+        <text x="310" y="190" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="11">กระจายทั่ว ไม่ชนขอบ</text>
+        <!-- over -->
+        <rect x="430" y="26" width="170" height="112" fill="none" stroke="rgba(240,230,210,.14)"/>
+        <polygon points="430,138 500,136 540,122 568,82 585,52 600,44 600,138" fill="#e0a44a" opacity="0.8"/>
+        <line x1="600" y1="26" x2="600" y2="138" stroke="#dd8a5e" stroke-width="2"/>
+        <rect x="430" y="142" width="170" height="7" fill="url(#tone)"/>
+        <text x="515" y="172" text-anchor="middle" fill="#dd8a5e" font-family="IBM Plex Sans Thai" font-size="13">สว่างเกิน</text>
+        <text x="515" y="190" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="11">ไฮไลต์ขาวโพลน → ลด −EV</text>
+      </svg>
+    </div>
+    <div class="tip reveal"><b>เปิด Histogram บน G97:</b> กดปุ่ม DISP. วนจนเห็นกราฟ หรือเปิดถาวรที่ Custom → Monitor/Display → Histogram · กฎจำง่าย: <strong>อย่าให้กราฟชนขอบขวาจนล้น</strong> เพราะไฮไลต์ที่ขาวโพลนจะกู้คืนไม่ได้ ถ้าชนให้ลดแสงหรือใช้ −EV</div>
+  </div>
+</section>
+
 <section id="wb">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">04</span><h2>White Balance · สมดุลแสงขาว</h2></div>
+    <div class="shead reveal"><span class="snum">05</span><h2>White Balance · สมดุลแสงขาว</h2></div>
     <p class="slead reveal">White Balance (WB) คือการบอกกล้องว่า "สีขาวคือสีขาว" ภายใต้แสงแต่ละชนิด ถ้าตั้งผิดภาพจะอมส้ม (อุ่นเกิน) หรืออมฟ้า (เย็นเกิน) วัดเป็นหน่วยเคลวิน (K)</p>
 
     <div class="svgwrap reveal">
@@ -445,7 +494,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- 05 FOCUS MODES -->
 <section id="focus">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">05</span><h2>โหมดโฟกัส · AFS / AFC / Eye AF</h2></div>
+    <div class="shead reveal"><span class="snum">06</span><h2>โหมดโฟกัส · AFS / AFC / Eye AF</h2></div>
     <p class="slead reveal">โฟกัสคมหรือไม่ สำคัญกว่าทุกค่ากล้อง เลือกโหมดให้ตรงกับว่า "ตัวแบบอยู่นิ่งหรือกำลังเคลื่อนไหว"</p>
 
     <div class="svgwrap reveal">
@@ -510,7 +559,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 
 <section id="focal">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">06</span><h2>ระยะเลนส์ และ Crop Factor</h2></div>
+    <div class="shead reveal"><span class="snum">07</span><h2>ระยะเลนส์ และ Crop Factor</h2></div>
     <p class="slead reveal">เซนเซอร์ M4/3 ของ G97 เล็กกว่าฟูลเฟรมราวครึ่งหนึ่ง จึงเก็บภาพได้เฉพาะส่วนกลางที่เลนส์ฉายมา ผลคือมุมแคบลงเหมือนซูม 2 เท่า — เลขบนเลนส์ต้องคูณ 2 ถึงจะได้มุมจริง</p>
 
     <div class="svgwrap reveal">
@@ -575,7 +624,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- 04 BOKEH -->
 <section id="bokeh">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">07</span><h2>เทคนิคละลายพื้นหลัง</h2></div>
+    <div class="shead reveal"><span class="snum">08</span><h2>เทคนิคละลายพื้นหลัง</h2></div>
     <p class="slead reveal">ฉากหลังฟุ้งนุ่ม (bokeh) ทำให้ตัวแบบเด่นขึ้นทันที ไม่ได้ขึ้นกับค่า F อย่างเดียว แต่มี 3 ปัจจัยที่คุมได้ — เลนส์ 25mm f/1.7 ของคุณคือเครื่องมือที่เก่งเรื่องนี้ที่สุด</p>
 
     <div class="svgwrap reveal">
@@ -618,7 +667,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- 05 COMPOSITION -->
 <section id="compose">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">08</span><h2>การจัดองค์ประกอบภาพ</h2></div>
+    <div class="shead reveal"><span class="snum">09</span><h2>การจัดองค์ประกอบภาพ</h2></div>
     <p class="slead reveal">ค่ากล้องทำให้ภาพ "สว่างพอดี" แต่องค์ประกอบทำให้ภาพ "น่ามอง" นี่คือชุดหลักการที่ใช้ได้กับทุกภาพ ลองทีละข้อจนติดเป็นนิสัย</p>
 
     <div class="grid g2">
@@ -668,7 +717,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- 09 RAW vs JPEG -->
 <section id="raw">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">09</span><h2>RAW vs JPEG</h2></div>
+    <div class="shead reveal"><span class="snum">10</span><h2>RAW vs JPEG</h2></div>
     <p class="slead reveal">กล้องบันทึกไฟล์ได้ 2 แบบหลัก เลือกตามว่าจะเอาภาพไปทำอะไร — RAW คือ "ฟิล์มดิจิทัล" ที่เก็บข้อมูลดิบครบ ส่วน JPEG คือภาพสำเร็จที่พร้อมใช้ทันที</p>
 
     <div class="svgwrap reveal">
@@ -732,7 +781,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 
 <section id="settings">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">10</span><h2>ค่าตั้งจริงตามช่วงเวลา</h2></div>
+    <div class="shead reveal"><span class="snum">11</span><h2>ค่าตั้งจริงตามช่วงเวลา</h2></div>
     <p class="slead reveal">นี่คือ "จุดตั้งต้น" สำหรับถือกล้องด้วยมือ ถ่ายคนทั่วไป — ถ่ายแล้วดูภาพหลังจอ มืดไปก็เปิด F / ลดชัตเตอร์ / ดัน ISO สว่างไปก็ทำกลับกัน ตัวเลขชัตเตอร์เป็นแบบ 1/X (บนจอขึ้นแค่เลข X)</p>
 
     <div class="tablewrap reveal">
@@ -796,7 +845,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- 11 VIDEO 180 -->
 <section id="video">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">11</span><h2>ถ่ายวิดีโอ และกฎ 180°</h2></div>
+    <div class="shead reveal"><span class="snum">12</span><h2>ถ่ายวิดีโอ และกฎ 180°</h2></div>
     <p class="slead reveal">ถ้าใช้ G97 ถ่ายวิดีโอด้วย มีกฎสำคัญชื่อ <strong>180° rule</strong> ที่ทำให้การเคลื่อนไหวในคลิปดูนุ่มเป็นธรรมชาติแบบภาพยนตร์ หลักง่ายๆ คือ ตั้งสปีดชัตเตอร์ให้เป็นประมาณ <strong>2 เท่าของเฟรมเรต</strong></p>
 
     <div class="svgwrap reveal">
@@ -833,9 +882,75 @@ footer p{color:var(--ink3);font-size:.85rem}
   </div>
 </section>
 
+<!-- G97 FEATURES -->
+<section id="g97">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">13</span><h2>ฟีเจอร์เด่นเฉพาะ G97</h2></div>
+    <p class="slead reveal">กล้องรุ่นนี้มี "ของดี" ติดเครื่องที่หลายคนไม่เคยเปิดใช้ ทั้งที่เป็นจุดขาย ลองเปิดดูแล้วจะคุ้มค่าตัวขึ้นอีกเยอะ</p>
+
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 560 156" role="img" aria-label="ตัวอย่าง Photo Style แบบต่างๆ">
+        <defs>
+          <linearGradient id="psStd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d98a4a"/><stop offset="0.55" stop-color="#caa56a"/><stop offset="1" stop-color="#6a8a5a"/></linearGradient>
+          <linearGradient id="psViv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a1e"/><stop offset="0.55" stop-color="#ffc34a"/><stop offset="1" stop-color="#2faa3a"/></linearGradient>
+          <linearGradient id="psNat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c2a786"/><stop offset="0.55" stop-color="#bdb39a"/><stop offset="1" stop-color="#8a9a82"/></linearGradient>
+          <linearGradient id="psMono" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d2d2d2"/><stop offset="0.55" stop-color="#9a9a9a"/><stop offset="1" stop-color="#5e5e5e"/></linearGradient>
+        </defs>
+        <rect x="34" y="18" width="92" height="78" rx="8" fill="url(#psStd)"/><text x="80" y="118" text-anchor="middle" fill="#f2ebdd" font-family="IBM Plex Sans Thai" font-size="13">Standard</text><text x="80" y="135" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="10">สมดุล</text>
+        <rect x="160" y="18" width="92" height="78" rx="8" fill="url(#psViv)"/><text x="206" y="118" text-anchor="middle" fill="#f2ebdd" font-family="IBM Plex Sans Thai" font-size="13">Vivid</text><text x="206" y="135" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="10">สีจัด คอนทราสต์สูง</text>
+        <rect x="308" y="18" width="92" height="78" rx="8" fill="url(#psNat)"/><text x="354" y="118" text-anchor="middle" fill="#f2ebdd" font-family="IBM Plex Sans Thai" font-size="13">Natural</text><text x="354" y="135" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="10">นุ่ม สีจริง</text>
+        <rect x="434" y="18" width="92" height="78" rx="8" fill="url(#psMono)"/><text x="480" y="118" text-anchor="middle" fill="#f2ebdd" font-family="IBM Plex Sans Thai" font-size="13">Monochrome</text><text x="480" y="135" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="10">ขาวดำ</text>
+      </svg>
+    </div>
+
+    <div class="grid g3">
+      <div class="card reveal"><span class="ic">PHOTO STYLE</span><h3>ปรับลุคภาพในกล้อง</h3><p>เลือกอารมณ์ภาพได้เลย — Standard, Vivid, Natural, Monochrome / L.Mono, Scenery, Portrait เปลี่ยนใน Q Menu ถ้าถ่าย JPEG ลุคจะติดไปเลย ถ้าถ่าย RAW ปรับเปลี่ยนทีหลังได้</p></div>
+      <div class="card reveal"><span class="ic">CUSTOM C1 / C2</span><h3>บันทึกชุดค่าโปรด</h3><p>เก็บค่าทั้งชุด (โหมด + F + ISO + โฟกัส + Photo Style) ไว้ที่แป้นหมุน เรียกใช้ทันที ตั้งที่ Setup → Cust.Set Mem. แนะนำ C1 = พอร์ตเทรต, C2 = วิว/แอคชั่น</p></div>
+      <div class="card reveal"><span class="ic">4K PHOTO</span><h3>ดึงเฟรมนิ่งจาก 4K</h3><p>บันทึก 4K 30fps แล้วเลือกเฟรมนิ่ง 8MP ภายหลัง จับวินาทีเป๊ะๆ ที่ถ่ายภาพนิ่งปกติจะพลาด เช่น เด็กกระโดด นกบิน สัตว์</p></div>
+      <div class="card reveal"><span class="ic">POST FOCUS</span><h3>เลือกโฟกัสทีหลัง</h3><p>ถ่ายทีเดียว แล้วแตะเลือกจุดโฟกัสที่ต้องการภายหลังได้ เหมาะงานมาโคร ของเล็ก ที่ระยะชัดบางมาก</p></div>
+      <div class="card reveal"><span class="ic">FOCUS STACKING</span><h3>ชัดทั้งภาพ</h3><p>รวมหลายระยะโฟกัสเป็นภาพเดียวที่คมตั้งแต่หน้าถึงหลัง เหมาะมาโคร สินค้า หรือวิวที่อยากชัดทุกระยะ</p></div>
+      <div class="card reveal"><span class="ic">BRACKETING</span><h3>ถ่ายคร่อมอัตโนมัติ</h3><p>ถ่ายคร่อมแสง / โฟกัส / WB หลายภาพรวดเดียว เผื่อเลือกภาพที่พอดีที่สุด หรือเอาไปรวมเป็น HDR</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">14</span><h2>ข้อผิดพลาดที่มือใหม่มักเจอ</h2></div>
+    <p class="slead reveal">รู้ไว้ก่อนจะได้ไม่พลาดซ้ำ — ทุกข้อมีวิธีแก้ง่ายๆ ที่อยู่ในคู่มือนี้แล้ว</p>
+    <div class="grid g2">
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ โฟกัสผิดจุด</h3><p><span style="color:var(--teal)">✓ แก้:</span> เปิด Face/Eye AF หรือเลือกจุดโฟกัสเอง และโฟกัสที่ดวงตาเสมอ</p></div>
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ ภาพเบลอ (มือสั่น/ชัตเตอร์ช้า)</h3><p><span style="color:var(--teal)">✓ แก้:</span> ชัตเตอร์อย่าต่ำกว่า 1/ทางยาวโฟกัส แสงน้อยให้ดัน ISO หรือเปิด F กว้าง</p></div>
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ ISO สูงเกิน noise เยอะ</h3><p><span style="color:var(--teal)">✓ แก้:</span> ลด ISO ให้ต่ำสุดเท่าที่ทำได้ เปิด F กว้างขึ้น หรือหาแสงเพิ่ม</p></div>
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ ภาพมืด/สว่างเกิน</h3><p><span style="color:var(--teal)">✓ แก้:</span> ใช้ชดเชยแสง +/− และดู Histogram อย่าเชื่อความสว่างจอภาพอย่างเดียว</p></div>
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ ภาพอมสีผิด (ส้ม/ฟ้า)</h3><p><span style="color:var(--teal)">✓ แก้:</span> ตั้ง WB ให้ตรงแสง หรือถ่าย RAW ไว้ปรับ WB ทีหลังได้อิสระ</p></div>
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ เฟรมรก / ขอบฟ้าเอียง</h3><p><span style="color:var(--teal)">✓ แก้:</span> เปิดเส้นกริด จัดองค์ประกอบ และเช็กขอบเฟรมก่อนกดชัตเตอร์</p></div>
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ ซูมดิจิทัล/ครอปจนภาพแตก</h3><p><span style="color:var(--teal)">✓ แก้:</span> เดินเข้าใกล้แทนการซูมเกินกำลังเลนส์ คุณภาพจะดีกว่ามาก</p></div>
+      <div class="card reveal"><h3 style="color:var(--coral)">✕ ลืมเช็กแบต/การ์ด</h3><p><span style="color:var(--teal)">✓ แก้:</span> เช็กก่อนออกถ่ายทุกครั้ง พกแบตและการ์ดสำรองไว้เสมอ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMERA CARE -->
+<section id="care">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">15</span><h2>การดูแลรักษากล้อง</h2></div>
+    <p class="slead reveal">G97 กันละอองน้ำและฝุ่นได้ (weather-sealed) แต่ "ไม่ใช่กันน้ำ" — และเมืองไทยอากาศชื้น ต้องระวังเชื้อราเป็นพิเศษ</p>
+    <div class="grid g2">
+      <div class="card reveal"><span class="ic">WEATHER SEALING</span><h3>กันละออง ≠ กันน้ำ</h3><p>ละอองฝน/ฝุ่นพอไหว แต่ฝนหนักหรือจุ่มน้ำไม่ได้ และต้องใช้คู่กับเลนส์ที่ซีลด้วย (เลนส์คิต/แถมอาจไม่ซีล)</p></div>
+      <div class="card reveal"><span class="ic">CHANGING LENS</span><h3>เปลี่ยนเลนส์ให้ปลอดภัย</h3><p>ทำในที่สะอาด ไม่มีลม ปิดกล้องก่อน หันบอดี้ลงล่าง เปลี่ยนเร็วๆ เพื่อกันฝุ่นเข้าเซนเซอร์</p></div>
+      <div class="card reveal"><span class="ic">CLEANING</span><h3>ทำความสะอาดเลนส์</h3><p>เป่าฝุ่นออกก่อนเสมอ แล้วค่อยเช็ดด้วยผ้าไมโครไฟเบอร์ + น้ำยาเลนส์ อย่าเช็ดแห้งถูแรงๆ จะเป็นรอย</p></div>
+      <div class="card reveal"><span class="ic">ANTI-FUNGUS</span><h3>กันเชื้อรา (สำคัญในไทย)</h3><p>เก็บในกล่อง/ตู้กันชื้น (dry box) คุมความชื้นราว 40–50% ป้องกันเชื้อราขึ้นเลนส์ ซึ่งกำจัดยากและเสียค่าซ่อมแพง</p></div>
+      <div class="card reveal"><span class="ic">BATTERY</span><h3>ดูแลแบตเตอรี่</h3><p>ถ้าไม่ใช้นานให้ถอดแบตออก เก็บที่ประจุราว 50% และชาร์จเป็นระยะ ยืดอายุแบตได้</p></div>
+      <div class="card reveal"><span class="ic">HEAT & DUST</span><h3>ความร้อนและฝุ่น</h3><p>อย่าทิ้งกล้องในรถกลางแดดหรือตากแดดนานๆ และปิดบอดี้แคป/ฝาเลนส์ทุกครั้งเมื่อไม่ได้ใช้</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="gear">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">12</span><h2>เลนส์ของคุณ · จุดเด่นและวิธีใช้</h2></div>
+    <div class="shead reveal"><span class="snum">16</span><h2>เลนส์ของคุณ · จุดเด่นและวิธีใช้</h2></div>
     <p class="slead reveal">สองเลนส์นี้ครอบคลุมเกือบทุกสถานการณ์ รู้จุดแข็งของแต่ละตัว แล้วหยิบให้ถูกงาน</p>
 
     <div class="grid g2">
@@ -870,7 +985,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- CHECKLIST -->
 <section style="border-bottom:none">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">13</span><h2>เช็กลิสต์ก่อนกดชัตเตอร์</h2></div>
+    <div class="shead reveal"><span class="snum">17</span><h2>เช็กลิสต์ก่อนกดชัตเตอร์</h2></div>
     <div class="check reveal" style="margin-top:30px">
       <div><b>01</b> ภาพนี้อยากได้อะไร — ละลายหลัง? หยุดภาพ? ตั้งค่านั้นก่อน</div>
       <div><b>02</b> โฟกัสตรงจุดไหม — คนถ่ายที่ดวงตาเสมอ</div>
