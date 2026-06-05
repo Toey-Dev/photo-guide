@@ -82,6 +82,14 @@ figure figcaption{padding:13px 18px;font-size:.84rem;color:var(--ink2);border-to
 .fcard .fl{font-family:var(--mono);color:var(--gold);font-size:.82rem;display:block;margin-bottom:3px;letter-spacing:.03em}
 .fcard .fl b{color:var(--gold-soft);font-weight:400}
 .fgal.two{grid-template-columns:repeat(2,1fr)}
+.setbox{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:30px 0}
+.setbox h3{font-family:var(--serif);font-size:1.18rem;margin-bottom:14px}
+.path{display:block;font-family:var(--mono);font-size:.8rem;color:var(--gold-soft);background:var(--bg3);border:1px solid var(--line2);border-radius:8px;padding:11px 14px;margin-bottom:18px;line-height:1.8}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:9px 0 9px 42px;font-size:.95rem;color:var(--ink2);border-top:1px solid var(--line)}
+.steps li:first-child{border-top:none}
+.steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:25px;height:25px;border-radius:50%;background:var(--gold);color:#16130f;font-family:var(--mono);font-size:.78rem;font-weight:700;text-align:center;line-height:25px}
+.steps b{color:var(--ink);font-weight:600}
 @media(max-width:760px){.fgal{grid-template-columns:1fr 1fr;gap:12px}}
 
 /* cards */
@@ -296,6 +304,42 @@ footer p{color:var(--ink3);font-size:.85rem}
         <figcaption><span class="fl">−EV <b>ลดแสง</b></span>ฉากมืด เช่น ไฟกลางคืน — −EV ช่วยคงความมืดและสีอิ่ม ไม่ให้กล้องดันสว่างเกิน</figcaption>
       </figure>
     </div>
+
+    <h3 style="font-family:var(--serif);font-size:1.2rem;margin:34px 0 4px" class="reveal">หน้าจอ G97 จะแสดงแบบนี้</h3>
+    <p class="reveal" style="color:var(--ink2);margin-bottom:8px">ตัวเลขสีเหลืองคือค่าชดเชยที่คุณตั้ง · เข็มสีเหลืองบนสเกลจะเลื่อนออกจากกลาง (0)</p>
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 560 244" role="img" aria-label="ภาพจำลองหน้าจอ G97 แสดงการชดเชยแสง">
+        <defs>
+          <linearGradient id="scSnow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa2aa"/><stop offset="1" stop-color="#e8ecef"/></linearGradient>
+          <linearGradient id="scNight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1120"/><stop offset="1" stop-color="#212c46"/></linearGradient>
+        </defs>
+        <rect x="18" y="16" width="252" height="166" rx="14" fill="#0a0805" stroke="rgba(224,164,74,.2)"/>
+        <rect x="27" y="25" width="234" height="148" rx="9" fill="url(#scSnow)"/>
+        <rect x="27" y="120" width="234" height="53" fill="#000" opacity="0.30"/>
+        <text x="40" y="48" fill="#fff" font-family="Space Mono" font-size="15" font-weight="700">A</text>
+        <text x="40" y="64" fill="#fff" font-family="Space Mono" font-size="9" opacity=".9">AFS</text>
+        <text x="250" y="50" text-anchor="end" fill="#ffd54a" font-family="Space Mono" font-size="18" font-weight="700">+1.0</text>
+        <line x1="46" y1="140" x2="242" y2="140" stroke="#fff" stroke-width="1" opacity=".75"/>
+        <g stroke="#fff" stroke-width="1" opacity=".7"><line x1="46" y1="136" x2="46" y2="144"/><line x1="144" y1="133" x2="144" y2="147"/><line x1="242" y1="136" x2="242" y2="144"/><line x1="79" y1="137" x2="79" y2="143"/><line x1="111" y1="137" x2="111" y2="143"/><line x1="177" y1="137" x2="177" y2="143"/><line x1="209" y1="137" x2="209" y2="143"/></g>
+        <g fill="#fff" font-family="Space Mono" font-size="8" text-anchor="middle" opacity=".85"><text x="46" y="155">-3</text><text x="144" y="155">0</text><text x="242" y="155">+3</text></g>
+        <path d="M177 128 l5 9 l-10 0 z" fill="#ffd54a"/>
+        <text x="46" y="168" fill="#fff" font-family="Space Mono" font-size="9.5">F5.6  1/500  ISO100</text>
+        <rect x="290" y="16" width="252" height="166" rx="14" fill="#0a0805" stroke="rgba(224,164,74,.2)"/>
+        <rect x="299" y="25" width="234" height="148" rx="9" fill="url(#scNight)"/>
+        <rect x="299" y="120" width="234" height="53" fill="#000" opacity="0.30"/>
+        <text x="312" y="48" fill="#fff" font-family="Space Mono" font-size="15" font-weight="700">A</text>
+        <text x="312" y="64" fill="#fff" font-family="Space Mono" font-size="9" opacity=".9">AFS</text>
+        <text x="522" y="50" text-anchor="end" fill="#ffd54a" font-family="Space Mono" font-size="18" font-weight="700">−1.0</text>
+        <line x1="318" y1="140" x2="514" y2="140" stroke="#fff" stroke-width="1" opacity=".75"/>
+        <g stroke="#fff" stroke-width="1" opacity=".7"><line x1="318" y1="136" x2="318" y2="144"/><line x1="416" y1="133" x2="416" y2="147"/><line x1="514" y1="136" x2="514" y2="144"/><line x1="351" y1="137" x2="351" y2="143"/><line x1="383" y1="137" x2="383" y2="143"/><line x1="449" y1="137" x2="449" y2="143"/><line x1="481" y1="137" x2="481" y2="143"/></g>
+        <g fill="#fff" font-family="Space Mono" font-size="8" text-anchor="middle" opacity=".85"><text x="318" y="155">-3</text><text x="416" y="155">0</text><text x="514" y="155">+3</text></g>
+        <path d="M383 128 l5 9 l-10 0 z" fill="#ffd54a"/>
+        <text x="318" y="168" fill="#fff" font-family="Space Mono" font-size="9.5">F1.7  1/60  ISO3200</text>
+        <text x="144" y="206" text-anchor="middle" fill="#dd8a5e" font-family="IBM Plex Sans Thai" font-size="12.5">ฉากหิมะ: กล้องมักทำให้เทา → ดัน +1.0</text>
+        <text x="416" y="206" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12.5">ฉากกลางคืน: กล้องมักดันสว่าง → ลด −1.0</text>
+      </svg>
+    </div>
+    <div class="tip reveal"><b>อ่านหน้าจอยังไง:</b> เลข <span class="mono" style="color:#ffd54a">0</span> คือจุดที่ระบบวัดแสงคิดว่า "พอดี" ส่วนตัวเลขสีเหลือง (เช่น +1.0) คือส่วนที่คุณสั่งเพิ่ม/ลดเอง บน G97 หมุน<strong>แป้นหมุนหลัง</strong>เพื่อปรับ (ถ้าหมุนแล้วไม่ขยับ ให้กดแป้นลง 1 ครั้งเพื่อสลับมาโหมดชดเชยแสงก่อน) เมื่อตั้งแล้วเข็มเหลืองบนสเกลจะเลื่อน และภาพในจอจะสว่าง/มืดตามทันที</div>
   </div>
 </section>
 
@@ -341,6 +385,58 @@ footer p{color:var(--ink3);font-size:.85rem}
         <figcaption><span class="fl">โทนเย็น <b>อมฟ้า</b></span>ในร่ม วันเมฆครึ้ม หรือ blue hour ให้ความรู้สึกสงบ เย็น สะอาด</figcaption>
       </figure>
     </div>
+
+    <h3 style="font-family:var(--serif);font-size:1.2rem;margin:34px 0 4px" class="reveal">หน้าจอเลือก WB บน G97</h3>
+    <p class="reveal" style="color:var(--ink2);margin-bottom:8px">กดปุ่ม WB แล้วแถบพรีเซตจะขึ้นมา เลือกอันที่กรอบทองครอบอยู่ — ภาพในจอจะเปลี่ยนโทนทันที</p>
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 560 244" role="img" aria-label="ภาพจำลองหน้าจอ G97 แสดงการเลือก White Balance">
+        <defs>
+          <linearGradient id="scCool" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4658"/><stop offset="1" stop-color="#647488"/></linearGradient>
+          <linearGradient id="scWarm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a3f22"/><stop offset="1" stop-color="#8a6534"/></linearGradient>
+          <g id="wbSun" stroke="#fff" stroke-width="1.3" fill="none" stroke-linecap="round"><circle cx="0" cy="0" r="4" fill="#fff" stroke="none"/><line x1="0" y1="-8" x2="0" y2="-5.5"/><line x1="0" y1="5.5" x2="0" y2="8"/><line x1="-8" y1="0" x2="-5.5" y2="0"/><line x1="5.5" y1="0" x2="8" y2="0"/><line x1="-5.7" y1="-5.7" x2="-3.9" y2="-3.9"/><line x1="3.9" y1="3.9" x2="5.7" y2="5.7"/><line x1="5.7" y1="-5.7" x2="3.9" y2="-3.9"/><line x1="-3.9" y1="3.9" x2="-5.7" y2="5.7"/></g>
+          <g id="wbCloud" fill="#fff"><circle cx="-4" cy="1" r="4"/><circle cx="3" cy="0" r="5"/><circle cx="-1" cy="-3" r="4.3"/><rect x="-8" y="1" width="14" height="4" rx="2"/></g>
+          <g id="wbHouse" fill="#fff"><path d="M0 -8 l8 6 l-16 0 z"/><rect x="-5.5" y="-2.5" width="11" height="9" rx="1"/></g>
+          <g id="wbBulb" fill="#fff"><circle cx="0" cy="-2" r="5.5"/><rect x="-3" y="2.5" width="6" height="4" rx="1"/><rect x="-2.3" y="6" width="4.6" height="2"/></g>
+        </defs>
+        <!-- LEFT: in shade/cloud -> Cloudy -->
+        <rect x="18" y="16" width="252" height="166" rx="14" fill="#0a0805" stroke="rgba(224,164,74,.2)"/>
+        <rect x="27" y="25" width="234" height="148" rx="9" fill="url(#scCool)"/>
+        <rect x="27" y="120" width="234" height="53" fill="#000" opacity="0.34"/>
+        <text x="40" y="48" fill="#fff" font-family="Space Mono" font-size="12" font-weight="700">WB</text>
+        <text x="250" y="48" text-anchor="end" fill="#ffd54a" font-family="IBM Plex Sans Thai" font-size="12">Cloudy (เมฆ)</text>
+        <g font-family="Space Mono" font-size="8" fill="#fff" text-anchor="middle">
+          <rect x="48" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/><text x="64" y="146" opacity=".9">AWB</text>
+          <rect x="88" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/>
+          <rect x="128" y="126" width="32" height="32" rx="6" fill="#e0a44a" opacity="0.22"/><rect x="128" y="126" width="32" height="32" rx="6" fill="none" stroke="#ffd54a" stroke-width="1.6"/>
+          <rect x="168" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/>
+          <rect x="208" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/>
+        </g>
+        <use href="#wbSun" transform="translate(104,142)"/>
+        <use href="#wbCloud" transform="translate(144,142)"/>
+        <use href="#wbHouse" transform="translate(184,142)"/>
+        <use href="#wbBulb" transform="translate(224,142)"/>
+        <!-- RIGHT: tungsten -> Incandescent -->
+        <rect x="290" y="16" width="252" height="166" rx="14" fill="#0a0805" stroke="rgba(224,164,74,.2)"/>
+        <rect x="299" y="25" width="234" height="148" rx="9" fill="url(#scWarm)"/>
+        <rect x="299" y="120" width="234" height="53" fill="#000" opacity="0.34"/>
+        <text x="312" y="48" fill="#fff" font-family="Space Mono" font-size="12" font-weight="700">WB</text>
+        <text x="522" y="48" text-anchor="end" fill="#ffd54a" font-family="IBM Plex Sans Thai" font-size="12">Incandescent (หลอดไส้)</text>
+        <g font-family="Space Mono" font-size="8" fill="#fff" text-anchor="middle">
+          <rect x="320" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/><text x="336" y="146" opacity=".9">AWB</text>
+          <rect x="360" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/>
+          <rect x="400" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/>
+          <rect x="440" y="126" width="32" height="32" rx="6" fill="#fff" opacity="0.10"/>
+          <rect x="480" y="126" width="32" height="32" rx="6" fill="#e0a44a" opacity="0.22"/><rect x="480" y="126" width="32" height="32" rx="6" fill="none" stroke="#ffd54a" stroke-width="1.6"/>
+        </g>
+        <use href="#wbSun" transform="translate(376,142)"/>
+        <use href="#wbCloud" transform="translate(416,142)"/>
+        <use href="#wbHouse" transform="translate(456,142)"/>
+        <use href="#wbBulb" transform="translate(496,142)"/>
+        <text x="144" y="206" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12.5">ในร่ม/วันเมฆ ภาพอมฟ้า → เลือก Cloudy เติมอุ่น</text>
+        <text x="416" y="206" text-anchor="middle" fill="#dd8a5e" font-family="IBM Plex Sans Thai" font-size="12.5">ใต้หลอดไฟเหลือง ภาพอมส้ม → เลือก Incandescent</text>
+      </svg>
+    </div>
+    <div class="tip reveal"><b>วิธีเข้าเมนู WB บน G97:</b> กดปุ่ม <strong>WB</strong> (ปุ่มลูกศรขวาบนแป้นทิศทาง) แถบไอคอนพรีเซตจะขึ้นมาด้านล่าง หมุนแป้นเลือกได้เลย — ไล่จาก AWB, ☀ แดด, ☁ เมฆ, ⌂ ร่ม, 💡 หลอดไส้ และโหมดตั้งเคลวินเอง (K) นอกจากนี้ยังมีหน้าจูนละเอียด (Amber–Blue / Green–Magenta) สำหรับปรับโทนแบบเนียนๆ ได้อีก</div>
 
     <div class="tip reveal"><b>เคล็ดลับ:</b> ถ้าตั้งกล้องเป็น RAW จะปรับ WB ย้อนหลังได้อิสระเต็มที่โดยไม่เสียคุณภาพ (อ่านต่อหัวข้อ RAW vs JPEG ด้านล่าง)</div>
   </div>
@@ -541,6 +637,19 @@ footer p{color:var(--ink3);font-size:.85rem}
       <div class="card reveal" style="display:flex;flex-direction:column;justify-content:center"><span class="ic">RULE OF THIRDS</span><h3>กฎสามส่วน</h3><p>เปิดเส้นกริดในกล้อง (เมนู Display) แบ่งเฟรมเป็น 3×3 แล้ววางจุดสนใจ — ดวงตา เส้นขอบฟ้า ตัวแบบ — ไว้ที่เส้นหรือจุดตัด แทนการวางกลางภาพเป๊ะ ภาพจะมีชีวิตและสมดุลขึ้นทันที</p></div>
     </div>
 
+    <div class="setbox reveal">
+      <h3>📐 วิธีเปิดเส้นกริดกฎสามส่วนบน G97</h3>
+      <span class="path">MENU → Custom (เฟือง) → Monitor / Display → Guide Line → เลือกแบบ 3×3</span>
+      <ol class="steps">
+        <li>กดปุ่ม <b>MENU/SET</b></li>
+        <li>ไปที่เมนู <b>Custom</b> (ไอคอนรูปเฟือง / ตัว C)</li>
+        <li>เลือกหมวด <b>Monitor / Display</b> (การแสดงผลจอ)</li>
+        <li>เลือก <b>Guide Line</b> แล้วเลือกลายตาราง <b>3×3</b> (กฎสามส่วน)</li>
+        <li>ขณะถ่าย กดปุ่ม <b>DISP.</b> ซ้ำๆ เพื่อสลับให้เส้นกริดแสดงบนจอ/ช่องมองภาพ</li>
+      </ol>
+      <p style="color:var(--ink3);font-size:.85rem;margin:14px 0 0">เส้นกริดเป็นแค่ไกด์บนจอ ไม่ติดลงไปในไฟล์รูปจริง · ชื่อเมนูอาจต่างกันเล็กน้อยตามเวอร์ชันเฟิร์มแวร์</p>
+    </div>
+
     <div class="grid g2" style="margin-top:20px">
       <div class="card reveal"><span class="ic">LEADING LINES</span><h3>เส้นนำสายตา</h3><p>ถนน รั้ว แม่น้ำ ราวบันได ใช้เส้นเหล่านี้ลากสายตาคนดูเข้าหาตัวแบบ สร้างความลึกและทิศทางให้ภาพ</p></div>
       <div class="card reveal"><span class="ic">FRAMING</span><h3>กรอบในกรอบ</h3><p>ใช้ประตู หน้าต่าง ซุ้มไม้ กิ่งไม้ เป็นกรอบล้อมตัวแบบ ช่วยเน้นจุดสนใจและเพิ่มมิติชั้นหน้า–หลัง</p></div>
@@ -585,6 +694,37 @@ footer p{color:var(--ink3);font-size:.85rem}
         </tbody>
       </table>
     </div>
+
+    <h3 style="font-family:var(--serif);font-size:1.2rem;margin:34px 0 4px" class="reveal">เมนูตั้งคุณภาพ และตัวบ่งชี้บนหน้าจอ G97</h3>
+    <p class="reveal" style="color:var(--ink2);margin-bottom:8px">เลือกในเมนู Photo → Picture Quality · ตัวบ่งชี้มุมจอจะบอกว่าตอนนี้บันทึกเป็นแบบไหน</p>
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 560 250" role="img" aria-label="ภาพจำลองเมนูคุณภาพและตัวบ่งชี้บนหน้าจอ G97">
+        <defs><linearGradient id="scRec" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c241a"/><stop offset="1" stop-color="#5a4a34"/></linearGradient></defs>
+        <!-- MENU -->
+        <rect x="18" y="14" width="332" height="222" rx="14" fill="#0a0805" stroke="rgba(224,164,74,.2)"/>
+        <rect x="27" y="23" width="314" height="204" rx="8" fill="#16130f"/>
+        <rect x="27" y="23" width="314" height="32" rx="8" fill="#241c12"/>
+        <text x="42" y="44" fill="#f2c982" font-family="IBM Plex Sans Thai" font-size="13">คุณภาพภาพ · Picture Quality</text>
+        <g font-family="Space Mono" font-size="12">
+          <text x="44" y="79" fill="#fff">RAW</text><text x="326" y="79" text-anchor="end" fill="#7d7464" font-size="9" font-family="IBM Plex Sans Thai">ดิบล้วน</text>
+          <rect x="31" y="89" width="306" height="30" rx="6" fill="#e0a44a"/>
+          <text x="44" y="109" fill="#16130f" font-weight="700">RAW + Fine ★</text><text x="326" y="109" text-anchor="end" fill="#16130f" font-size="9" font-family="IBM Plex Sans Thai" font-weight="700">แนะนำ</text>
+          <text x="44" y="140" fill="#fff">RAW + Standard</text>
+          <text x="44" y="171" fill="#fff">Fine</text><text x="326" y="171" text-anchor="end" fill="#7d7464" font-size="9" font-family="IBM Plex Sans Thai">JPEG คมสุด</text>
+          <text x="44" y="202" fill="#fff">Standard</text><text x="326" y="202" text-anchor="end" fill="#7d7464" font-size="9" font-family="IBM Plex Sans Thai">JPEG ไฟล์เล็ก</text>
+        </g>
+        <!-- mini REC screen -->
+        <rect x="372" y="50" width="170" height="116" rx="12" fill="#0a0805" stroke="rgba(224,164,74,.2)"/>
+        <rect x="380" y="58" width="154" height="100" rx="8" fill="url(#scRec)"/>
+        <rect x="452" y="66" width="74" height="24" rx="6" fill="#000" opacity="0.5"/>
+        <text x="489" y="83" text-anchor="middle" fill="#ffd54a" font-family="Space Mono" font-size="13" font-weight="700">RAW+</text>
+        <rect x="462" y="128" width="14" height="11" rx="2" fill="none" stroke="#fff" stroke-width="1.2"/>
+        <text x="483" y="138" fill="#fff" font-family="Space Mono" font-size="12">132</text>
+        <text x="457" y="186" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="11.5">ตัวบ่งชี้บนหน้าจอถ่ายจริง</text>
+        <text x="457" y="204" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="10.5">(RAW+ = เก็บทั้ง RAW และ JPEG · เหลือ 132 ภาพ)</text>
+      </svg>
+    </div>
+    <div class="tip reveal"><b>อ่านตัวบ่งชี้:</b> มุมจอจะโชว์ <span class="mono" style="color:#ffd54a">RAW+</span> = เก็บทั้งสองไฟล์ · ถ้าขึ้น <span class="mono">RAW</span> = ไฟล์ดิบล้วน · ถ้าขึ้น <span class="mono">FINE / STD</span> = JPEG เท่านั้น ตัวเลขข้างๆ คือจำนวนภาพที่ถ่ายได้อีก (RAW กินพื้นที่เยอะ ตัวเลขจะลดเร็วกว่า JPEG)</div>
 
     <div class="tip reveal"><b>ทางออกที่ดีที่สุด:</b> G97 ตั้งให้เก็บ <span class="mono" style="color:var(--teal)">RAW + JPEG</span> พร้อมกันได้ — ได้ JPEG ไว้ใช้/แชร์ทันที และมีไฟล์ RAW สำรองไว้แต่งวันหลัง (ถ้าพื้นที่การ์ดเหลือพอ)</div>
   </div>
