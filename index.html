@@ -112,6 +112,8 @@ figure figcaption{padding:13px 18px;font-size:.84rem;color:var(--ink2);border-to
 .srow .v{color:var(--ink);flex:1}
 .film .chips{margin:14px 0 4px}
 .film .res{margin-top:14px;font-size:.86rem;color:var(--teal);border-top:1px solid var(--line);padding-top:12px}
+.filmcat{font-family:var(--serif);font-size:1.3rem;color:var(--gold-soft);margin:40px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--line2);display:flex;align-items:center;gap:10px}
+.filmcat .cn{font-family:var(--mono);font-size:.78rem;color:var(--ink3);margin-left:auto}
 @media(max-width:760px){.film{grid-template-columns:1fr}.film .ph{min-height:190px}}
 @media(max-width:760px){.fgal{grid-template-columns:1fr 1fr;gap:12px}}
 
@@ -957,10 +959,11 @@ footer p{color:var(--ink3);font-size:.85rem}
 
 <!-- COMMON MISTAKES -->
 <!-- FILM LOOK -->
+<!-- FILM LOOK -->
 <section id="film">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">14</span><h2>ตั้งค่าให้ได้ "ฟิลกล้องฟิล์ม"</h2></div>
-    <p class="slead reveal">อยากได้ภาพโทนฟิล์มสวยๆ ตั้งแต่ในกล้อง ไม่ต้องแต่งทีหลังเยอะ — นี่คือ 5 สูตรเลียนแบบฟิล์มยอดนิยม ปรับใน Photo Style แล้วเซฟลง Custom Mode ไว้สลับใช้ได้เร็ว (ภาพตัวอย่างจำลองโทนของแต่ละฟิล์ม)</p>
+    <p class="slead reveal">อยากได้ภาพโทนฟิล์มสวยๆ ตั้งแต่ในกล้อง ไม่ต้องแต่งทีหลังเยอะ — รวม 12 สูตรเลียนแบบฟิล์มยอดนิยม จัดกลุ่มตามแนวการถ่าย ปรับใน Photo Style แล้วเซฟลง Custom Mode ไว้สลับใช้ได้เร็ว (ภาพตัวอย่างจำลองโทนของแต่ละฟิล์ม)</p>
 
     <div class="setbox reveal">
       <h3>🎞️ ลำดับการทำสูตรฟิล์ม (ทำครั้งเดียว เซฟไว้ใช้ตลอด)</h3>
@@ -973,24 +976,11 @@ footer p{color:var(--ink3);font-size:.85rem}
       <p style="color:var(--ink3);font-size:.85rem;margin:14px 0 0">ทิปเสริมฟิลฟิล์ม: เปิด Aspect Ratio <b style="color:var(--gold-soft)">3:2</b> · ลด Sharpness และ NR ให้ต่ำ · ถ้าถ่าย RAW ค่าเหล่านี้ปรับแก้ทีหลังได้ทั้งหมด</p>
     </div>
 
-    <div class="film reveal">
-      <div class="ph">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1704192257598-be5cb6e710e7?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Kodak Gold 200" style="filter:sepia(.28) saturate(1.3) contrast(.95) brightness(1.06)" onerror="this.style.opacity=0">
-        <div class="ov"><span class="ftag">FILM 01</span><h3>Kodak Gold 200</h3><div class="mood">อบอุ่น สดใส ฟิลเที่ยว ยุค 90s</div></div>
-      </div>
-      <div class="body">
-        <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
-        <div class="srow"><span class="k">White Balance</span><span class="v">Cloudy · WB Shift A+2 / M+1</span></div>
-        <div class="srow"><span class="k">Exposure</span><span class="v">+0.3 EV</span></div>
-        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7 หรือ 12–60 ที่ 20–35mm</span></div>
-        <p class="res">เหมาะ: Travel · Street · คาเฟ่ · กลางวัน — ได้สีทอง skin tone อุ่น highlight ฟุ้ง ฟิล vacation</p>
-      </div>
-    </div>
+    <h3 class="filmcat reveal">📷 ถ่ายคน · Portrait & Lifestyle <span class="cn">4 สูตร</span></h3>
     <div class="film reveal">
       <div class="ph">
         <img loading="lazy" src="https://images.unsplash.com/photo-1625921765718-40e14ee8641c?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Kodak Portra 400" style="filter:sepia(.12) saturate(.85) contrast(.9) brightness(1.07)" onerror="this.style.opacity=0">
-        <div class="ov"><span class="ftag">FILM 02</span><h3>Kodak Portra 400</h3><div class="mood">skin tone นุ่ม luxury portrait</div></div>
+        <div class="ov"><span class="ftag">FILM 01</span><h3>Kodak Portra 400</h3><div class="mood">skin tone นุ่ม luxury portrait</div></div>
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
@@ -1003,8 +993,36 @@ footer p{color:var(--ink3);font-size:.85rem}
     </div>
     <div class="film reveal">
       <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1638538384498-83e041b217cf?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Bright & Airy" style="filter:brightness(1.12) contrast(.85) saturate(.92) sepia(.05)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 02</span><h3>Bright & Airy</h3><div class="mood">สว่าง สะอาด นุ่มฟุ้ง งานแต่ง/ไลฟ์สไตล์</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+3</span><span class="chip"><b>Saturation</b>−1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Daylight · WB Shift A+1</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">+0.7 ถึง +1.0 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
+        <p class="res">เหมาะ: งานแต่ง · ครอบครัว · ไลฟ์สไตล์ — สว่าง สะอาด สีนุ่ม โทนฟุ้งสดใส (ลุคโปรงานแต่ง)</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1625921765718-40e14ee8641c?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Moody Fine-Art Portrait" style="filter:brightness(.82) contrast(1.15) saturate(.7) sepia(.1)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 03</span><h3>Moody Fine-Art Portrait</h3><div class="mood">เข้ม ดราม่า มีอารมณ์</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Flat</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>−2</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">ค่อนเย็น (Daylight/Kelvin ~5000K)</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">−0.3 ถึง −0.7 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
+        <p class="res">เหมาะ: พอร์ตเทรตอารมณ์ แสงข้าง/หน้าต่าง — เงาเข้ม สีหม่น ดูเป็นงานอาร์ต</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
         <img loading="lazy" src="https://images.unsplash.com/photo-1574585326784-53e2c78b3f53?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Fuji 400H" style="filter:sepia(.06) saturate(.78) contrast(.88) brightness(1.09)" onerror="this.style.opacity=0">
-        <div class="ov"><span class="ftag">FILM 03</span><h3>Fuji 400H</h3><div class="mood">ญี่ปุ่น ๆ pastel airy</div></div>
+        <div class="ov"><span class="ftag">FILM 04</span><h3>Fuji 400H</h3><div class="mood">ญี่ปุ่น ๆ pastel airy</div></div>
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">Muted (Flat)</span></div>
@@ -1012,13 +1030,57 @@ footer p{color:var(--ink3);font-size:.85rem}
         <div class="srow"><span class="k">White Balance</span><span class="v">Cloudy · WB Shift G+1</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">+0.7 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
-        <p class="res">เหมาะ: คาเฟ่ · ญี่ปุ่น · Fashion · Soft portrait — สีอ่อน เขียวสวย โทน pastel</p>
+        <p class="res">เหมาะ: คาเฟ่ · ญี่ปุ่น · Soft portrait — สีอ่อน เขียวสวย โทน pastel</p>
+      </div>
+    </div>
+    <h3 class="filmcat reveal">🏔️ เที่ยว · วิว · Travel & Landscape <span class="cn">3 สูตร</span></h3>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1704192257598-be5cb6e710e7?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Kodak Gold 200" style="filter:sepia(.28) saturate(1.3) contrast(.95) brightness(1.06)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 05</span><h3>Kodak Gold 200</h3><div class="mood">อบอุ่น สดใส ฟิลเที่ยว ยุค 90s</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Cloudy · WB Shift A+2 / M+1</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">+0.3 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm หรือ 12–60 ที่ 20–35mm</span></div>
+        <p class="res">เหมาะ: Travel · Street · คาเฟ่ · กลางวัน — สีทอง skin tone อุ่น ฟิล vacation</p>
       </div>
     </div>
     <div class="film reveal">
       <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1489493512598-d08130f49bea?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Kodak Ektar 100" style="filter:saturate(1.25) contrast(1.08) brightness(1.02)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 06</span><h3>Kodak Ektar 100</h3><div class="mood">สีสดแต่เนียน เรียลกว่า Velvia</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Standard</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>0</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−1</span><span class="chip"><b>NR</b>−4</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Daylight</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">12–60 / 25mm</span></div>
+        <p class="res">เหมาะ: Travel กลางวันแดดดี — สีสดสะอาด สมจริง เก็บรายละเอียดดี</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1636431555375-ce402c6afa2e?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Fuji Velvia" style="filter:saturate(1.5) contrast(1.15) brightness(1.0)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 07</span><h3>Fuji Velvia</h3><div class="mood">วิวสดจัด คอนทราสต์สูง</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Vivid (หรือ Landscape)</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>−1</span><span class="chip"><b>Saturation</b>+2</span><span class="chip"><b>Sharpness</b>0</span><span class="chip"><b>NR</b>−3</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Daylight</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">12–60</span></div>
+        <p class="res">เหมาะ: วิว · ทะเล · ใบไม้ — ฟ้าและเขียวสดจัด ภาพมีพลัง ดราม่า</p>
+      </div>
+    </div>
+    <h3 class="filmcat reveal">🎬 ลุคหนัง · กลางคืน · Cinematic & Night <span class="cn">2 สูตร</span></h3>
+    <div class="film reveal">
+      <div class="ph">
         <img loading="lazy" src="https://images.unsplash.com/photo-1534847004764-b93737310da1?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Cinestill 800T" style="filter:saturate(1.25) contrast(1.18) brightness(.86)" onerror="this.style.opacity=0">
-        <div class="ov"><span class="ftag">FILM 04</span><h3>Cinestill 800T</h3><div class="mood">หนังกลางคืน neon cyberpunk</div></div>
+        <div class="ov"><span class="ftag">FILM 08</span><h3>Cinestill 800T</h3><div class="mood">หนังกลางคืน neon cyberpunk</div></div>
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D2</span></div>
@@ -1031,20 +1093,63 @@ footer p{color:var(--ink3);font-size:.85rem}
     </div>
     <div class="film reveal">
       <div class="ph">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1620259570543-31964aa22586?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Classic Film / Mono" style="filter:grayscale(1) contrast(1.12) brightness(1.03)" onerror="this.style.opacity=0">
-        <div class="ov"><span class="ftag">FILM 05</span><h3>Classic Film / Mono</h3><div class="mood">Leica-ish street documentary</div></div>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1648794913387-bbf485d85975?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Teal & Orange" style="filter:sepia(.18) saturate(1.25) contrast(1.1) brightness(.98)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 09</span><h3>Teal & Orange</h3><div class="mood">ลุคหนังบล็อกบัสเตอร์</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D2</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+2</span><span class="chip"><b>Saturation</b>0</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">อุ่นนิด (ผิวออกส้ม)</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">−0.3 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
+        <p class="res">เหมาะ: วิดีโอ · พอร์ตเทรตดราม่า — ผิวส้มอุ่น เงาอมเขียว-ฟ้า (จูน teal ในเงาตอนแต่งต่อได้)</p>
+      </div>
+    </div>
+    <h3 class="filmcat reveal">🚶 สตรีท · ขาวดำ · Street & B&W <span class="cn">3 สูตร</span></h3>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1620259570543-31964aa22586?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Fuji Classic Chrome" style="filter:saturate(.7) contrast(1.05) brightness(1.0) sepia(.08)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 10</span><h3>Fuji Classic Chrome</h3><div class="mood">สีหม่นสุขุม สารคดี/แม็กกาซีน</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Flat</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>0</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
+        <p class="res">เหมาะ: Street · ชีวิตประจำวัน — สีหม่นสุขุม ดูเป็นแม็กกาซีน/สารคดี (ลุคโปรนิยมมาก)</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1620259570543-31964aa22586?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Classic Film / Mono" style="filter:grayscale(1) contrast(1.05) brightness(1.04)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 11</span><h3>Classic Film / Mono</h3><div class="mood">Leica-ish street documentary</div></div>
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">L.Monochrome D</span></div>
         <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+2</span><span class="chip"><b>Sharpness</b>−2</span><span class="chip"><b>Grain</b>Low</span></div>
-        <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง (Daylight)</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
-        <p class="res">เหมาะ: Street documentary · Everyday — ภาพขาวดำคลาสสิก ดูเป็นสารคดี timeless</p>
+        <p class="res">เหมาะ: Street documentary · Everyday — ขาวดำนุ่มคลาสสิก timeless</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1534847004764-b93737310da1?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Tri-X 400" style="filter:grayscale(1) contrast(1.35) brightness(.98)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 12</span><h3>Tri-X 400</h3><div class="mood">ขาวดำเข้ม กริต มีเกรน</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">L.Monochrome D</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+2</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>−1</span><span class="chip"><b>Sharpness</b>−1</span><span class="chip"><b>Grain</b>High</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
+        <p class="res">เหมาะ: สตรีทดิบๆ — ขาวดำคอนทราสต์สูง มีเกรน ต่างจาก Mono นุ่ม</p>
       </div>
     </div>
 
-    <div class="tip reveal"><b>เซฟลง Custom Mode แล้วสลับ mood ได้ใน 1 วินาที:</b> แนะนำ <span class="mono gold">C1 = Portra</span> (ใช้ทุกวัน/ถ่ายคน กับ 25mm), <span class="mono gold">C2 = Kodak Gold</span> (เที่ยว/กลางวัน กับ 12–60), <span class="mono gold">C3 = Cinestill</span> (กลางคืน) · เวลาออกถ่ายแค่หมุนแป้นโหมด ไม่ต้องตั้งใหม่ จะได้โฟกัสกับ "ภาพ" มากกว่า "เมนู"</div>
+    <div class="tip reveal"><b>เซฟลง Custom Mode สลับ mood ได้ใน 1 วินาที:</b> ตั้งได้ 3 ช่อง — แนะนำ <span class="mono gold">C1 = Portra</span> (ถ่ายคนทุกวัน), <span class="mono gold">C2 = Kodak Gold</span> (เที่ยว/กลางวัน), <span class="mono gold">C3 = Cinestill</span> (กลางคืน) · ส่วนสูตรอื่นเก็บไว้เป็น "เมนูในใจ" ปรับสดตอนเจอซีนที่ใช่ หรือสลับเข้า C ช่องว่างชั่วคราวได้</div>
   </div>
 </section>
 
