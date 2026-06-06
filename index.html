@@ -936,22 +936,106 @@ footer p{color:var(--ink3);font-size:.85rem}
     </div>
 
     <div class="grid g3">
-      <div class="card reveal"><span class="ic">PHOTO STYLE</span><h3>ปรับลุคภาพในกล้อง</h3><p>เลือกอารมณ์ภาพได้เลย — Standard, Vivid, Natural, Monochrome / L.Mono, Scenery, Portrait เปลี่ยนใน Q Menu ถ้าถ่าย JPEG ลุคจะติดไปเลย ถ้าถ่าย RAW ปรับเปลี่ยนทีหลังได้</p></div>
-      <div class="card reveal"><span class="ic">CUSTOM C1 / C2</span><h3>บันทึกชุดค่าโปรด</h3><p>เก็บค่าทั้งชุด (โหมด + F + ISO + โฟกัส + Photo Style) ไว้ที่แป้นหมุน เรียกใช้ทันที ตั้งที่ Setup → Cust.Set Mem. แนะนำ C1 = พอร์ตเทรต, C2 = วิว/แอคชั่น</p></div>
+      <div class="card reveal"><span class="ic">PHOTO STYLE</span><h3>ปรับลุคภาพในกล้อง</h3><p>G97 มีให้เลือก <b style="color:var(--gold-soft)">12 แบบ</b> — Standard, Vivid, Natural, Scenery, Portrait, Monochrome, L.Monochrome, L.Monochrome D, Cinelike D, Cinelike V, V-Log L และ Custom · เปลี่ยนใน Q Menu หรือ MENU ► Photo Style ถ้าถ่าย JPEG ลุคจะติดลงไฟล์เลย ถ้าถ่าย RAW (.RW2) ปรับเปลี่ยนทีหลังได้</p></div>
+      <div class="card reveal"><span class="ic">CUSTOM C1 / C2 / C3</span><h3>บันทึกชุดค่าโปรด</h3><p>เก็บค่าทั้งชุด (โหมด + F + ISO + โฟกัส + Photo Style + WB) ไว้ที่แป้นหมุน เรียกใช้ทันที — G97 มี <b style="color:var(--gold-soft)">C1, C2, C3</b> บนแป้น และ C3 ยังแยกย่อยได้อีก 3 ชุด (C3-1 / C3-2 / C3-3) <b style="color:var(--gold-soft)">รวมเซฟได้ 5 ชุด</b> ตั้งที่ MENU ► Custom (ประแจ) ► Cust.Set Mem.</p></div>
       <div class="card reveal"><span class="ic">4K PHOTO</span><h3>ดึงเฟรมนิ่งจาก 4K</h3><p>บันทึก 4K 30fps แล้วเลือกเฟรมนิ่ง 8MP ภายหลัง จับวินาทีเป๊ะๆ ที่ถ่ายภาพนิ่งปกติจะพลาด เช่น เด็กกระโดด นกบิน สัตว์</p></div>
       <div class="card reveal"><span class="ic">POST FOCUS</span><h3>เลือกโฟกัสทีหลัง</h3><p>ถ่ายทีเดียว แล้วแตะเลือกจุดโฟกัสที่ต้องการภายหลังได้ เหมาะงานมาโคร ของเล็ก ที่ระยะชัดบางมาก</p></div>
       <div class="card reveal"><span class="ic">FOCUS STACKING</span><h3>ชัดทั้งภาพ</h3><p>รวมหลายระยะโฟกัสเป็นภาพเดียวที่คมตั้งแต่หน้าถึงหลัง เหมาะมาโคร สินค้า หรือวิวที่อยากชัดทุกระยะ</p></div>
       <div class="card reveal"><span class="ic">BRACKETING</span><h3>ถ่ายคร่อมอัตโนมัติ</h3><p>ถ่ายคร่อมแสง / โฟกัส / WB หลายภาพรวดเดียว เผื่อเลือกภาพที่พอดีที่สุด หรือเอาไปรวมเป็น HDR</p></div>
     </div>
 
+    <h3 style="font-family:var(--serif);font-size:1.3rem;margin:44px 0 4px" class="reveal">📷 Photo Style — ทำไมเข้าไปแล้วเจอแค่ 4 ค่า?</h3>
+    <p class="slead reveal" style="margin-bottom:20px">เพราะ G97 ปรับค่าใน Photo Style ได้ตาม "ชนิดของสไตล์" — <b style="color:var(--gold-soft)">สไตล์สีปรับได้ 4 ค่า</b> ส่วน <b style="color:var(--gold-soft)">สไตล์ขาวดำปรับได้ 6 ค่า</b> (คนละชุดกัน) ไม่ใช่ 6 ค่าเท่ากันทุกสไตล์ · ส่วน <b style="color:var(--gold-soft)">Highlight / Shadow</b> ของ G97 <b>ไม่ได้อยู่ใน Photo Style</b> แต่เป็นเมนูแยกต่างหากในเมนู [Rec] (ดูด้านล่าง)</p>
+
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 720 300" role="img" aria-label="ค่าที่ปรับได้ใน Photo Style ของ G97 — สไตล์สีปรับได้ 4 ค่า สไตล์ขาวดำปรับได้ 6 ค่า">
+        <rect x="10" y="14" width="340" height="272" rx="12" fill="#1e1a15" stroke="rgba(240,230,210,.18)"/>
+        <text x="30" y="44" fill="#e0a44a" font-family="Space Mono" font-size="13">COLOR · สไตล์สี</text>
+        <text x="30" y="64" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="10.5">Standard · Natural · Vivid · Portrait · Scenery · Cinelike</text>
+        <line x1="30" y1="78" x2="330" y2="78" stroke="rgba(240,230,210,.12)"/>
+        <g font-family="IBM Plex Sans Thai" font-size="12" fill="#f2ebdd">
+          <text x="30" y="114">Contrast</text><rect x="170" y="105" width="150" height="4" rx="2" fill="#2a241c"/><circle cx="230" cy="107" r="6" fill="#e0a44a"/>
+          <text x="30" y="154">Sharpness</text><rect x="170" y="145" width="150" height="4" rx="2" fill="#2a241c"/><circle cx="208" cy="147" r="6" fill="#e0a44a"/>
+          <text x="30" y="194">Noise Reduction</text><rect x="170" y="185" width="150" height="4" rx="2" fill="#2a241c"/><circle cx="194" cy="187" r="6" fill="#e0a44a"/>
+          <text x="30" y="234">Saturation</text><rect x="170" y="225" width="150" height="4" rx="2" fill="#2a241c"/><circle cx="246" cy="227" r="6" fill="#e0a44a"/>
+        </g>
+        <text x="30" y="274" fill="#5fb6a2" font-family="Space Mono" font-size="12.5">▶ ปรับได้ 4 ค่า</text>
+
+        <rect x="370" y="14" width="340" height="272" rx="12" fill="#1e1a15" stroke="rgba(240,230,210,.18)"/>
+        <text x="390" y="44" fill="#d2d2d2" font-family="Space Mono" font-size="13">MONO · ขาวดำ</text>
+        <text x="390" y="64" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="10.5">Monochrome · L.Monochrome · L.Monochrome D</text>
+        <line x1="390" y1="78" x2="690" y2="78" stroke="rgba(240,230,210,.12)"/>
+        <g font-family="IBM Plex Sans Thai" font-size="11.5" fill="#f2ebdd">
+          <text x="390" y="104">Contrast</text><rect x="545" y="96" width="135" height="4" rx="2" fill="#2a241c"/><circle cx="600" cy="98" r="5.5" fill="#bdb3a0"/>
+          <text x="390" y="132">Sharpness</text><rect x="545" y="124" width="135" height="4" rx="2" fill="#2a241c"/><circle cx="575" cy="126" r="5.5" fill="#bdb3a0"/>
+          <text x="390" y="160">Noise Reduction</text><rect x="545" y="152" width="135" height="4" rx="2" fill="#2a241c"/><circle cx="560" cy="154" r="5.5" fill="#bdb3a0"/>
+          <text x="390" y="188">Color Tone</text><rect x="545" y="180" width="135" height="4" rx="2" fill="#2a241c"/><circle cx="612" cy="182" r="5.5" fill="#bdb3a0"/>
+          <text x="390" y="216">Filter Effect</text><rect x="545" y="208" width="135" height="4" rx="2" fill="#2a241c"/><circle cx="558" cy="210" r="5.5" fill="#bdb3a0"/>
+          <text x="390" y="244">Grain Effect</text><rect x="545" y="236" width="135" height="4" rx="2" fill="#2a241c"/><circle cx="585" cy="238" r="5.5" fill="#bdb3a0"/>
+        </g>
+        <text x="390" y="276" fill="#5fb6a2" font-family="Space Mono" font-size="12.5">▶ ปรับได้ 6 ค่า (ไม่มี Saturation)</text>
+      </svg>
+    </div>
+
     <div class="setbox reveal">
-      <h3>⚙️ วิธีเข้าตั้งค่าฟีเจอร์เหล่านี้</h3>
-      <span class="path">Photo Style:  MENU → Photo (รูปกล้อง) → Photo Style   ·   หรือกด Q → Photo Style</span>
+      <h3>⚙️ วิธีปรับ Photo Style (ทีละขั้น)</h3>
+      <span class="path">MENU ► [Rec] (ไอคอนกล้อง) ► Photo Style   ·   ทางลัด: กดปุ่ม Q (Quick Menu) ► เลือกช่อง Photo Style</span>
       <ol class="steps">
-        <li>เลือก <b>Photo Style</b> ที่ต้องการ แล้วกด <b>►</b> (ลูกศรขวา) เพื่อเข้าไปปรับ Contrast / Highlight / Shadow / Saturation / Sharpness / Noise Reduction</li>
-        <li><b>Custom Mode:</b> ตั้งค่าทุกอย่างให้ครบก่อน → MENU → Setup (รูปประแจ) → <b>Save to Custom Mode</b> → เลือก C1 / C2 / C3</li>
-        <li>เรียกใช้: หมุนแป้นโหมดไปที่ <b>C1 / C2 / C3</b> กล้องจะโหลดค่าทั้งชุดกลับมาทันที (แก้ค่าชั่วคราวได้ ไม่ทับสูตรเดิม)</li>
-        <li><b>4K Photo / Post Focus:</b> เลือกจากปุ่มโหมดถ่าย (Drive) หรือใน Photo menu แล้วกดถ่าย จากนั้นเลือกเฟรม/จุดโฟกัสบนจอ</li>
+        <li>หมุนแป้นโหมดไปที่ <b>P / A / S / M</b> ก่อน (ในโหมด iA และ SCN จะปรับ Photo Style ไม่ได้ ค่าจะรีเซ็ตเป็น Standard)</li>
+        <li>เข้าเมนูตามด้านบน แล้วกด <b>◄ ►</b> เลื่อนเลือก <b>Photo Style</b> ที่ต้องการ (เช่น Natural)</li>
+        <li>ขณะที่ไฮไลต์สไตล์อยู่ กดปุ่ม <b>▲ (ขึ้น)</b> หรือแตะไอคอนปรับค่าบนจอ เพื่อเปิดหน้า "ปรับละเอียด" → ใช้ <b>▲ ▼</b> เลื่อนเลือกหัวข้อ และ <b>◄ ►</b> เพื่อเพิ่ม/ลดค่า</li>
+        <li><b>ถ้าเป็นสไตล์สี</b> จะเจอ 4 ค่า: Contrast · Sharpness · Noise Reduction · Saturation</li>
+        <li><b>ถ้าเป็นสไตล์ขาวดำ</b> จะเจอ 6 ค่า: Contrast · Sharpness · Noise Reduction · Color Tone (โทนอุ่น/เย็น) · Filter Effect (Y/Or/R/G) · Grain Effect (Off/Low/Std/High)</li>
+        <li>กด <b>MENU/SET</b> ยืนยัน — ค่าที่ปรับจะค้างอยู่กับสไตล์นั้นจนกว่าจะ Reset</li>
+      </ol>
+      <p style="color:var(--ink3);font-size:.85rem;margin:14px 0 0">💡 อยากกู้ไฮไลต์ที่ขาว/ดึงรายละเอียดในเงา? Highlight/Shadow ของ G97 เป็น <b style="color:var(--gold-soft)">เมนูแยกต่างหาก</b> ไม่ได้อยู่ใน Photo Style: ไปที่ <b>MENU ► [Rec] ► Highlight Shadow</b> เลือกพรีเซต (Standard / เพิ่มคอนทราสต์ / ลดคอนทราสต์ / ดึงเงาให้สว่าง) หรือกด <b>▲</b> ปรับเอง (+H เพิ่มแสงไฮไลต์, −H กดไฮไลต์, +S ดึงเงาสว่าง, −S กดเงา) · มีผลกับ JPEG เท่านั้น ไม่กระทบ RAW · อีกตัวช่วยคือ <b>i.Dynamic</b> (MENU ► [Rec]) ที่ปรับช่วงไดนามิกอัตโนมัติ</p>
+    </div>
+
+    <h3 style="font-family:var(--serif);font-size:1.3rem;margin:48px 0 4px" class="reveal">💾 Custom Mode — โครงสร้าง C1 / C2 / C3 ของ G97</h3>
+    <p class="slead reveal" style="margin-bottom:20px">บนแป้นหมุนเห็น 3 ตำแหน่ง (C1, C2, C3) แต่ <b style="color:var(--gold-soft)">เซฟค่าได้จริง 5 ชุด</b> เพราะ C3 แยกย่อยเป็น C3-1 / C3-2 / C3-3 ได้อีก</p>
+
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 720 220" role="img" aria-label="โครงสร้าง Custom Mode บนแป้นหมุน G97 — C1 C2 C3 และ C3 แยกได้ 3 ชุด">
+        <defs><marker id="cah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M2 2L8 5L2 8" fill="#7d7464"/></marker></defs>
+        <text x="20" y="30" fill="#e0a44a" font-family="Space Mono" font-size="13">MODE DIAL · ตำแหน่ง Custom</text>
+        <rect x="20" y="50" width="150" height="70" rx="14" fill="#1e1a15" stroke="#e0a44a"/>
+        <text x="95" y="88" text-anchor="middle" fill="#f2ebdd" font-family="Space Mono" font-size="22">C1</text>
+        <text x="95" y="108" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="11">1 ชุด</text>
+        <rect x="185" y="50" width="150" height="70" rx="14" fill="#1e1a15" stroke="#e0a44a"/>
+        <text x="260" y="88" text-anchor="middle" fill="#f2ebdd" font-family="Space Mono" font-size="22">C2</text>
+        <text x="260" y="108" text-anchor="middle" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="11">1 ชุด</text>
+        <rect x="350" y="50" width="150" height="70" rx="14" fill="#2a241c" stroke="#f2c982"/>
+        <text x="425" y="88" text-anchor="middle" fill="#f2c982" font-family="Space Mono" font-size="22">C3</text>
+        <text x="425" y="108" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="11">แยกได้ 3 ชุด ▸</text>
+        <path d="M510 85 L544 85" stroke="#7d7464" stroke-width="2" marker-end="url(#cah)"/>
+        <rect x="556" y="44" width="146" height="28" rx="8" fill="#1e1a15" stroke="rgba(240,230,210,.22)"/><text x="572" y="63" fill="#f2c982" font-family="Space Mono" font-size="13">C3-1</text>
+        <rect x="556" y="78" width="146" height="28" rx="8" fill="#1e1a15" stroke="rgba(240,230,210,.22)"/><text x="572" y="97" fill="#f2c982" font-family="Space Mono" font-size="13">C3-2</text>
+        <rect x="556" y="112" width="146" height="28" rx="8" fill="#1e1a15" stroke="rgba(240,230,210,.22)"/><text x="572" y="131" fill="#f2c982" font-family="Space Mono" font-size="13">C3-3</text>
+        <text x="20" y="166" fill="#5fb6a2" font-family="Space Mono" font-size="12.5">บนแป้นเห็น 3 ตำแหน่ง · เซฟค่าได้จริงทั้งหมด 5 ชุด</text>
+        <text x="20" y="192" fill="#7d7464" font-family="IBM Plex Sans Thai" font-size="11.5">หมุนไป C3 แล้วกด MENU (หรือแตะชื่อโหมดมุมซ้ายบนจอ) เพื่อสลับ C3-1 / C3-2 / C3-3</text>
+      </svg>
+    </div>
+
+    <div class="setbox reveal">
+      <h3>💾 วิธีเซฟ Custom Mode (Cust.Set Mem.)</h3>
+      <span class="path">MENU ► [Setup] (ไอคอนประแจ 🔧) ► Cust.Set Mem.</span>
+      <ol class="steps">
+        <li><b>ตั้งค่าทุกอย่างให้ครบก่อน</b> ขณะอยู่ในโหมด P/A/S/M — โหมด, ค่า F, ISO/Auto ISO, โหมดโฟกัส, Photo Style, WB, ชดเชยแสง ฯลฯ</li>
+        <li>เข้า <b>MENU ► [Setup] (ไอคอนประแจ) ► Cust.Set Mem.</b></li>
+        <li>เลือกช่องที่จะเก็บ: <b>C1</b>, <b>C2</b> หรือ <b>C3</b> — ถ้าเลือก C3 จะมีให้เลือกย่อยอีก <b>C3-1 / C3-2 / C3-3</b></li>
+        <li>กด <b>MENU/SET</b> → ยืนยัน <b>Yes</b> ค่าทั้งชุดจะถูกบันทึกลงช่องนั้นทันที</li>
+        <li><b>เรียกใช้:</b> หมุนแป้นโหมดไปที่ C1/C2/C3 (ถ้าเป็น C3 กด MENU หรือแตะชื่อโหมดมุมซ้ายบนจอเพื่อสลับ C3-1/2/3) กล้องจะโหลดค่าทั้งชุดกลับมา</li>
+        <li>แก้ค่าระหว่างใช้งานได้ชั่วคราว <b>ไม่ทับสูตรเดิม</b> — พอหมุนแป้นออกแล้วกลับมา ค่าที่เซฟไว้จะกลับมาเหมือนเดิม</li>
+      </ol>
+      <p style="color:var(--ink3);font-size:.85rem;margin:14px 0 0">💡 แนะนำการจัดช่อง: <b style="color:var(--gold-soft)">C1</b> = พอร์ตเทรต (A · f1.7 · Eye AF) · <b style="color:var(--gold-soft)">C2</b> = วิว/แอคชั่น (A หรือ S · f5.6–8 · AFC) · <b style="color:var(--gold-soft)">C3-1/2/3</b> = เก็บ "สูตรฟิล์ม" ที่ชอบ 3 สูตร</p>
+    </div>
+
+    <div class="setbox reveal">
+      <h3>📸 4K Photo · Post Focus · Focus Stacking</h3>
+      <span class="path">Drive Mode Dial (มุมซ้ายบน) ► 4K PHOTO / Post Focus   ·   หรือ MENU ► [Rec]</span>
+      <ol class="steps">
+        <li><b>4K Photo:</b> หมุน Drive dial ไปที่สัญลักษณ์ 4K ► กดถ่าย ► เข้า Playback แล้วเลื่อนเลือกเฟรมที่ใช่ ► เซฟเป็นภาพนิ่ง 8MP</li>
+        <li><b>Post Focus / Focus Stacking:</b> MENU ► [Rec] ► Post Focus ► On ► ถ่ายบนขาตั้ง ► แตะเลือกจุดโฟกัส หรือเลือก Focus Stacking เพื่อรวมให้ชัดทั้งภาพ</li>
       </ol>
     </div>
   </div>
@@ -968,12 +1052,13 @@ footer p{color:var(--ink3);font-size:.85rem}
     <div class="setbox reveal">
       <h3>🎞️ ลำดับการทำสูตรฟิล์ม (ทำครั้งเดียว เซฟไว้ใช้ตลอด)</h3>
       <ol class="steps">
-        <li>เข้า <b>Photo Style</b> เลือก Style หลักของสูตร แล้วกด <b>►</b> ปรับ Contrast / Highlight / Shadow / Saturation / Sharpness / NR ตามการ์ด</li>
-        <li>ตั้ง <b>White Balance</b> (MENU → WB) เลือกพรีเซต แล้วกด <b>►</b> เข้าหน้า WB Shift ปรับ Amber–Blue / Green–Magenta ตามสูตร</li>
+        <li>เข้า <b>Photo Style</b> เลือก Style หลักของสูตร แล้วกด <b>▲</b> เปิดหน้าปรับละเอียด ตั้ง Contrast / Saturation / Sharpness / NR ตามการ์ด (สไตล์ขาวดำใช้ Color Tone / Filter / Grain แทน Saturation)</li>
+        <li>ตั้ง <b>Highlight Shadow</b> (MENU ► [Rec] ► Highlight Shadow — เมนูแยก ไม่ได้อยู่ใน Photo Style) ตามค่า Hi/Sh ในการ์ด</li>
+        <li>ตั้ง <b>White Balance</b> (MENU ► WB) เลือกพรีเซต แล้วกด <b>▲</b> เข้าหน้า WB Shift ปรับ Amber–Blue / Green–Magenta ตามสูตร</li>
         <li>ตั้ง <b>ชดเชยแสง (EV)</b> ด้วยแป้นหมุนตามค่าในสูตร</li>
-        <li><b>เซฟ:</b> MENU → Setup (ประแจ) → Save to Custom Mode → เลือก <b>C1 / C2 / C3</b></li>
+        <li><b>เซฟ:</b> MENU ► [Setup] (ประแจ) ► Cust.Set Mem. ► เลือก <b>C1 / C2 / C3</b> (C3 แยกได้ C3-1/2/3)</li>
       </ol>
-      <p style="color:var(--ink3);font-size:.85rem;margin:14px 0 0">ทิปเสริมฟิลฟิล์ม: เปิด Aspect Ratio <b style="color:var(--gold-soft)">3:2</b> · ลด Sharpness และ NR ให้ต่ำ · ถ้าถ่าย RAW ค่าเหล่านี้ปรับแก้ทีหลังได้ทั้งหมด</p>
+      <p style="color:var(--ink3);font-size:.85rem;margin:14px 0 0">📌 จุดที่หลายคนเข้าใจผิด: ใน <b style="color:var(--gold-soft)">Photo Style</b> ปรับได้แค่ Contrast · Sharpness · NR · Saturation (สไตล์สี) — ส่วน <b style="color:var(--gold-soft)">Highlight / Shadow</b> เป็นเมนูแยก [Rec] ► Highlight Shadow (มีผลกับ JPEG เท่านั้น) สูตรด้านล่างจึงแยกค่า "Hi/Sh" ไว้เป็นอีกชิป · ทิปฟิลฟิล์ม: Aspect Ratio 3:2 · Sharpness/NR ต่ำ · ถ้าถ่าย RAW (.RW2) ค่าทั้งหมดปรับแก้ทีหลังได้</p>
     </div>
 
     <h3 class="filmcat reveal">📷 ถ่ายคน · Portrait & Lifestyle <span class="cn">4 สูตร</span></h3>
@@ -984,7 +1069,7 @@ footer p{color:var(--ink3);font-size:.85rem}
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Highlight</b>−3</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>−1</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Saturation</b>−1</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−3·S+1</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">Daylight · WB Shift A+1</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">+0.3 ถึง +0.7 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7 (เปิด f1.7–2.2)</span></div>
@@ -998,7 +1083,7 @@ footer p{color:var(--ink3);font-size:.85rem}
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+3</span><span class="chip"><b>Saturation</b>−1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Saturation</b>−1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−2·S+3</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">Daylight · WB Shift A+1</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">+0.7 ถึง +1.0 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
@@ -1011,8 +1096,8 @@ footer p{color:var(--ink3);font-size:.85rem}
         <div class="ov"><span class="ftag">FILM 03</span><h3>Moody Fine-Art Portrait</h3><div class="mood">เข้ม ดราม่า มีอารมณ์</div></div>
       </div>
       <div class="body">
-        <div class="srow"><span class="k">Photo Style</span><span class="v">Flat</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>−2</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−2·S−2</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">ค่อนเย็น (Daylight/Kelvin ~5000K)</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">−0.3 ถึง −0.7 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
@@ -1025,8 +1110,8 @@ footer p{color:var(--ink3);font-size:.85rem}
         <div class="ov"><span class="ftag">FILM 04</span><h3>Fuji 400H</h3><div class="mood">ญี่ปุ่น ๆ pastel airy</div></div>
       </div>
       <div class="body">
-        <div class="srow"><span class="k">Photo Style</span><span class="v">Muted (Flat)</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−2·S+1</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">Cloudy · WB Shift G+1</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">+0.7 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
@@ -1041,7 +1126,7 @@ footer p{color:var(--ink3);font-size:.85rem}
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−2·S+1</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">Cloudy · WB Shift A+2 / M+1</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">+0.3 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm หรือ 12–60 ที่ 20–35mm</span></div>
@@ -1055,7 +1140,7 @@ footer p{color:var(--ink3);font-size:.85rem}
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">Standard</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>0</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−1</span><span class="chip"><b>NR</b>−4</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−1</span><span class="chip"><b>NR</b>−4</span><span class="chip"><b>Hi/Sh</b>H−1·S0</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">Daylight</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">12–60 / 25mm</span></div>
@@ -1068,8 +1153,8 @@ footer p{color:var(--ink3);font-size:.85rem}
         <div class="ov"><span class="ftag">FILM 07</span><h3>Fuji Velvia</h3><div class="mood">วิวสดจัด คอนทราสต์สูง</div></div>
       </div>
       <div class="body">
-        <div class="srow"><span class="k">Photo Style</span><span class="v">Vivid (หรือ Landscape)</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>−1</span><span class="chip"><b>Saturation</b>+2</span><span class="chip"><b>Sharpness</b>0</span><span class="chip"><b>NR</b>−3</span></div>
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Vivid (หรือ Scenery)</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Saturation</b>+2</span><span class="chip"><b>Sharpness</b>0</span><span class="chip"><b>NR</b>−3</span><span class="chip"><b>Hi/Sh</b>H−1·S−1</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">Daylight</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">12–60</span></div>
@@ -1083,8 +1168,8 @@ footer p{color:var(--ink3);font-size:.85rem}
         <div class="ov"><span class="ftag">FILM 08</span><h3>Cinestill 800T</h3><div class="mood">หนังกลางคืน neon cyberpunk</div></div>
       </div>
       <div class="body">
-        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D2</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>−3</span><span class="chip"><b>Highlight</b>−3</span><span class="chip"><b>Shadow</b>+2</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−5</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−3</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−5</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−3·S+2</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">Kelvin 3200–3800K</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">−0.3 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
@@ -1097,8 +1182,8 @@ footer p{color:var(--ink3);font-size:.85rem}
         <div class="ov"><span class="ftag">FILM 09</span><h3>Teal & Orange</h3><div class="mood">ลุคหนังบล็อกบัสเตอร์</div></div>
       </div>
       <div class="body">
-        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D2</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+2</span><span class="chip"><b>Saturation</b>0</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Saturation</b>0</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−2·S+2</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">อุ่นนิด (ผิวออกส้ม)</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">−0.3 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
@@ -1112,8 +1197,8 @@ footer p{color:var(--ink3);font-size:.85rem}
         <div class="ov"><span class="ftag">FILM 10</span><h3>Fuji Classic Chrome</h3><div class="mood">สีหม่นสุขุม สารคดี/แม็กกาซีน</div></div>
       </div>
       <div class="body">
-        <div class="srow"><span class="k">Photo Style</span><span class="v">Flat</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>0</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span><span class="chip"><b>Hi/Sh</b>H−1·S0</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
@@ -1127,7 +1212,7 @@ footer p{color:var(--ink3);font-size:.85rem}
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">L.Monochrome D</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+2</span><span class="chip"><b>Sharpness</b>−2</span><span class="chip"><b>Grain</b>Low</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Sharpness</b>−2</span><span class="chip"><b>NR</b>−4</span><span class="chip"><b>Grain</b>Low</span><span class="chip"><b>Hi/Sh</b>H−2·S+2</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
@@ -1141,7 +1226,7 @@ footer p{color:var(--ink3);font-size:.85rem}
       </div>
       <div class="body">
         <div class="srow"><span class="k">Photo Style</span><span class="v">L.Monochrome D</span></div>
-        <div class="chips"><span class="chip"><b>Contrast</b>+2</span><span class="chip"><b>Highlight</b>−1</span><span class="chip"><b>Shadow</b>−1</span><span class="chip"><b>Sharpness</b>−1</span><span class="chip"><b>Grain</b>High</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+2</span><span class="chip"><b>Sharpness</b>−1</span><span class="chip"><b>Grain</b>High</span><span class="chip"><b>Filter</b>Yellow</span><span class="chip"><b>Hi/Sh</b>H−1·S−1</span></div>
         <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง</span></div>
         <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
         <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
@@ -1149,7 +1234,7 @@ footer p{color:var(--ink3);font-size:.85rem}
       </div>
     </div>
 
-    <div class="tip reveal"><b>เซฟลง Custom Mode สลับ mood ได้ใน 1 วินาที:</b> ตั้งได้ 3 ช่อง — แนะนำ <span class="mono gold">C1 = Portra</span> (ถ่ายคนทุกวัน), <span class="mono gold">C2 = Kodak Gold</span> (เที่ยว/กลางวัน), <span class="mono gold">C3 = Cinestill</span> (กลางคืน) · ส่วนสูตรอื่นเก็บไว้เป็น "เมนูในใจ" ปรับสดตอนเจอซีนที่ใช่ หรือสลับเข้า C ช่องว่างชั่วคราวได้</div>
+    <div class="tip reveal"><b>เซฟลง Custom Mode สลับ mood ได้ใน 1 วินาที:</b> G97 เซฟได้ 5 ช่อง (C1, C2, C3-1/2/3) — แนะนำ <span class="mono gold">C1 = Portra</span> (ถ่ายคนทุกวัน), <span class="mono gold">C2 = Kodak Gold</span> (เที่ยว/กลางวัน), <span class="mono gold">C3-1 = Cinestill</span> (กลางคืน) แล้วเก็บ <span class="mono gold">C3-2 / C3-3</span> ไว้ใส่สูตรขาวดำหรือสูตรโปรดอื่น · ส่วนสูตรที่เหลือเก็บเป็น "เมนูในใจ" ปรับสดตอนเจอซีนที่ใช่ได้</div>
   </div>
 </section>
 
