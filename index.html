@@ -99,6 +99,20 @@ figure figcaption{padding:13px 18px;font-size:.84rem;color:var(--ink2);border-to
 .steps li:first-child{border-top:none}
 .steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:25px;height:25px;border-radius:50%;background:var(--gold);color:#16130f;font-family:var(--mono);font-size:.78rem;font-weight:700;text-align:center;line-height:25px}
 .steps b{color:var(--ink);font-weight:600}
+.film{display:grid;grid-template-columns:300px 1fr;background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:20px 0}
+.film .ph{position:relative;min-height:215px;background:var(--bg3)}
+.film .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film .ph .ov{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.film .ph .ftag{font-family:var(--mono);font-size:.72rem;color:var(--gold-soft);letter-spacing:.12em}
+.film .ph h3{font-family:var(--display);font-size:1.3rem;color:#fff;margin:3px 0 3px}
+.film .ph .mood{font-size:.85rem;color:#e9ddc9}
+.film .body{padding:20px 24px}
+.srow{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.srow .k{color:var(--ink3);font-family:var(--mono);font-size:.74rem;min-width:104px;flex-shrink:0;padding-top:2px}
+.srow .v{color:var(--ink);flex:1}
+.film .chips{margin:14px 0 4px}
+.film .res{margin-top:14px;font-size:.86rem;color:var(--teal);border-top:1px solid var(--line);padding-top:12px}
+@media(max-width:760px){.film{grid-template-columns:1fr}.film .ph{min-height:190px}}
 @media(max-width:760px){.fgal{grid-template-columns:1fr 1fr;gap:12px}}
 
 /* cards */
@@ -187,9 +201,10 @@ footer p{color:var(--ink3);font-size:.85rem}
       <a href="#settings"><span class="n">11</span>ค่าตั้งจริง</a>
       <a href="#video"><span class="n">12</span>วิดีโอ 180°</a>
       <a href="#g97"><span class="n">13</span>ฟีเจอร์ G97</a>
-      <a href="#mistakes"><span class="n">14</span>ข้อผิดพลาดมือใหม่</a>
-      <a href="#care"><span class="n">15</span>ดูแลรักษากล้อง</a>
-      <a href="#gear"><span class="n">16</span>เลนส์ของคุณ</a>
+      <a href="#film"><span class="n">14</span>ฟิลกล้องฟิล์ม</a>
+      <a href="#mistakes"><span class="n">15</span>ข้อผิดพลาดมือใหม่</a>
+      <a href="#care"><span class="n">16</span>ดูแลรักษากล้อง</a>
+      <a href="#gear"><span class="n">17</span>เลนส์ของคุณ</a>
       <a class="back" href="editing-guide.html"><span class="n">→</span>คู่มือแต่งภาพ</a>
     </div>
   </div>
@@ -926,13 +941,116 @@ footer p{color:var(--ink3);font-size:.85rem}
       <div class="card reveal"><span class="ic">FOCUS STACKING</span><h3>ชัดทั้งภาพ</h3><p>รวมหลายระยะโฟกัสเป็นภาพเดียวที่คมตั้งแต่หน้าถึงหลัง เหมาะมาโคร สินค้า หรือวิวที่อยากชัดทุกระยะ</p></div>
       <div class="card reveal"><span class="ic">BRACKETING</span><h3>ถ่ายคร่อมอัตโนมัติ</h3><p>ถ่ายคร่อมแสง / โฟกัส / WB หลายภาพรวดเดียว เผื่อเลือกภาพที่พอดีที่สุด หรือเอาไปรวมเป็น HDR</p></div>
     </div>
+
+    <div class="setbox reveal">
+      <h3>⚙️ วิธีเข้าตั้งค่าฟีเจอร์เหล่านี้</h3>
+      <span class="path">Photo Style:  MENU → Photo (รูปกล้อง) → Photo Style   ·   หรือกด Q → Photo Style</span>
+      <ol class="steps">
+        <li>เลือก <b>Photo Style</b> ที่ต้องการ แล้วกด <b>►</b> (ลูกศรขวา) เพื่อเข้าไปปรับ Contrast / Highlight / Shadow / Saturation / Sharpness / Noise Reduction</li>
+        <li><b>Custom Mode:</b> ตั้งค่าทุกอย่างให้ครบก่อน → MENU → Setup (รูปประแจ) → <b>Save to Custom Mode</b> → เลือก C1 / C2 / C3</li>
+        <li>เรียกใช้: หมุนแป้นโหมดไปที่ <b>C1 / C2 / C3</b> กล้องจะโหลดค่าทั้งชุดกลับมาทันที (แก้ค่าชั่วคราวได้ ไม่ทับสูตรเดิม)</li>
+        <li><b>4K Photo / Post Focus:</b> เลือกจากปุ่มโหมดถ่าย (Drive) หรือใน Photo menu แล้วกดถ่าย จากนั้นเลือกเฟรม/จุดโฟกัสบนจอ</li>
+      </ol>
+    </div>
   </div>
 </section>
 
 <!-- COMMON MISTAKES -->
+<!-- FILM LOOK -->
+<section id="film">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">14</span><h2>ตั้งค่าให้ได้ "ฟิลกล้องฟิล์ม"</h2></div>
+    <p class="slead reveal">อยากได้ภาพโทนฟิล์มสวยๆ ตั้งแต่ในกล้อง ไม่ต้องแต่งทีหลังเยอะ — นี่คือ 5 สูตรเลียนแบบฟิล์มยอดนิยม ปรับใน Photo Style แล้วเซฟลง Custom Mode ไว้สลับใช้ได้เร็ว (ภาพตัวอย่างจำลองโทนของแต่ละฟิล์ม)</p>
+
+    <div class="setbox reveal">
+      <h3>🎞️ ลำดับการทำสูตรฟิล์ม (ทำครั้งเดียว เซฟไว้ใช้ตลอด)</h3>
+      <ol class="steps">
+        <li>เข้า <b>Photo Style</b> เลือก Style หลักของสูตร แล้วกด <b>►</b> ปรับ Contrast / Highlight / Shadow / Saturation / Sharpness / NR ตามการ์ด</li>
+        <li>ตั้ง <b>White Balance</b> (MENU → WB) เลือกพรีเซต แล้วกด <b>►</b> เข้าหน้า WB Shift ปรับ Amber–Blue / Green–Magenta ตามสูตร</li>
+        <li>ตั้ง <b>ชดเชยแสง (EV)</b> ด้วยแป้นหมุนตามค่าในสูตร</li>
+        <li><b>เซฟ:</b> MENU → Setup (ประแจ) → Save to Custom Mode → เลือก <b>C1 / C2 / C3</b></li>
+      </ol>
+      <p style="color:var(--ink3);font-size:.85rem;margin:14px 0 0">ทิปเสริมฟิลฟิล์ม: เปิด Aspect Ratio <b style="color:var(--gold-soft)">3:2</b> · ลด Sharpness และ NR ให้ต่ำ · ถ้าถ่าย RAW ค่าเหล่านี้ปรับแก้ทีหลังได้ทั้งหมด</p>
+    </div>
+
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1704192257598-be5cb6e710e7?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Kodak Gold 200" style="filter:sepia(.28) saturate(1.3) contrast(.95) brightness(1.06)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 01</span><h3>Kodak Gold 200</h3><div class="mood">อบอุ่น สดใส ฟิลเที่ยว ยุค 90s</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>+1</span><span class="chip"><b>Sharpness</b>−3</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Cloudy · WB Shift A+2 / M+1</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">+0.3 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7 หรือ 12–60 ที่ 20–35mm</span></div>
+        <p class="res">เหมาะ: Travel · Street · คาเฟ่ · กลางวัน — ได้สีทอง skin tone อุ่น highlight ฟุ้ง ฟิล vacation</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1625921765718-40e14ee8641c?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Kodak Portra 400" style="filter:sepia(.12) saturate(.85) contrast(.9) brightness(1.07)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 02</span><h3>Kodak Portra 400</h3><div class="mood">skin tone นุ่ม luxury portrait</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Natural</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Highlight</b>−3</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>−1</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Daylight · WB Shift A+1</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">+0.3 ถึง +0.7 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7 (เปิด f1.7–2.2)</span></div>
+        <p class="res">เหมาะ: Portrait · Couples · Lifestyle — skin tone สวย highlight นุ่ม สีไม่จัดเกิน</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1574585326784-53e2c78b3f53?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Fuji 400H" style="filter:sepia(.06) saturate(.78) contrast(.88) brightness(1.09)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 03</span><h3>Fuji 400H</h3><div class="mood">ญี่ปุ่น ๆ pastel airy</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Muted (Flat)</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−2</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+1</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−4</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Cloudy · WB Shift G+1</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">+0.7 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
+        <p class="res">เหมาะ: คาเฟ่ · ญี่ปุ่น · Fashion · Soft portrait — สีอ่อน เขียวสวย โทน pastel</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1534847004764-b93737310da1?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Cinestill 800T" style="filter:saturate(1.25) contrast(1.18) brightness(.86)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 04</span><h3>Cinestill 800T</h3><div class="mood">หนังกลางคืน neon cyberpunk</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">Cinelike D2</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>−3</span><span class="chip"><b>Highlight</b>−3</span><span class="chip"><b>Shadow</b>+2</span><span class="chip"><b>Saturation</b>−2</span><span class="chip"><b>Sharpness</b>−5</span><span class="chip"><b>NR</b>−5</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">Kelvin 3200–3800K</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">−0.3 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm f1.7</span></div>
+        <p class="res">เหมาะ: Night street · Neon · City — neon เด่น mood cinematic ฟิลหนังกลางคืน</p>
+      </div>
+    </div>
+    <div class="film reveal">
+      <div class="ph">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1620259570543-31964aa22586?w=700&q=70&auto=format&fit=crop" alt="ตัวอย่างโทน Classic Film / Mono" style="filter:grayscale(1) contrast(1.12) brightness(1.03)" onerror="this.style.opacity=0">
+        <div class="ov"><span class="ftag">FILM 05</span><h3>Classic Film / Mono</h3><div class="mood">Leica-ish street documentary</div></div>
+      </div>
+      <div class="body">
+        <div class="srow"><span class="k">Photo Style</span><span class="v">L.Monochrome D</span></div>
+        <div class="chips"><span class="chip"><b>Contrast</b>+1</span><span class="chip"><b>Highlight</b>−2</span><span class="chip"><b>Shadow</b>+2</span><span class="chip"><b>Sharpness</b>−2</span><span class="chip"><b>Grain</b>Low</span></div>
+        <div class="srow"><span class="k">White Balance</span><span class="v">ตามสภาพแสง (Daylight)</span></div>
+        <div class="srow"><span class="k">Exposure</span><span class="v">0 EV</span></div>
+        <div class="srow"><span class="k">เลนส์</span><span class="v">25mm / 12–60</span></div>
+        <p class="res">เหมาะ: Street documentary · Everyday — ภาพขาวดำคลาสสิก ดูเป็นสารคดี timeless</p>
+      </div>
+    </div>
+
+    <div class="tip reveal"><b>เซฟลง Custom Mode แล้วสลับ mood ได้ใน 1 วินาที:</b> แนะนำ <span class="mono gold">C1 = Portra</span> (ใช้ทุกวัน/ถ่ายคน กับ 25mm), <span class="mono gold">C2 = Kodak Gold</span> (เที่ยว/กลางวัน กับ 12–60), <span class="mono gold">C3 = Cinestill</span> (กลางคืน) · เวลาออกถ่ายแค่หมุนแป้นโหมด ไม่ต้องตั้งใหม่ จะได้โฟกัสกับ "ภาพ" มากกว่า "เมนู"</div>
+  </div>
+</section>
+
 <section id="mistakes">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">14</span><h2>ข้อผิดพลาดที่มือใหม่มักเจอ</h2></div>
+    <div class="shead reveal"><span class="snum">15</span><h2>ข้อผิดพลาดที่มือใหม่มักเจอ</h2></div>
     <p class="slead reveal">รู้ไว้ก่อนจะได้ไม่พลาดซ้ำ — ทุกข้อมีวิธีแก้ง่ายๆ ที่อยู่ในคู่มือนี้แล้ว</p>
     <div class="grid g2">
       <div class="card reveal"><h3 style="color:var(--coral)">✕ โฟกัสผิดจุด</h3><p><span style="color:var(--teal)">✓ แก้:</span> เปิด Face/Eye AF หรือเลือกจุดโฟกัสเอง และโฟกัสที่ดวงตาเสมอ</p></div>
@@ -950,7 +1068,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- CAMERA CARE -->
 <section id="care">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">15</span><h2>การดูแลรักษากล้อง</h2></div>
+    <div class="shead reveal"><span class="snum">16</span><h2>การดูแลรักษากล้อง</h2></div>
     <p class="slead reveal">G97 กันละอองน้ำและฝุ่นได้ (weather-sealed) แต่ "ไม่ใช่กันน้ำ" — และเมืองไทยอากาศชื้น ต้องระวังเชื้อราเป็นพิเศษ</p>
     <div class="grid g2">
       <div class="card reveal"><span class="ic">WEATHER SEALING</span><h3>กันละออง ≠ กันน้ำ</h3><p>ละอองฝน/ฝุ่นพอไหว แต่ฝนหนักหรือจุ่มน้ำไม่ได้ และต้องใช้คู่กับเลนส์ที่ซีลด้วย (เลนส์คิต/แถมอาจไม่ซีล)</p></div>
@@ -965,7 +1083,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 
 <section id="gear">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">16</span><h2>เลนส์ของคุณ · จุดเด่นและวิธีใช้</h2></div>
+    <div class="shead reveal"><span class="snum">17</span><h2>เลนส์ของคุณ · จุดเด่นและวิธีใช้</h2></div>
     <p class="slead reveal">สองเลนส์นี้ครอบคลุมเกือบทุกสถานการณ์ รู้จุดแข็งของแต่ละตัว แล้วหยิบให้ถูกงาน</p>
 
     <div class="grid g2">
@@ -1000,7 +1118,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 <!-- CHECKLIST -->
 <section style="border-bottom:none">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">17</span><h2>เช็กลิสต์ก่อนกดชัตเตอร์</h2></div>
+    <div class="shead reveal"><span class="snum">18</span><h2>เช็กลิสต์ก่อนกดชัตเตอร์</h2></div>
     <div class="check reveal" style="margin-top:30px">
       <div><b>01</b> ภาพนี้อยากได้อะไร — ละลายหลัง? หยุดภาพ? ตั้งค่านั้นก่อน</div>
       <div><b>02</b> โฟกัสตรงจุดไหม — คนถ่ายที่ดวงตาเสมอ</div>
