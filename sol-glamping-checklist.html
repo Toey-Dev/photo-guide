@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16130f">
+<title>เช็กลิสต์ถ่ายภาพ · SOL Glamping เขาใหญ่</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chonburi&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#16130f; --bg2:#1e1a15; --bg3:#241f18; --line:rgba(240,230,210,.14); --line2:rgba(240,230,210,.28);
+    --ink:#f2ebdd; --ink2:#cdbfa6; --ink3:#8a8170;
+    --gold:#e0a44a; --gold-soft:#f2c982; --teal:#5fb6a2; --coral:#e08a6a; --orange:#e0822a;
+    --serif:'Chonburi',serif; --sans:'IBM Plex Sans Thai',sans-serif; --mono:'Space Mono',monospace;
+    --morning:#9bb0c4; --day:#e6c98a; --eve:#e08a6a; --night:#6a78b0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:15px;
+    background-image:radial-gradient(circle at 50% -5%,rgba(224,164,74,.08),transparent 45%)}
+  .wrap{max-width:480px;margin:0 auto;padding:18px 14px 60px}
+  header{text-align:center;padding:8px 0 18px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  header h1{font-family:var(--serif);font-size:1.45rem;color:var(--gold);font-weight:400;line-height:1.3}
+  header .loc{color:var(--ink2);font-size:.9rem;margin-top:4px}
+  header .gear{font-family:var(--mono);font-size:.72rem;color:var(--ink3);margin-top:8px;letter-spacing:.02em}
+  .offline{background:rgba(95,182,162,.1);border:1px solid rgba(95,182,162,.3);border-radius:10px;
+    padding:9px 12px;font-size:.78rem;color:var(--teal);margin-bottom:18px;text-align:center}
+  .qtable{width:100%;border-collapse:collapse;background:var(--bg2);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;margin-bottom:18px;font-size:.8rem}
+  .qtable caption{font-family:var(--mono);font-size:.72rem;color:var(--gold);text-align:left;
+    padding:10px 12px 0;letter-spacing:.05em}
+  .qtable th,.qtable td{padding:9px 8px;text-align:center;border-bottom:1px solid var(--line)}
+  .qtable th{color:var(--ink3);font-weight:600;font-family:var(--mono);font-size:.68rem}
+  .qtable td:first-child{text-align:left;color:var(--ink2);font-weight:600}
+  .qtable tr:last-child td{border-bottom:none}
+  .yes{color:var(--teal)} .no{color:var(--coral)} .mid{color:var(--gold-soft)}
+  .preset{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--gold);
+    border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:22px;font-size:.83rem;color:var(--ink2)}
+  .preset b{color:var(--gold-soft)}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:0;margin-bottom:20px;overflow:hidden}
+  .card.morning{border-top:3px solid var(--morning)}
+  .card.day{border-top:3px solid var(--day)}
+  .card.eve{border-top:3px solid var(--eve)}
+  .card.night{border-top:3px solid var(--night)}
+  .cardhead{display:flex;align-items:center;gap:12px;padding:16px 16px 12px}
+  .cardhead .emoji{font-size:1.8rem;line-height:1}
+  .cardhead h2{font-family:var(--serif);font-size:1.25rem;font-weight:400}
+  .cardhead .time{font-family:var(--mono);font-size:.72rem;color:var(--ink3);display:block}
+  .scene{width:100%;display:block;background:#0c0a08}
+  .scene svg{display:block;width:100%;height:auto}
+  .body{padding:14px 16px}
+  .mood{margin-bottom:14px}
+  .mood .lab{font-family:var(--mono);font-size:.68rem;color:var(--ink3);letter-spacing:.08em}
+  .mood p{font-size:.9rem;color:var(--ink);margin:3px 0 8px}
+  .palette{display:flex;gap:6px}
+  .palette span{width:34px;height:18px;border-radius:5px;border:1px solid rgba(255,255,255,.12)}
+  .block{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .block h3{font-size:.86rem;color:var(--gold);margin-bottom:9px;font-weight:600}
+  .rows{display:flex;flex-direction:column;gap:7px}
+  .r{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:.82rem}
+  .r span{color:var(--ink3);flex-shrink:0}
+  .r b{color:var(--ink);font-family:var(--mono);font-size:.78rem;text-align:right;font-weight:400}
+  .r b em{color:var(--gold-soft);font-style:normal}
+  .fchips{display:flex;gap:8px;flex-wrap:wrap}
+  .fchip{flex:1;min-width:86px;border-radius:9px;padding:9px;text-align:center;font-size:.74rem;border:1px solid var(--line)}
+  .fchip .n{display:block;font-family:var(--mono);font-size:.66rem;color:var(--ink3);margin-bottom:3px}
+  .fchip .s{font-weight:700}
+  .fchip.on{background:rgba(95,182,162,.12);border-color:rgba(95,182,162,.4)} .fchip.on .s{color:var(--teal)}
+  .fchip.mid{background:rgba(242,201,130,.1);border-color:rgba(242,201,130,.35)} .fchip.mid .s{color:var(--gold-soft)}
+  .fchip.off{background:rgba(224,138,106,.08);border-color:rgba(224,138,106,.3)} .fchip.off .s{color:var(--coral)}
+  .chk{display:flex;align-items:center;gap:10px;padding:9px 0;font-size:.86rem;cursor:pointer;border-bottom:1px solid rgba(240,230,210,.06)}
+  .chk:last-child{border-bottom:none}
+  .chk input{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:2px solid var(--line2);
+    border-radius:6px;flex-shrink:0;cursor:pointer;position:relative;transition:.15s}
+  .chk input:checked{background:var(--gold);border-color:var(--gold)}
+  .chk input:checked::after{content:"✓";position:absolute;color:#16130f;font-size:13px;font-weight:700;left:3px;top:-1px}
+  .chk input:checked + span{color:var(--ink3);text-decoration:line-through}
+  .tips{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:20px}
+  .tips h3{font-family:var(--serif);font-size:1.1rem;color:var(--gold);font-weight:400;margin-bottom:10px}
+  .tips li{font-size:.84rem;color:var(--ink2);margin-bottom:8px;list-style:none;padding-left:20px;position:relative}
+  .tips li::before{content:"›";position:absolute;left:6px;color:var(--gold)}
+  footer{text-align:center;color:var(--ink3);font-size:.74rem;font-family:var(--mono);padding-top:10px}
+  .topnav{display:flex;justify-content:space-between;gap:10px;margin:0 0 16px}
+  .topnav a{flex:1;text-align:center;color:var(--teal);text-decoration:none;font-size:.8rem;
+    border:1px solid var(--line);padding:8px 10px;border-radius:10px;background:var(--bg2)}
+  .topnav a:hover{border-color:var(--teal)}
+  .scene{position:relative}
+  .scene img{width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;display:block;background:#0c0a08}
+  .scene .cap{position:absolute;right:8px;bottom:6px;font-family:var(--mono);font-size:.58rem;color:rgba(242,235,221,.55);background:rgba(0,0,0,.35);padding:2px 6px;border-radius:5px}
+  .cards{display:block}
+  @media(min-width:720px){
+    body{font-size:16px}
+    .wrap{max-width:980px;padding:28px 24px 70px}
+    header h1{font-size:2rem}
+    header .gear{font-size:.8rem}
+    .qtable{font-size:.88rem}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+    .cards .card{margin-bottom:0}
+    .tips li{font-size:.92rem}
+    .preset,.offline{font-size:.86rem}
+  }
+  @media(min-width:1100px){.wrap{max-width:1080px}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>📸 เช็กลิสต์ถ่ายภาพ<br>SOL Glamping เขาใหญ่</h1>
+    <p class="loc">เนินเขา · ทิวสน · คาเฟ่นอร์ดิก · ~21°C</p>
+    <p class="gear">Lumix G97 · 12–60mm + 25mm f/1.7 · No-Filter Setup (ไม่ใช้ฟิลเตอร์)</p>
+  </header>
+
+  <nav class="topnav">
+    <a href="index.html">← คู่มือถ่ายภาพหลัก</a>
+    <a href="editing-guide.html">คู่มือแต่งภาพ →</a>
+  </nav>
+
+  <div class="offline">💾 เปิดหน้านี้ครั้งแรกตอนมีเน็ต (ให้รูปโหลด) แล้วบันทึกไว้ดูออฟไลน์ — เขาใหญ่สัญญาณอาจอ่อน</div>
+
+  <table class="qtable">
+    <caption>⚡ สรุปเร็วตามช่วงเวลา (ไม่ใช้ฟิลเตอร์)</caption>
+    <thead><tr><th>ช่วง</th><th>Custom</th><th>เลนส์เด่น</th><th>กุญแจสำคัญ</th></tr></thead>
+    <tbody>
+      <tr><td>🌅 เช้า</td><td class="yes">C2 / C1</td><td>12mm / 25</td><td class="mid">หมอก+แสงนุ่ม ลุคมาเอง</td></tr>
+      <tr><td>☀️ กลางวัน</td><td class="yes">C2 / C1</td><td>25 / 12–60</td><td class="mid">−0.3 EV กันขาวระเบิด</td></tr>
+      <tr><td>🌇 เย็น</td><td class="yes">C2 / C1</td><td>12–60 / 25</td><td class="mid">WB อุ่น ~5500K</td></tr>
+      <tr><td>🌙 กลางคืน</td><td class="yes">C1 / C3</td><td>25mm f/1.7</td><td class="mid">f/1.7 สู้มืด · ขาตั้งถ่ายดาว</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.72rem;color:var(--ink3);margin:-10px 0 18px;padding:0 4px">💡 ไม่ใช้ฟิลเตอร์ = <b style="color:var(--ink2)">เกาะช่วงแสงนุ่ม</b> (เช้ามืด/เย็น) เป็นหลัก · ความฟุ้ง/matte สร้างจากค่ากล้อง (Contrast−, Hi/Sh) + เก็บงานตอนแต่ง RAW</p>
+
+  <!-- ===== PRE-TRIP SETUP ===== -->
+  <div class="tips" style="border-left:3px solid var(--gold)">
+    <h3>🏠 เซ็ตกล้องก่อนไป (ทำที่บ้าน ครั้งเดียวจบ)</h3>
+
+    <p style="font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.06em;margin:12px 0 6px">STEP 1 · พื้นฐาน</p>
+    <ul>
+      <li>คุณภาพ [Quality] → <b>RAW+Fine</b> (MENU ► เมนูถ่ายภาพ [Rec] ► คุณภาพ) — RAW ไว้แต่ง JPEG ไว้แชร์</li>
+      <li>ความไวแสง ISO (ภาพถ่าย) ► ตั้งค่าจำกัด ISO อัตโนมัติ → <b>3200</b> · เปิดกันสั่น [Stabilizer] (เมนู [Rec]) · เปิดเตือนไฮไลต์: "ไฮไลต์" (กะพริบ) หรือ "รูปแบบพื้นที่ระดับความสว่าง" [Zebra] (แท็บมอนิเตอร์/จอแสดงผล)</li>
+      <li>เปิดเส้นนำ [Guide Line] กฎสามส่วน (เมนูกำหนดเอง [Custom] ► มอนิเตอร์/จอแสดงผล)</li>
+    </ul>
+
+    <p style="font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.06em;margin:14px 0 6px">STEP 2 · สูตรโทน "Khao Yai Pastel"</p>
+    <ul>
+      <li><b>2.1</b> หมุนแป้นโหมดไป <b>A</b> ก่อน (โหมด iA ปรับสไตล์ภาพไม่ได้)</li>
+      <li><b>2.2</b> กด <b>MENU/SET</b> ► แท็บบนสุด เมนูถ่ายภาพ [Rec] ► หน้า <b>1/4</b> เลื่อนลงมาที่ <b>"สไตล์ภาพ"</b> (อยู่ถัดจาก "ความไวในการโฟกัสอัตโนมัติ(ภาพ)") ► กด MENU/SET</li>
+      <li><b>2.3</b> หน้าเลือกสไตล์ (แถบล่างเขียน "สไตล์ภาพ" · มีปุ่ม "ออก") กด <b>◄ ►</b> เลื่อนไป <b>NAT</b> (Natural — หน้าปรับละเอียดจะแสดงชื่อไทยว่า <b>"ธรรมชาติ"</b>) — จอแสดงชื่อย่อ 12 ตัว: STD. / VIVD / NAT / MONO / L.MONO / L.MONO D / SCNY / PORT / CUST / CNED / CNEV / V-Log L</li>
+      <li><b>2.4</b> กด <b>▲</b> เข้าหน้าปรับ 4 ค่า (ชื่อตามจอ): <b>คอนทราสต์ −2</b> · <b>ความคมชัด −3</b> · <b>ลดนอยส์ −2</b> · <b>ความอิ่มสี −1</b> → ใช้ ▲▼ เลือกหัวข้อ ◄► ปรับค่า แล้วกดปุ่ม <b>"ตั้ง"</b> (MENU/SET) ยืนยัน — ปุ่ม "DISP.บันทึก" คือเซฟลุคนี้เป็นสไตล์ CUST เพิ่มอีกช่อง (ไม่บังคับ)</li>
+      <li><b>2.5</b> กลับเมนู [Rec] เลื่อนไปหน้า <b>2/4</b> ► <b>"เงาไฮไลท์"</b> (อยู่ใต้ "โหมดวัด") → เลือกพรีเซตหรือปรับเอง <b>H−2 · S+3</b> (หน้ากราฟ: วงแหวนหน้า = ไฮไลท์ · วงแหวนหลัง = เงา) → กด ▲ "บันทึก" เก็บลงช่อง <b>ตั้งเอง1</b> ไว้เรียกใช้ซ้ำ · ⚠️ ไอคอน C1/C2/C3 ในหน้านี้คือช่องเซฟของเงาไฮไลท์เอง (ตั้งเอง1–3) <b>คนละอัน</b>กับ C1/C2/C3 บนแป้นหมุนโหมด</li>
+      <li><b>2.6</b> รายการถัดลงมาหน้าเดียวกัน ► <b>"i.Dynamic"</b> → ตั้งเป็น <b>LOW</b></li>
+      <li><b>2.7</b> ไวท์บาลานซ์: กดปุ่ม <b>WB</b> (ลูกศรขวา) ► เลือกโหมดเคลวิน <b>K</b> ► กด <b>▲ "ตั้ง WB K"</b> ใส่ <b>5000–5200K</b> ► กด <b>▼ "ปรับ"</b> เข้ากริดสี เลื่อนจุดไปทาง <b>B (น้ำเงิน)</b> จนขึ้น <b>B:1</b> ► MENU/SET</li>
+    </ul>
+
+    <p style="font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.06em;margin:14px 0 6px">STEP 3 · ล็อกเข้า Custom (เซฟทีละช่อง ทำซ้ำ 3 รอบ)</p>
+    <ul>
+      <li><b>3.1</b> ตั้งค่า "ทั้งชุด" ของช่องนั้นให้ครบก่อน ขณะอยู่โหมด P/A/S/M — โหมดถ่าย · รูรับแสง · ชัตเตอร์ · ISO/Auto ISO · โหมดโฟกัส+พื้นที่โฟกัส · Drive · สไตล์ภาพ (สูตร Pastel) · เงาไฮไลท์ · i.Dynamic · ไวท์บาลานซ์+Shift · ชดเชยแสง</li>
+      <li><b>3.2</b> กด MENU ► แท็บ <b>เมนูตั้งค่า [Setup] (ไอคอนประแจ)</b> ► <b>หน้า 1/4 รายการบนสุด</b> ► <b>"ตั้งค่าบันทึกเอง"</b> [Cust.Set Mem.] (อยู่เหนือ "ตั้งนาฬิกา" — ถ้าเปิดมาเจอ "โหมดประหยัดพลังงาน" คือหน้า 2/4 เลื่อนขึ้นอีกหน้า)</li>
+      <li><b>3.3</b> เลือกช่องปลายทาง <b>C1 / C2 / C3</b> (✅ ยืนยันจากจอกล้องจริง: G97 มี <b>3 ชุด</b> — ไม่มีช่องย่อย C3-1/2/3 แบบรุ่นใหญ่)</li>
+      <li><b>3.4</b> กด <b>MENU/SET ► Yes</b> — ค่าทั้งชุดถูกบันทึกทันที แล้ววนกลับไปตั้งชุดถัดไป (3.1) จนครบทุกช่อง</li>
+      <li><b>3.5 เรียกใช้:</b> หมุนแป้นโหมดไปตำแหน่ง <b>C1 / C2 / C3</b> — ตรงช่องกัน 1:1 โหลดค่าทั้งชุดทันที</li>
+      <li><b>3.6</b> ระหว่างใช้งานแก้ค่าได้ชั่วคราว <b>ไม่ทับสูตรเดิม</b> (หมุนแป้นออกแล้วกลับมา ค่าเซฟจะคืน) — อยากแก้ถาวรต้องเซฟทับด้วย Cust.Set Mem. อีกครั้ง</li>
+    </ul>
+
+    <p style="font-family:var(--mono);font-size:.7rem;color:var(--gold-soft);letter-spacing:.06em;margin:14px 0 6px">ค่าเต็มของแต่ละช่อง (ตั้งตามนี้ก่อนกดเซฟ)</p>
+    <ul>
+      <li><b>C1 · พอร์ตเทรต 25mm</b> — โหมด <b>A</b> · f/1.7 · Auto ISO (เพดาน 3200) · AFS + ตรวจจับใบหน้า/ดวงตา [Face/Eye Detect] · Drive: Single · สูตร Pastel + Hi/Sh H−2·S+3 + i.Dynamic Low · WB 5200K Blue+1 · EV +0.3</li>
+      <li><b>C2 · วิว 12–60</b> — โหมด <b>A</b> · f/8 · ISO 200 · AFS + โฟกัส 1 จุด [1-Area] · Drive: Single · สูตร Pastel + Hi/Sh H−2·S+3 + i.Dynamic Low · WB 5200K Blue+1 · EV 0 (กลางวันลด −0.3 ดู Zebra)</li>
+      <li><b>C3 · กลางคืน/ดาว</b> — โหมด <b>M</b> · f/3.5 · ISO 1600 · Shutter 10–15s · <b>แมนนวลโฟกัส MF หมุนไป ∞</b> · Drive: ตั้งเวลา 2 วิ [Self Timer] · เปิดชัตเตอร์ NR [Long Shtr NR] · ไวท์บาลานซ์ ~3900K · ปิดกันสั่น [Stabilizer] เมื่ออยู่บนขาตั้ง</li>
+    </ul>
+    <p style="font-size:.76rem;color:var(--ink3);margin-top:8px">หน้างานแค่ <b style="color:var(--gold-soft)">หมุนแป้นไป C1/C2/C3</b> — โหลดค่าทั้งชุดใน 1 วิ · ✅ ยืนยันจากจอกล้องจริงแล้ว: หน้า "ตั้งค่าบันทึกเอง" แสดง 3 ช่องพอดี C1 · C2 · C3 = ใช้ครบทั้ง 3 สูตรเลย ไม่มีช่องเหลือ</p>
+  </div>
+
+  
+  <div class="offline" style="border-color:rgba(242,201,130,.35);color:var(--gold-soft)">📖 ชื่อเมนูไทยตรวจกับจอ G97 เครื่องจริง: สไตล์ภาพ (ธรรมชาติ) · คุณภาพ · อัตราส่วน · เงาไฮไลท์ · i.Dynamic · ชัตเตอร์ NR · เส้นนำ · ตั้งค่าบันทึกเอง (C1/C2/C3) ฯลฯ — วงเล็บ [ ] คือชื่ออังกฤษเผื่อสลับภาษาเมนู</div>
+<div class="cards">
+  <!-- ===== MORNING ===== -->
+  <div class="card morning">
+    <div class="cardhead"><span class="emoji">🌅</span><div><h2>เช้า</h2><span class="time">06:00–09:00 · กาแฟ + หมอก + ทิวสน</span></div></div>
+    <div class="scene"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1000&q=60" alt="หมอกลอยเหนือหุบเขาและทิวเขายามเช้า" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+    <div class="body">
+      <div class="mood"><span class="lab">มูด &amp; โทน</span><p>หมอกบาง แสงเช้านุ่ม พาสเทลฟุ้ง — สดชื่น สงบ เป็นส่วนตัว</p>
+        <div class="palette"><span style="background:#aab4c6"></span><span style="background:#c7cbb6"></span><span style="background:#e9d8bf"></span><span style="background:#d9a86a"></span></div></div>
+      <div class="block"><h3>📷 ตั้งกล้อง G97</h3><div class="rows">
+        <div class="r"><span>สไตล์ภาพ [Photo Style]</span><b><em>Natural</em></b></div>
+        <div class="r"><span>คอนทราสต์/อิ่มสี/คมชัด/ลดนอยส์</span><b>−2 / −1 / −3 / −2</b></div>
+        <div class="r"><span>เงาไฮไลท์ [Highlight Shadow]</span><b>H−2 · S+3</b></div>
+        <div class="r"><span>i.Dynamic</span><b>Low</b></div>
+        <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>~5000K · Blue +1</b></div>
+        <div class="r"><span>ชดเชยแสง [EV]</span><b>+0.3</b></div>
+        <div class="r"><span>เลนส์ / ISO / f</span><b>12–18mm · 200 · f7–8</b></div>
+      </div></div>
+      <div class="block"><h3>✨ เทคนิค (ไม่ใช้ฟิลเตอร์)</h3><div class="fchips">
+        <div class="fchip on"><span class="n">ความฟุ้ง</span><span class="s">หมอกจริง</span></div>
+        <div class="fchip on"><span class="n">น้ำ/แสงนิ่ง</span><span class="s">ลมเช้าสงบ</span></div>
+        <div class="fchip mid"><span class="n">โบเก้</span><span class="s">25mm f/1.7</span></div>
+      </div><p style="font-size:.74rem;color:var(--ink3);margin-top:8px">ช่วงนี้ธรรมชาติทำหน้าที่แทนฟิลเตอร์ให้หมด — หมอก = mist จริง แสงเช้า = นุ่มเอง แค่กดตามสูตร Pastel</p></div>
+      <div class="block"><h3>📸 ช็อตเด็ด @ SOL</h3>
+        <label class="chk"><input type="checkbox"><span>กาแฟหน้าเต็นท์ + หมอกหลัง (25mm f/1.7)</span></label>
+        <label class="chk"><input type="checkbox"><span>ทิวสนเรียงแถว + หมอกลอยหุบเขา (12mm)</span></label>
+        <label class="chk"><input type="checkbox"><span>แฟนห่มผ้านั่งหน้าเต็นท์รับวิว</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DAY ===== -->
+  <div class="card day">
+    <div class="cardhead"><span class="emoji">☀️</span><div><h2>กลางวัน</h2><span class="time">10:00–15:00 · Tellus Cafe + สวน</span></div></div>
+    <div class="scene"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=60" alt="คาเฟ่โทนขาวมินิมอลกลางแสงกลางวัน" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+    <div class="body">
+      <div class="mood"><span class="lab">มูด &amp; โทน</span><p>สะอาดสว่าง โทนขาว-นอร์ดิก ตัดกับเขียวทิวสน — มินิมอล ฟีลเมืองนอก</p>
+        <div class="palette"><span style="background:#f4efe7"></span><span style="background:#86a06a"></span><span style="background:#c98a5a"></span><span style="background:#8fb4d6"></span></div></div>
+      <div class="block"><h3>📷 ตั้งกล้อง G97</h3><div class="rows">
+        <div class="r"><span>สไตล์ภาพ [Photo Style]</span><b><em>Natural / Cinelike D</em></b></div>
+        <div class="r"><span>คอนทราสต์/อิ่มสี/คมชัด/ลดนอยส์</span><b>−3 / −2 / −2 / Low</b></div>
+        <div class="r"><span>เงาไฮไลท์ [Highlight Shadow]</span><b>H−3 · S+3</b></div>
+        <div class="r"><span>i.Dynamic</span><b>High</b></div>
+        <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>~5300K · Blue +1</b></div>
+        <div class="r"><span>ชดเชยแสง [EV]</span><b>−0.3 · เปิด Zebra</b></div>
+        <div class="r"><span>เลนส์ / ISO / f</span><b>25 หรือ 12–60 · 200 · f8</b></div>
+      </div></div>
+      <div class="block"><h3>✨ เทคนิค (ไม่ใช้ฟิลเตอร์)</h3><div class="fchips">
+        <div class="fchip on"><span class="n">คุมไฮไลต์</span><span class="s">−0.3 EV + Zebra</span></div>
+        <div class="fchip on"><span class="n">คุมคอนทราสต์</span><span class="s">i.Dynamic High</span></div>
+        <div class="fchip mid"><span class="n">มุมถ่าย</span><span class="s">ร่มเงา/แสงเฉียง</span></div>
+      </div><p style="font-size:.74rem;color:var(--ink3);margin-top:8px">แดดแรงไม่มี CPL → เลี่ยงมุมสะท้อนแดดตรง ๆ ใช้ร่มเงา/ซุ้มคาเฟ่ · ผนังขาว Tellus ระวังโอเวอร์ ดู Zebra เป็นหลัก · ลุคฟุ้งไปเก็บตอนแต่ง RAW (ลด Clarity, ยก Black)</p></div>
+      <div class="block"><h3>📸 ช็อตเด็ด @ SOL</h3>
+        <label class="chk"><input type="checkbox"><span>คู่หน้า Tellus Cafe ตึกขาว (25mm)</span></label>
+        <label class="chk"><input type="checkbox"><span>ตึกคาเฟ่ + ทิวสนเป็นฉากหลัง (12–60)</span></label>
+        <label class="chk"><input type="checkbox"><span>มุมสวน/ปิคนิคบนเนินหญ้า</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EVENING ===== -->
+  <div class="card eve">
+    <div class="cardhead"><span class="emoji">🌇</span><div><h2>เย็น</h2><span class="time">16:30–19:00 · ซันเซ็ตบนเนิน ★ ไฮไลต์</span></div></div>
+    <div class="scene"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=60" alt="พระอาทิตย์ตกฟ้าทอง-ม่วงเหนือทุ่งเนินเขา" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+    <div class="body">
+      <div class="mood"><span class="lab">มูด &amp; โทน</span><p>ฟ้าทอง-ส้ม-ม่วงไล่สี เงาทิวสนตัดขอบ — โรแมนติก อบอุ่น ดราม่า</p>
+        <div class="palette"><span style="background:#6b5a86"></span><span style="background:#d8896a"></span><span style="background:#f2c27a"></span><span style="background:#241b26"></span></div></div>
+      <div class="block"><h3>📷 ตั้งกล้อง G97</h3><div class="rows">
+        <div class="r"><span>สไตล์ภาพ [Photo Style]</span><b><em>Natural</em></b></div>
+        <div class="r"><span>คอนทราสต์/อิ่มสี/คมชัด</span><b>−2 / −1 / −3</b></div>
+        <div class="r"><span>เงาไฮไลท์ [Highlight Shadow]</span><b>H−2 · S+2</b></div>
+        <div class="r"><span>i.Dynamic</span><b>Standard</b></div>
+        <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>~5500K (คงอุ่น)</b></div>
+        <div class="r"><span>ชดเชยแสง [EV]</span><b>+0.3</b></div>
+        <div class="r"><span>เลนส์ / ISO / f</span><b>12–25mm · 200–400 · f8</b></div>
+      </div></div>
+      <div class="block"><h3>✨ เทคนิค (ไม่ใช้ฟิลเตอร์)</h3><div class="fchips">
+        <div class="fchip on"><span class="n">แสงทอง</span><span class="s">นุ่มเอง ฟรี</span></div>
+        <div class="fchip on"><span class="n">ฟุ้งย้อนแสง</span><span class="s">ถ่ายหันเข้าตะวัน</span></div>
+        <div class="fchip mid"><span class="n">ไล่สีฟ้า</span><span class="s">รอหลังตะวันตก 15น.</span></div>
+      </div><p style="font-size:.74rem;color:var(--ink3);margin-top:8px">ย้อนแสงทอง = แฟลร์/ฟุ้งธรรมชาติแทน mist ได้เลย (เปิดหน้าเลนส์รับแสงเฉียง) · อยู่ต่อหลังตะวันตกอีก 15–30 นาที ฟ้าจะไล่ส้ม→ม่วง→น้ำเงิน สวยสุดของวัน</p></div>
+      <div class="block"><h3>📸 ช็อตเด็ด @ SOL</h3>
+        <label class="chk"><input type="checkbox"><span>ซันเซ็ตบนเนินมองข้ามหุบเขา (12–60)</span></label>
+        <label class="chk"><input type="checkbox"><span>Silhouette คู่ย้อนแสงทอง (25mm f/1.7)</span></label>
+        <label class="chk"><input type="checkbox"><span>เงาทิวสนตัดฟ้าส้ม-ม่วง</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NIGHT ===== -->
+  <div class="card night">
+    <div class="cardhead"><span class="emoji">🌙</span><div><h2>กลางคืน</h2><span class="time">หลังตะวันตก · กองไฟ + ดาว + หนังกลางแปลง</span></div></div>
+    <div class="scene"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1000&q=60" alt="เต็นท์กลางคืน กองไฟ และฟ้าเต็มดาว" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+    <div class="body">
+      <div class="mood"><span class="lab">มูด &amp; โทน</span><p>วอร์มจากกองไฟ/ไฟสตริง ตัดกับฟ้ามืดเห็นดาว — อบอุ่น ใกล้ชิด คอนทราสต์สูง</p>
+        <div class="palette"><span style="background:#10142b"></span><span style="background:#e0822a"></span><span style="background:#ffd27a"></span><span style="background:#2a2740"></span></div></div>
+      <div class="block"><h3>📷 ตั้งกล้อง — กองไฟ / คู่</h3><div class="rows">
+        <div class="r"><span>สไตล์ภาพ [Photo Style]</span><b><em>Natural</em></b></div>
+        <div class="r"><span>คอนทราสต์/ลดนอยส์</span><b>−1 / Standard</b></div>
+        <div class="r"><span>เงาไฮไลท์ [Highlight Shadow]</span><b>H0 · S+2</b></div>
+        <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>~3900K (กันส้มเกิน)</b></div>
+        <div class="r"><span>เลนส์ / ISO / f / speed</span><b>25mm · 800–1600 · f1.7 · 1/100</b></div>
+      </div></div>
+      <div class="block"><h3>🌌 ตั้งกล้อง — ดาว (ขาตั้ง)</h3><div class="rows">
+        <div class="r"><span>เลนส์ / f</span><b>12mm · f3.5</b></div>
+        <div class="r"><span>ISO / Shutter</span><b>1600 · 8–15s</b></div>
+        <div class="r"><span>โฟกัส / ลั่นชัตเตอร์</span><b>MF ∞ · 2-sec timer</b></div>
+        <div class="r"><span>เสริม</span><b>High ISO NR · ปิด IBIS บนขาตั้ง</b></div>
+      </div></div>
+      <div class="block"><h3>✨ เทคนิค (ไม่ใช้ฟิลเตอร์)</h3><div class="fchips">
+        <div class="fchip on"><span class="n">สู้มืด</span><span class="s">f/1.7 + IBIS</span></div>
+        <div class="fchip on"><span class="n">ไฟฟุ้งเป็นดวง</span><span class="s">เบลอโฟกัสหน้า</span></div>
+        <div class="fchip mid"><span class="n">ดาวคม</span><span class="s">ขาตั้ง C3</span></div>
+      </div><p style="font-size:.74rem;color:var(--ink3);margin-top:8px">ข้อดีของไม่มีฟิลเตอร์: กลางคืน <b style="color:var(--ink2)">ไม่เสียแสง ไม่มีแฟลร์แปลกปลอม</b> ดาว/ไฟคมกว่า · อยากได้ไฟกองไฟฟุ้งเป็นดวง ให้ถ่ายโบเก้ (โฟกัสที่คน เปิด f/1.7 ไฟหลังฟุ้งเอง)</p></div>
+      <div class="block"><h3>📸 ช็อตเด็ด @ SOL</h3>
+        <label class="chk"><input type="checkbox"><span>คู่หน้ากองไฟ ไฟวอร์ม (25mm f/1.7)</span></label>
+        <label class="chk"><input type="checkbox"><span>มาร์ชเมลโล่ / BBQ โคลสอัพ</span></label>
+        <label class="chk"><input type="checkbox"><span>ดาว/ทางช้างเผือกเหนือทิวสน (ขาตั้ง)</span></label>
+        <label class="chk"><input type="checkbox"><span>ลานหนังกลางแปลง (เช็กว่ามีคืนไหน)</span></label>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /cards -->
+
+  <div class="tips">
+    <h3>📌 ทิปเฉพาะ SOL Glamping</h3>
+    <ul>
+      <li>ขอห้อง <b>วิวเขา</b> (รีวิวเชียร์หลัง 010) ถ่ายซันเซ็ต/ดาวจากหน้าเต็นท์ได้เลย</li>
+      <li>เช้าหลังฝน <b>ระวังหอยทาก/แมลง</b> ตอนเดินตั้งขาตั้งถ่าย</li>
+      <li>กองไฟ + หนังกลางแปลงมี <b>เฉพาะบางคืน</b> (รีวิวบอกเสาร์) — เช็กกับที่พักก่อนวางแผนช็อตกลางคืน</li>
+      <li>มี Tellus Cafe + ร้าน Lucine ในที่พัก — เก็บช็อตคาเฟ่ตอนสายได้โดยไม่ต้องออกไปไหน</li>
+      <li>ชาร์จแบต + การ์ดว่างให้พร้อม · ถ่าย <b>RAW (.RW2)</b> ทุกช่วงเพื่อปรับ matte/faded ทีหลัง</li>
+      <li>อากาศ ~21°C ตอนเช้าเย็นชื้น — <b>เช็ดหน้าเลนส์กันฝ้า</b>ก่อนถ่าย (พกผ้าไมโครไฟเบอร์)</li>
+      <li>กลับมาแล้วเก็บงานลุค matte ใน Lightroom: <b>ยก Black point · ลด Highlights · ลด Clarity</b> · Split Tone เงาฟ้า/ไฮไลต์อุ่น</li>
+    </ul>
+  </div>
+
+  <footer><a href="index.html" style="color:var(--teal);text-decoration:none">← กลับคู่มือถ่ายภาพหลัก</a><br><br>Lumix G97 · จัดทำเพื่อทริป SOL Glamping เขาใหญ่ · แตะช่องเพื่อติ๊กช็อตที่ถ่ายแล้ว</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>จำลองภาพ 2 เลนส์ · Lumix G97</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chonburi&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#16130f; --bg2:#1e1a15; --line:rgba(240,230,210,.14); --line2:rgba(240,230,210,.28);
+    --ink:#f2ebdd; --ink2:#cdbfa6; --ink3:#7d7464;
+    --gold:#e0a44a; --gold-soft:#f2c982; --teal:#5fb6a2; --coral:#e08a6a;
+    --serif:'Chonburi',serif; --sans:'IBM Plex Sans Thai',sans-serif; --mono:'Space Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);padding:24px;line-height:1.6;
+    background-image:radial-gradient(circle at 20% 0%,rgba(224,164,74,.06),transparent 50%)}
+  .wrap{max-width:880px;margin:0 auto}
+  h1{font-family:var(--serif);font-size:1.7rem;color:var(--gold);font-weight:400;margin-bottom:4px}
+  .sub{color:var(--ink3);font-size:.9rem;margin-bottom:22px}
+  .modes{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+  .modebtn{flex:1;min-width:180px;background:var(--bg2);border:1px solid var(--line);color:var(--ink2);
+    font-family:var(--sans);font-size:.95rem;padding:14px 16px;border-radius:12px;cursor:pointer;transition:.2s;text-align:left}
+  .modebtn .t{display:block;color:var(--ink);font-weight:600}
+  .modebtn .d{display:block;font-size:.78rem;color:var(--ink3);font-family:var(--mono)}
+  .modebtn.active{border-color:var(--gold);background:#2a2114}
+  .modebtn.active .t{color:var(--gold-soft)}
+  .viewfinder{position:relative;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+    border:1px solid var(--line2);background:#0c0a08;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+  .viewfinder svg{display:block;width:100%;height:100%}
+  .vf-grid{position:absolute;inset:0;pointer-events:none;opacity:.25}
+  .vf-grid::before,.vf-grid::after{content:"";position:absolute;background:rgba(255,255,255,.4)}
+  .vf-grid::before{left:33.33%;right:33.33%;top:0;bottom:0;border-left:1px solid rgba(255,255,255,.3);border-right:1px solid rgba(255,255,255,.3)}
+  .vf-grid::after{top:33.33%;bottom:33.33%;left:0;right:0;border-top:1px solid rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.3)}
+  .badge{position:absolute;left:12px;top:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
+    border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:.78rem;color:var(--gold-soft)}
+  .dofbadge{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
+    border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:.74rem;color:var(--teal)}
+  .controls{margin-top:18px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .ctl{margin-bottom:18px}
+  .ctl:last-child{margin-bottom:0}
+  .ctl label{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:8px}
+  .ctl label .val{font-family:var(--mono);color:var(--gold-soft)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;
+    background:#2a241c;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+    background:var(--gold);cursor:pointer;border:2px solid #16130f;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+  input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);
+    cursor:pointer;border:2px solid #16130f}
+  input[type=range]:disabled{opacity:.4}
+  input[type=range]:disabled::-webkit-slider-thumb{background:var(--ink3)}
+  .readout{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+  .ro{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+  .ro .k{font-size:.7rem;color:var(--ink3);font-family:var(--mono);display:block;margin-bottom:4px}
+  .ro .v{font-size:1.05rem;color:var(--gold-soft);font-family:var(--mono)}
+  .note{margin-top:16px;font-size:.82rem;color:var(--ink3);background:rgba(95,182,162,.07);
+    border-left:3px solid var(--teal);padding:12px 14px;border-radius:0 8px 8px 0}
+  @media(max-width:560px){.readout{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>จำลองภาพ 2 เลนส์</h1>
+  <p class="sub">เปรียบเทียบมุมรับภาพ &amp; การละลายหลังของ Lumix G97 · เลื่อนระยะเลนส์และรูรับแสงเพื่อดูภาพเปลี่ยน (เป็นภาพจำลองเพื่อความเข้าใจ ไม่ใช่ภาพถ่ายจริง)</p>
+
+  <div class="modes">
+    <button class="modebtn active" id="mKit"><span class="t">เลนส์คิต 12–60mm</span><span class="d">f/3.5–5.6 · ซูมได้</span></button>
+    <button class="modebtn" id="mPrime"><span class="t">25mm f/1.7</span><span class="d">เลนส์ฟิกซ์ · ละลายหลังเก่ง</span></button>
+  </div>
+
+  <div class="viewfinder">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#9aa1ba"/><stop offset="0.55" stop-color="#c2b3b0"/><stop offset="1" stop-color="#e0c8af"/>
+        </linearGradient>
+        <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#7c8298"/><stop offset="1" stop-color="#2f2d33"/>
+        </linearGradient>
+        <radialGradient id="boke" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#fff7e6" stop-opacity="0.9"/><stop offset="1" stop-color="#fff7e6" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- background scene (scales with focal length, blurs with aperture) -->
+      <g id="scene">
+        <rect x="-200" y="-150" width="800" height="600" fill="#0c0a08"/>
+        <rect x="0" y="0" width="400" height="185" fill="url(#sky)"/>
+        <!-- leaning tower -->
+        <g transform="rotate(-3 200 110)">
+          <rect x="186" y="48" width="28" height="125" rx="4" fill="#e6dcc8"/>
+          <rect x="186" y="48" width="28" height="125" rx="4" fill="none" stroke="#cbbfa6" stroke-width="0.8"/>
+          <line x1="186" y1="78" x2="214" y2="78" stroke="#bcae93" stroke-width="0.6"/>
+          <line x1="186" y1="108" x2="214" y2="108" stroke="#bcae93" stroke-width="0.6"/>
+          <line x1="186" y1="138" x2="214" y2="138" stroke="#bcae93" stroke-width="0.6"/>
+          <rect x="183" y="42" width="34" height="8" rx="2" fill="#d8ccb4"/>
+        </g>
+        <!-- buildings left -->
+        <rect x="20" y="120" width="60" height="60" fill="#b5703f"/><polygon points="20,120 50,104 80,120" fill="#7d4329"/>
+        <rect x="78" y="128" width="48" height="52" fill="#c98a5a"/><polygon points="78,128 102,114 126,128" fill="#8a4b32"/>
+        <!-- buildings right -->
+        <rect x="276" y="124" width="54" height="56" fill="#bd7a46"/><polygon points="276,124 303,108 330,124" fill="#83452b"/>
+        <rect x="330" y="132" width="50" height="48" fill="#cf9461"/><polygon points="330,132 355,118 380,132" fill="#8a4b32"/>
+        <!-- bokeh highlights (background) -->
+        <g id="bokeh" opacity="0">
+          <circle cx="60" cy="70" r="16" fill="url(#boke)"/>
+          <circle cx="120" cy="50" r="12" fill="url(#boke)"/>
+          <circle cx="320" cy="64" r="18" fill="url(#boke)"/>
+          <circle cx="360" cy="100" r="10" fill="url(#boke)"/>
+          <circle cx="250" cy="150" r="13" fill="url(#boke)"/>
+        </g>
+        <!-- water + reflection -->
+        <rect x="0" y="185" width="400" height="115" fill="url(#water)"/>
+        <rect x="186" y="185" width="28" height="70" fill="#d8ccb4" opacity="0.28"/>
+        <rect x="20" y="185" width="106" height="38" fill="#b5703f" opacity="0.22"/>
+        <rect x="276" y="185" width="104" height="36" fill="#bd7a46" opacity="0.22"/>
+        <line x1="0" y1="185" x2="400" y2="185" stroke="#e6dcc8" stroke-opacity="0.18" stroke-width="1.5"/>
+      </g>
+
+      <!-- foreground subject (stays sharp, fixed) -->
+      <g id="fg">
+        <rect x="0" y="250" width="400" height="50" fill="#231d16"/>
+        <rect x="0" y="248" width="400" height="4" fill="#3a3128"/>
+        <ellipse cx="78" cy="250" rx="34" ry="9" fill="#1a1510"/>
+        <path d="M52 222 q26 -10 52 0 l-6 26 q-20 8 -40 0 z" fill="#2b2017"/>
+        <path d="M52 222 q26 -10 52 0" fill="none" stroke="#e0a44a" stroke-width="2"/>
+        <path d="M104 228 q16 2 12 18 q-4 10 -14 8" fill="none" stroke="#2b2017" stroke-width="5"/>
+        <ellipse cx="78" cy="223" rx="24" ry="6" fill="#1c130c"/>
+        <ellipse cx="78" cy="222" rx="20" ry="4.5" fill="#3a2a1c"/>
+      </g>
+    </svg>
+    <div class="vf-grid"></div>
+    <div class="badge" id="badge">12mm · 24mm (FF)</div>
+    <div class="dofbadge" id="dofbadge">ชัดเกือบทั้งภาพ</div>
+  </div>
+
+  <div class="controls">
+    <div class="ctl">
+      <label>ระยะเลนส์ (Focal Length) <span class="val" id="fVal">12 mm</span></label>
+      <input type="range" id="focal" min="12" max="60" value="12" step="1">
+    </div>
+    <div class="ctl">
+      <label>รูรับแสง (Aperture) <span class="val" id="aVal">f/3.5</span></label>
+      <input type="range" id="aper" min="0" max="8" value="0" step="1">
+    </div>
+    <div class="readout">
+      <div class="ro"><span class="k">FOCAL</span><span class="v" id="roFocal">12mm</span></div>
+      <div class="ro"><span class="k">FF EQUIV ×2</span><span class="v" id="roFF">24mm</span></div>
+      <div class="ro"><span class="k">มุมรับภาพ</span><span class="v" id="roAOV">72°</span></div>
+      <div class="ro"><span class="k">APERTURE</span><span class="v" id="roAp">f/3.5</span></div>
+    </div>
+    <div class="note" id="note">เลนส์คิตที่ 12mm = มุมกว้างมาก เก็บวิว Toscana ได้ทั้งจัตุรัส แต่รูรับแสงแคบ (f/3.5) ฉากหลังจะค่อนข้างชัด</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var STOPS = [1.7, 2.0, 2.8, 4.0, 5.6, 8.0, 11, 16, 22];
+  var scene = document.getElementById('scene');
+  var bokeh = document.getElementById('bokeh');
+  var focal = document.getElementById('focal');
+  var aper  = document.getElementById('aper');
+  var mode = 'kit';
+
+  function maxApForFocal(f){ // kit lens: f/3.5 @12 -> f/5.6 @60
+    return 3.5 + (f-12)/48 * (5.6-3.5);
+  }
+  function nearestStopIndex(v){
+    var bi=0, bd=1e9;
+    for(var i=0;i<STOPS.length;i++){ var d=Math.abs(STOPS[i]-v); if(d<bd){bd=d;bi=i;} }
+    return bi;
+  }
+  function fmtAp(v){ return 'f/' + (v<10 ? v.toFixed(1) : Math.round(v)); }
+  function hfov(f){ return 2*Math.atan(17.3/(2*f))*180/Math.PI; }
+
+  function setApertureRange(){
+    if(mode==='prime'){
+      aper.min=0; aper.max=STOPS.length-1; // 1.7 .. 22
+    } else {
+      var minIdx = nearestStopIndex(maxApForFocal(parseInt(focal.value,10)));
+      aper.min=minIdx; aper.max=STOPS.length-1;
+      if(parseInt(aper.value,10) < minIdx) aper.value=minIdx;
+    }
+  }
+
+  function update(){
+    var f = parseInt(focal.value,10);
+    var apIdx = parseInt(aper.value,10);
+    var ap = STOPS[apIdx];
+
+    // FOV: scale scene around center (12mm = 1x, 60mm = 5x)
+    var s = f/12;
+    scene.setAttribute('transform','translate(200,150) scale('+s.toFixed(3)+') translate(-200,-150)');
+
+    // Background blur from focal & aperture
+    var blur = Math.min(16, Math.max(0, (f/ap)*0.55));
+    scene.style.filter = blur>0.2 ? 'blur('+blur.toFixed(1)+'px)' : 'none';
+    bokeh.setAttribute('opacity', Math.min(0.95, blur/9).toFixed(2));
+
+    // Readouts
+    var ff = f*2;
+    document.getElementById('fVal').textContent = f+' mm';
+    document.getElementById('aVal').textContent = fmtAp(ap);
+    document.getElementById('roFocal').textContent = f+'mm';
+    document.getElementById('roFF').textContent = ff+'mm';
+    document.getElementById('roAOV').textContent = Math.round(hfov(f))+'°';
+    document.getElementById('roAp').textContent = fmtAp(ap);
+    document.getElementById('badge').textContent = f+'mm · '+ff+'mm (FF)';
+
+    var dof = document.getElementById('dofbadge');
+    if(blur>7){ dof.textContent='ละลายหลังมาก'; }
+    else if(blur>3){ dof.textContent='ละลายหลังปานกลาง'; }
+    else { dof.textContent='ชัดเกือบทั้งภาพ'; }
+
+    // Note
+    var note = document.getElementById('note');
+    if(mode==='prime'){
+      note.textContent = '25mm f/1.7 = มุมปกติใกล้ตาเห็น (เท่า 50mm FF) เปิดรูรับแสงกว้างถึง f/1.7 ฉากหลังละลายฟุ้งเป็นโบเก้ เหมาะพอร์ตเทรต/อาหาร/แสงน้อย';
+    } else if(f<=18){
+      note.textContent = 'เลนส์คิตช่วงกว้าง (12–18mm) = เก็บวิวกว้าง เหมาะสถาปัตยกรรม/ทิวทัศน์ Toscana · รูรับแสงแคบ ฉากหลังค่อนข้างชัด';
+    } else if(f<=40){
+      note.textContent = 'ช่วงกลาง (~25–35mm) = สัดส่วนเป็นธรรมชาติ เหมาะถ่ายทั่วไป/คนเต็มตัว';
+    } else {
+      note.textContent = 'ช่วงเทเล (45–60mm) = ดึงวัตถุเข้ามาใกล้ บีบฉากหลัง (compression) ละลายหลังได้มากขึ้นแม้รูรับแสงไม่กว้าง';
+    }
+  }
+
+  document.getElementById('mKit').addEventListener('click',function(){
+    mode='kit'; this.classList.add('active'); document.getElementById('mPrime').classList.remove('active');
+    focal.disabled=false; focal.value=12; setApertureRange(); aper.value=aper.min; update();
+  });
+  document.getElementById('mPrime').addEventListener('click',function(){
+    mode='prime'; this.classList.add('active'); document.getElementById('mKit').classList.remove('active');
+    focal.disabled=true; focal.value=25; setApertureRange(); aper.value=0; update();
+  });
+  focal.addEventListener('input',function(){ if(mode==='kit'){ setApertureRange(); } update(); });
+  aper.addEventListener('input',update);
+
+  setApertureRange(); update();
+})();
+</script>
+</body>
+</html>
