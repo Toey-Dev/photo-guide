@@ -43,6 +43,7 @@
   .card.day{border-top:3px solid var(--day)}
   .card.eve{border-top:3px solid var(--eve)}
   .card.night{border-top:3px solid var(--night)}
+  .card.arch{border-top:3px solid var(--gold)}
   .cardhead{display:flex;align-items:center;gap:12px;padding:16px 16px 12px}
   .cardhead .emoji{font-size:1.8rem;line-height:1}
   .cardhead h2{font-family:var(--serif);font-size:1.25rem;font-weight:400}
@@ -85,6 +86,7 @@
   .topnav a{flex:1;text-align:center;color:var(--teal);text-decoration:none;font-size:.8rem;
     border:1px solid var(--line);padding:8px 10px;border-radius:10px;background:var(--bg2)}
   .topnav a:hover{border-color:var(--teal)}
+  .setimg{width:100%;aspect-ratio:16/6;object-fit:cover;border-radius:10px;display:block;margin:8px 0 10px;background:#0c0a08}
   .scene{position:relative}
   .scene img{width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;display:block;background:#0c0a08}
   .scene .cap{position:absolute;right:8px;bottom:6px;font-family:var(--mono);font-size:.58rem;color:rgba(242,235,221,.55);background:rgba(0,0,0,.35);padding:2px 6px;border-radius:5px}
@@ -95,7 +97,9 @@
     header h1{font-size:2rem}
     header .gear{font-size:.8rem}
     .qtable{font-size:.88rem}
-    .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+    .cards .card.arch{grid-column:1/-1}
+    .cards .card.arch .scene img{aspect-ratio:21/6}
     .cards .card{margin-bottom:0}
     .tips li{font-size:.92rem}
     .preset,.offline{font-size:.86rem}
@@ -169,11 +173,53 @@
       <li><b>C2 · วิว 12–60</b> — โหมด <b>A</b> · f/8 · ISO 200 · AFS + โฟกัส 1 จุด [1-Area] · Drive: Single · สูตร Pastel + Hi/Sh H−2·S+3 + i.Dynamic Low · WB 5200K Blue+1 · EV 0 (กลางวันลด −0.3 ดู Zebra)</li>
       <li><b>C3 · กลางคืน/ดาว</b> — โหมด <b>M</b> · f/3.5 · ISO 1600 · Shutter 10–15s · <b>แมนนวลโฟกัส MF หมุนไป ∞</b> · Drive: ตั้งเวลา 2 วิ [Self Timer] · เปิดชัตเตอร์ NR [Long Shtr NR] · ไวท์บาลานซ์ ~3900K · ปิดกันสั่น [Stabilizer] เมื่ออยู่บนขาตั้ง</li>
     </ul>
-    <p style="font-size:.76rem;color:var(--ink3);margin-top:8px">หน้างานแค่ <b style="color:var(--gold-soft)">หมุนแป้นไป C1/C2/C3</b> — โหลดค่าทั้งชุดใน 1 วิ · ✅ ยืนยันจากจอกล้องจริงแล้ว: หน้า "ตั้งค่าบันทึกเอง" แสดง 3 ช่องพอดี C1 · C2 · C3 = ใช้ครบทั้ง 3 สูตรเลย ไม่มีช่องเหลือ</p>
+    <p style="font-size:.76rem;color:var(--ink3);margin-top:8px">หน้างานแค่ <b style="color:var(--gold-soft)">หมุนแป้นไป C1/C2/C3</b> — โหลดค่าทั้งชุดใน 1 วิ · ✅ ยืนยันจากจอกล้องจริงแล้ว: หน้า "ตั้งค่าบันทึกเอง" แสดง 3 ช่องพอดี C1 · C2 · C3 = ใช้ครบทั้ง 3 สูตรเลย ไม่มีช่องเหลือ · อยากได้สีอิ่มขึ้น? ดู <b style="color:var(--coral)">เซตสีอิ่ม ×4</b> ด้านล่าง</p>
   </div>
 
   
   <div class="offline" style="border-color:rgba(242,201,130,.35);color:var(--gold-soft)">📖 ชื่อเมนูไทยตรวจกับจอ G97 เครื่องจริง: สไตล์ภาพ (ธรรมชาติ) · คุณภาพ · อัตราส่วน · เงาไฮไลท์ · i.Dynamic · ชัตเตอร์ NR · เส้นนำ · ตั้งค่าบันทึกเอง (C1/C2/C3) ฯลฯ — วงเล็บ [ ] คือชื่ออังกฤษเผื่อสลับภาษาเมนู</div>
+
+  <!-- ===== SATURATED TONE SETS ===== -->
+  <div class="tips" style="border-left:3px solid var(--coral)">
+    <h3>🎨 เซตสีอิ่ม ×4 — ทางเลือกเมื่ออยากให้สีสดขึ้น (Pastel เดิมคงไว้)</h3>
+    <p style="font-size:.8rem;color:var(--ink3);margin-bottom:4px">อิ่มขึ้นแบบพอดี ไม่แสบตา · ทุกเซตใช้เมนูเดิม: "สไตล์ภาพ" ปรับ 4 ค่า → "เงาไฮไลท์" → ไวท์บาลานซ์ · <b style="color:var(--gold-soft)">วิธีเก็บ:</b> ปรับเสร็จกด <b>"DISP.บันทึก"</b> ในหน้าปรับสไตล์ = เซฟลงช่องสไตล์ <b>CUST</b> (มี 1 ช่อง — แนะนำเก็บเซต 1 ที่ใช้บ่อยสุด เซตอื่นปรับสดตามการ์ด) จะได้สลับ ธรรมชาติ(Pastel) ↔ CUST(สีอิ่ม) ได้โดยไม่แตะ C1/C2/C3</p>
+
+    <div class="block"><h3 style="color:var(--teal)">1 · Khao Yai Fresh — เขียวเขาอิ่มพอดี ⭐ ใช้ทั้งวัน</h3><img class="setimg" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=60" alt="ป่าสนเขียวชอุ่ม แสงลอดต้นไม้ โทนเขียวอิ่มพอดี" loading="lazy" width="1000" height="375"><div class="rows">
+      <div class="r"><span>ฐานสไตล์ภาพ</span><b><em>NAT (ธรรมชาติ)</em></b></div>
+      <div class="r"><span>คอนทราสต์/อิ่มสี/คมชัด/ลดนอยส์</span><b>−1 / +1 / −2 / −2</b></div>
+      <div class="r"><span>เงาไฮไลท์</span><b>H−2 · S+2</b></div>
+      <div class="r"><span>i.Dynamic / ไวท์บาลานซ์</span><b>LOW · 5300K (ไม่ shift)</b></div>
+      <div class="r"><span>เหมาะกับ</span><b>วิวทิวสน + คน · ทุกช่วงแสง</b></div>
+    </div><p style="font-size:.74rem;color:var(--ink3);margin-top:6px">คือ Pastel เวอร์ชันอิ่ม — ต่างจากเดิมแค่ คอนทราสต์ −2→−1 · อิ่มสี −1→+1 · WB เลิก shift น้ำเงิน สลับไปมาง่ายสุด</p></div>
+
+    <div class="block"><h3 style="color:var(--gold-soft)">2 · Golden Hour Rich — ทองอุ่นตอนเย็น</h3><img class="setimg" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=60" alt="ทุ่งหญ้าแสงทองยามเย็น โทนอุ่นเข้ม" loading="lazy" width="1000" height="375"><div class="rows">
+      <div class="r"><span>ฐานสไตล์ภาพ</span><b><em>STD. (Standard)</em></b></div>
+      <div class="r"><span>คอนทราสต์/อิ่มสี/คมชัด/ลดนอยส์</span><b>−1 / +1 / −1 / −2</b></div>
+      <div class="r"><span>เงาไฮไลท์</span><b>H−2 · S+1</b></div>
+      <div class="r"><span>ไวท์บาลานซ์</span><b>5600–5900K (อุ่นขึ้น)</b></div>
+      <div class="r"><span>เหมาะกับ</span><b>ซันเซ็ตบนเนิน · ย้อนแสงทอง</b></div>
+    </div><p style="font-size:.74rem;color:var(--ink3);margin-top:6px">ฟ้าไล่สีเข้มขึ้น แสงทองจัดขึ้น ผิวคนยังไม่ส้มเกิน — สลับใช้เฉพาะช่วงเย็น</p></div>
+
+    <div class="block"><h3 style="color:var(--morning)">3 · Scenery Pop — วิวจัดเต็ม (อิ่มสุดในชุด)</h3><img class="setimg" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=60" alt="ภูเขาและทะเลสาบสีสดแบบโปสต์การ์ด" loading="lazy" width="1000" height="375"><div class="rows">
+      <div class="r"><span>ฐานสไตล์ภาพ</span><b><em>SCNY (Scenery)</em></b></div>
+      <div class="r"><span>คอนทราสต์/อิ่มสี/คมชัด/ลดนอยส์</span><b>0 / 0 ถึง +1 / −1 / −2</b></div>
+      <div class="r"><span>เงาไฮไลท์</span><b>H−1 · S+1</b></div>
+      <div class="r"><span>ไวท์บาลานซ์</span><b>5300K</b></div>
+      <div class="r"><span>เหมาะกับ</span><b>วิวล้วน ฟ้า-เขียวแบบโปสต์การ์ด</b></div>
+    </div><p style="font-size:.74rem;color:var(--ink3);margin-top:6px">⚠️ SCNY ดันฟ้า-เขียวแรงจากโรงงาน — ไม่เหมาะถ่ายคน (ผิวติดอมสี) ใช้กับทิวทัศน์เท่านั้น</p></div>
+
+    <div class="block"><h3 style="color:var(--coral)">4 · Cinelike V Warm — คอนทราสต์หนัง</h3><img class="setimg" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=60" alt="ภูเขาใต้ฟ้าดาว โทนหนังดราม่า" loading="lazy" width="1000" height="375"><div class="rows">
+      <div class="r"><span>ฐานสไตล์ภาพ</span><b><em>CNEV (Cinelike V)</em></b></div>
+      <div class="r"><span>คอนทราสต์/อิ่มสี/คมชัด/ลดนอยส์</span><b>0 / 0 / −2 / −2</b></div>
+      <div class="r"><span>เงาไฮไลท์</span><b>H−1 · S+2</b></div>
+      <div class="r"><span>ไวท์บาลานซ์</span><b>5400K</b></div>
+      <div class="r"><span>เหมาะกับ</span><b>ลุคดราม่า/ภาพยนตร์ · กองไฟกลางคืน</b></div>
+    </div><p style="font-size:.74rem;color:var(--ink3);margin-top:6px">เงาลึก สีแน่นแบบหนัง — หลุดจากคาแรกเตอร์พาสเทลมากสุด เหมาะช็อตอารมณ์/กลางคืน</p></div>
+
+    <p style="font-size:.76rem;color:var(--ink3);margin-top:12px">💡 จำง่าย: ทุกเซตแก้จาก Pastel แค่ 2–3 ค่า · ถ่าย RAW ไว้เสมอ เปลี่ยนใจทีหลังได้หมด · ถ้าติดใจเซตไหนถาวร ค่อยเซฟทับลง C1/C2 ผ่าน "ตั้งค่าบันทึกเอง"</p>
+    <p style="font-size:.76rem;color:var(--gold-soft);margin-top:8px;background:rgba(242,201,130,.08);border-radius:8px;padding:9px 11px">☁️ <b>บทเรียนจากช็อตจริง (วันครึ้ม):</b> เมฆหนา = แสงแบน+เย็นอยู่แล้ว อย่าใช้ Pastel ซ้ำ (จืดสองชั้น) → ใช้ <b>Fresh</b> และดัน WB เป็น <b>5500–6000K หรือพรีเซตเมฆครึ้ม</b> (5300K ยังเย็นไป) · ฟ้าสว่างกินเฟรมเยอะ → <b>+0.3 ถึง +0.7 EV</b> กันตัวแบบจม หรือกดมุมกล้องให้ฟ้าเหลือ ~1/3 · ครึ้มทั้งวันลอง <b>Cinelike V Warm</b> ได้ภาพ moody แทนภาพจืด</p>
+  </div>
+
 <div class="cards">
   <!-- ===== MORNING ===== -->
   <div class="card morning">
@@ -280,7 +326,7 @@
         <div class="r"><span>เลนส์ / f</span><b>12mm · f3.5</b></div>
         <div class="r"><span>ISO / Shutter</span><b>1600 · 8–15s</b></div>
         <div class="r"><span>โฟกัส / ลั่นชัตเตอร์</span><b>MF ∞ · 2-sec timer</b></div>
-        <div class="r"><span>เสริม</span><b>High ISO NR · ปิด IBIS บนขาตั้ง</b></div>
+        <div class="r"><span>เสริม</span><b>เปิดชัตเตอร์ NR [Long Shtr NR] · ปิดกันสั่นบนขาตั้ง</b></div>
       </div></div>
       <div class="block"><h3>✨ เทคนิค (ไม่ใช้ฟิลเตอร์)</h3><div class="fchips">
         <div class="fchip on"><span class="n">สู้มืด</span><span class="s">f/1.7 + IBIS</span></div>
@@ -296,7 +342,36 @@
     </div>
   </div>
 
-  </div><!-- /cards -->
+  
+  <!-- ===== ARCH / BRIGHT BACKGROUND PORTRAIT ===== -->
+  <div class="card arch">
+    <div class="cardhead"><span class="emoji">🏛️</span><div><h2>คน + ฉากหลังตึก</h2><span class="time">Toscana / คาเฟ่ · ตัวแบบในร่ม ฉากหลังแดดจ้า</span></div></div>
+    <div class="scene"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=60" alt="ตึกสีพาสเทลสไตล์อิตาลีริมผา ฉากหลังสถาปัตยกรรม" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+    <div class="body">
+      <div class="mood"><span class="lab">มูด &amp; โทน</span><p>คนเด่น ตึกพาสเทลยังชัดและ "มีสี" — ไม่ปล่อยฉากหลังหลุดขาว</p>
+        <div class="palette"><span style="background:#f2e8d8"></span><span style="background:#d9986a"></span><span style="background:#9aa87a"></span><span style="background:#8fa3b0"></span></div></div>
+      <div class="block"><h3>📷 ตั้งกล้อง G97</h3><div class="rows">
+        <div class="r"><span>สไตล์ภาพ</span><b><em>Fresh (NAT · อิ่มสี +1)</em></b></div>
+        <div class="r"><span>รูรับแสง</span><b>f/5.6–8 = เห็นตึกชัด · f/1.7–2.8 เฉพาะตั้งใจละลาย</b></div>
+        <div class="r"><span>เงาไฮไลท์</span><b>H−3 · S+3</b></div>
+        <div class="r"><span>i.Dynamic</span><b>HIGH</b></div>
+        <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>5300K</b></div>
+        <div class="r"><span>ชดเชยแสง [EV]</span><b>−0.7 ถึง −1 (รักษาฉากหลัง → ดึงหน้าคืนจาก RAW)</b></div>
+        <div class="r"><span>โฟกัส</span><b>AFS + ตรวจจับใบหน้า/ดวงตา</b></div>
+      </div></div>
+      <div class="block"><h3>⚠️ กันพลาดซ้ำ (บทเรียนจากช็อตจริง)</h3><div class="fchips">
+        <div class="fchip on"><span class="n">เช็กเลข f</span><span class="s">ทุกครั้งหลังสลับ C</span></div>
+        <div class="fchip on"><span class="n">แสงเสมอกัน</span><span class="s">ขยับพ้นชายร่ม</span></div>
+        <div class="fchip mid"><span class="n">คุมฟ้า</span><span class="s">เหลือ ≤1/3 เฟรม</span></div>
+      </div><p style="font-size:.74rem;color:var(--ink3);margin-top:8px">2 สาเหตุที่ "หลังเบลอ+หลังขาว": (1) เซตกลางวันวางไว้ f/8 แต่ค่าเลื่อนไป f/3.x → ระยะนั่งโต๊ะหลังละลายทันที (2) ตัวแบบใต้ร่มแต่ฉากหลังโดนแดดเต็ม ต่างกัน ~2 สต็อป กล้องถัวแสงให้หน้า → ฟ้า/หอเอนหลุดขาว — แก้ด้วยการลด EV แล้วดึงหน้าใน RAW หรือย้ายให้อยู่แสงเดียวกับฉากหลัง</p></div>
+      <div class="block"><h3>📸 ช็อตเด็ด</h3>
+        <label class="chk"><input type="checkbox"><span>นั่งคาเฟ่ เห็นตึกชัดทั้งฉาก (f/8 · EV −0.7)</span></label>
+        <label class="chk"><input type="checkbox"><span>ละลายหลังแบบตั้งใจ (25mm f/1.7 · เดินเข้าใกล้)</span></label>
+        <label class="chk"><input type="checkbox"><span>มุมกดต่ำลง ให้ตึกกินเฟรมแทนฟ้า</span></label>
+      </div>
+    </div>
+  </div>
+</div><!-- /cards -->
 
   <div class="tips">
     <h3>📌 ทิปเฉพาะ SOL Glamping</h3>
