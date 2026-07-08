@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>คู่มือแต่งภาพ Lightroom — Lumix G97</title>
+<title>คู่มือแต่งภาพ Darktable — Lumix G97</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chonburi&family=Noto+Serif+Thai:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -166,24 +166,27 @@ footer p{color:var(--ink3);font-size:.85rem}
 <body>
 <nav>
   <div class="wrap">
-    <a class="brand" href="#">แต่งภาพ · LIGHTROOM GUIDE</a>
+    <a class="brand" href="#">แต่งภาพ · DARKTABLE GUIDE</a>
     <button class="menubtn" id="menuBtn" aria-expanded="false">สารบัญ <span class="ar">▾</span></button>
   </div>
   <div class="menupanel" id="menuPanel">
     <div class="menugrid">
-      <a href="#flow"><span class="n">01</span>ลำดับการแต่ง</a>
+      <a href="#flow"><span class="n">01</span>เริ่มต้น + ลำดับงาน</a>
       <a href="#why"><span class="n">02</span>ทำไมต้อง RAW</a>
-      <a href="#basic"><span class="n">03</span>แผง Basic</a>
+      <a href="#basic"><span class="n">03</span>โมดูลพื้นฐาน</a>
       <a href="#steps"><span class="n">04</span>แต่งทีละขั้น</a>
       <a href="#curve"><span class="n">05</span>Tone Curve</a>
-      <a href="#hsl"><span class="n">06</span>HSL / สี</a>
-      <a href="#detail"><span class="n">07</span>ความคม & noise</a>
+      <a href="#hsl"><span class="n">06</span>Color Zones</a>
+      <a href="#detail"><span class="n">07</span>ความคม &amp; noise</a>
       <a href="#lens"><span class="n">08</span>แก้เลนส์ / ครอป</a>
-      <a href="#mask"><span class="n">09</span>แต่งเฉพาะจุด</a>
+      <a href="#mask"><span class="n">09</span>Masking</a>
       <a href="#export"><span class="n">10</span>Export</a>
-      <a href="#apps"><span class="n">11</span>โปรแกรมแต่งภาพ</a>
-      <a href="#tips"><span class="n">12</span>เคล็ดลับ</a>
+      <a href="#cases"><span class="n">11</span>สถานการณ์จริง</a>
+      <a href="#tips"><span class="n">12</span>เคล็ดลับ &amp; Styles</a>
+      <a href="#walk"><span class="n">13</span>แต่งจริงทีละคลิก</a>
       <a class="back" href="index.html"><span class="n">←</span>คู่มือถ่ายภาพ</a>
+      <a class="back" href="sol-glamping-checklist.html"><span class="n">→</span>เช็กลิสต์ SOL</a>
+      <a class="back" href="filter-guide.html"><span class="n">→</span>คู่มือฟิลเตอร์</a>
     </div>
   </div>
 </nav>
@@ -194,134 +197,262 @@ footer p{color:var(--ink3);font-size:.85rem}
     <div class="wrap">
       <div class="kick">Post-Processing Field Guide</div>
       <h1>แต่งภาพ RAW<br>ให้เป็น<em>ภาพในใจ</em></h1>
-      <p class="sub">คู่มือแต่งภาพฉบับละเอียด เน้น Adobe Lightroom (หลักการใช้ได้กับโปรแกรมอื่นด้วย) ตั้งแต่ลำดับการแต่ง เครื่องมือพื้นฐาน ไปจนถึงการ Export — ต่อยอดจากไฟล์ RAW ที่ถ่ายด้วย Lumix G97</p>
-      <div class="gear"><span>RAW WORKFLOW</span><span>ADOBE LIGHTROOM</span><span>ฟรีก็ทำได้</span></div>
+      <p class="sub">คู่มือแต่งภาพฉบับ <strong>Darktable</strong> — โปรแกรมแต่ง RAW ฟรี open-source ที่แทน Lightroom ได้จริง ตั้งแต่ติดตั้ง ลำดับการแต่ง โมดูลพื้นฐาน จนถึงสูตรลุคของเรา — ต่อยอดจากไฟล์ .RW2 ที่ถ่ายด้วย Lumix G97</p>
+      <div class="gear"><span>RAW WORKFLOW</span><span>DARKTABLE 5.6</span><span>ฟรี 100%</span><span>OPENCL · RTX</span></div>
     </div>
   </div>
 </header>
 
+<!-- ================= 01 SETUP + FLOW ================= -->
 <section id="flow">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">01</span><h2>ลำดับการแต่งภาพ</h2></div>
-    <p class="slead reveal">การแต่งที่ดีมี "ลำดับ" — ทำตามขั้นจะเร็วและผลลัพธ์นิ่งกว่าการสุ่มลากสไลเดอร์ไปมา จำภาพรวม 6 ช่วงนี้ไว้</p>
-    <div class="svgwrap reveal"><svg viewBox="0 0 620 100" role="img" aria-label="ลำดับขั้นการแต่งภาพ">
-<defs><marker id="wfa" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" fill="#7d7464"/></marker></defs>
-<rect x="12" y="34" width="88" height="46" rx="10" fill="#211d18" stroke="rgba(224,164,74,.3)"/><text x="56" y="55" text-anchor="middle" fill="#e0a44a" font-family="Space Mono" font-size="12" font-weight="700">1</text><text x="56" y="71" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="10.5">WB</text><path d="M102 57 l8 0" stroke="#7d7464" stroke-width="1.5" marker-end="url(#wfa)"/><rect x="112" y="34" width="88" height="46" rx="10" fill="#211d18" stroke="rgba(224,164,74,.3)"/><text x="156" y="55" text-anchor="middle" fill="#e0a44a" font-family="Space Mono" font-size="12" font-weight="700">2</text><text x="156" y="71" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="10.5">แสง/โทน</text><path d="M202 57 l8 0" stroke="#7d7464" stroke-width="1.5" marker-end="url(#wfa)"/><rect x="212" y="34" width="88" height="46" rx="10" fill="#211d18" stroke="rgba(224,164,74,.3)"/><text x="256" y="55" text-anchor="middle" fill="#e0a44a" font-family="Space Mono" font-size="12" font-weight="700">3</text><text x="256" y="71" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="10.5">สี</text><path d="M302 57 l8 0" stroke="#7d7464" stroke-width="1.5" marker-end="url(#wfa)"/><rect x="312" y="34" width="88" height="46" rx="10" fill="#211d18" stroke="rgba(224,164,74,.3)"/><text x="356" y="55" text-anchor="middle" fill="#e0a44a" font-family="Space Mono" font-size="12" font-weight="700">4</text><text x="356" y="71" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="10.5">คม/noise</text><path d="M402 57 l8 0" stroke="#7d7464" stroke-width="1.5" marker-end="url(#wfa)"/><rect x="412" y="34" width="88" height="46" rx="10" fill="#211d18" stroke="rgba(224,164,74,.3)"/><text x="456" y="55" text-anchor="middle" fill="#e0a44a" font-family="Space Mono" font-size="12" font-weight="700">5</text><text x="456" y="71" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="10.5">เลนส์/ครอป</text><path d="M502 57 l8 0" stroke="#7d7464" stroke-width="1.5" marker-end="url(#wfa)"/><rect x="512" y="34" width="88" height="46" rx="10" fill="#211d18" stroke="rgba(224,164,74,.3)"/><text x="556" y="55" text-anchor="middle" fill="#e0a44a" font-family="Space Mono" font-size="12" font-weight="700">6</text><text x="556" y="71" text-anchor="middle" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="10.5">แต่งจุด→Export</text>
-</svg></div>
-    <div class="tip reveal"><b>หลักคิด:</b> แต่งจาก "ภาพรวม" ไป "รายละเอียด" — ตั้งโทนและสีให้ลงตัวก่อน แล้วค่อยลงลึกที่ความคม การแก้เลนส์ และการแต่งเฉพาะจุดทีหลังสุด</div>
+    <div class="shead reveal"><span class="snum">01</span><h2>เริ่มต้นใช้งาน + ลำดับการแต่ง</h2></div>
+    <p class="slead reveal">Darktable แบ่งเป็น 2 ห้อง: <strong>lighttable</strong> (คลังรูป · เหมือน Library ของ LR) และ <strong>darkroom</strong> (ห้องแต่ง · เหมือน Develop) — ตั้งค่า 2 อย่างนี้ให้เสร็จก่อนเริ่ม</p>
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 720 400" role="img" aria-label="ผังหน้าจอห้อง darkroom ของ Darktable">
+        <rect x="0" y="0" width="720" height="330" rx="8" fill="#1c1c1c" stroke="#3a3a3a"/>
+        <rect x="0" y="0" width="720" height="24" rx="8" fill="#242424"/>
+        <text x="12" y="16" fill="#c8c8c8" font-family="Space Mono" font-size="10">darktable 5.6 — darkroom</text>
+        <!-- left panel -->
+        <rect x="8" y="32" width="150" height="290" fill="#232323" stroke="#333"/>
+        <text x="16" y="50" fill="#9a9a9a" font-family="Space Mono" font-size="9">navigation</text>
+        <rect x="16" y="56" width="134" height="40" fill="#161616" stroke="#333"/>
+        <text x="16" y="116" fill="#9a9a9a" font-family="Space Mono" font-size="9">snapshots</text>
+        <rect x="16" y="122" width="134" height="22" rx="4" fill="#2b2b2b" stroke="#444"/>
+        <text x="83" y="137" text-anchor="middle" fill="#c8c8c8" font-family="Space Mono" font-size="8.5">take snapshot</text>
+        <text x="16" y="166" fill="#d8d8d8" font-family="Space Mono" font-size="9">history</text>
+        <rect x="16" y="172" width="134" height="118" fill="#1b1b1b" stroke="#333"/>
+        <text x="24" y="188" fill="#8a8a8a" font-family="Space Mono" font-size="8.5">0 · original</text>
+        <text x="24" y="204" fill="#c8c8c8" font-family="Space Mono" font-size="8.5">1 · exposure</text>
+        <text x="24" y="220" fill="#c8c8c8" font-family="Space Mono" font-size="8.5">2 · sigmoid</text>
+        <text x="24" y="236" fill="#c8c8c8" font-family="Space Mono" font-size="8.5">3 · tone equalizer</text>
+        <text x="24" y="252" fill="#c8c8c8" font-family="Space Mono" font-size="8.5">4 · color balance rgb</text>
+        <rect x="22" y="262" width="100" height="20" rx="4" fill="#2e2e2e" stroke="#4a4a4a"/>
+        <text x="72" y="276" text-anchor="middle" fill="#c8c8c8" font-family="Space Mono" font-size="7.5">compress history stack</text>
+        <rect x="126" y="262" width="20" height="20" rx="4" fill="#2e2e2e" stroke="#e0a44a" stroke-width="1.6"/>
+        <text x="136" y="276" text-anchor="middle" fill="#f2c982" font-family="Space Mono" font-size="10">⊕</text>
+        <!-- center canvas -->
+        <rect x="166" y="32" width="374" height="258" fill="#111" stroke="#333"/>
+        <polygon points="220,250 300,140 360,250" fill="#2f4a3c"/>
+        <polygon points="330,250 410,120 500,250" fill="#22384d"/>
+        <circle cx="460" cy="90" r="20" fill="#f2c982" opacity=".85"/>
+        <!-- filmstrip -->
+        <g fill="#1b1b1b" stroke="#333">
+          <rect x="166" y="298" width="66" height="24"/><rect x="240" y="298" width="66" height="24"/>
+          <rect x="314" y="298" width="66" height="24"/><rect x="388" y="298" width="66" height="24"/><rect x="462" y="298" width="66" height="24"/>
+        </g>
+        <!-- right panel -->
+        <rect x="548" y="32" width="164" height="290" fill="#232323" stroke="#333"/>
+        <rect x="556" y="40" width="148" height="34" fill="#161616" stroke="#333"/>
+        <text x="630" y="61" text-anchor="middle" fill="#7a7a7a" font-family="Space Mono" font-size="8">histogram</text>
+        <g fill="#2e2e2e" stroke="#4a4a4a">
+          <rect x="556" y="80" width="26" height="14"/><rect x="586" y="80" width="26" height="14"/>
+          <rect x="616" y="80" width="26" height="14"/><rect x="646" y="80" width="26" height="14"/><rect x="676" y="80" width="26" height="14"/>
+        </g>
+        <rect x="556" y="98" width="148" height="13" rx="3" fill="#161616" stroke="#3a3a3a"/>
+        <text x="562" y="108" fill="#7a7a7a" font-family="Space Mono" font-size="7">🔍 search modules by name or tag</text>
+        <g font-family="Space Mono" font-size="9">
+          <circle cx="566" cy="116" r="4" fill="#9fd89f"/><text x="578" y="120" fill="#e8e8e8">exposure</text>
+          <circle cx="566" cy="140" r="4" fill="#9fd89f"/><text x="578" y="144" fill="#e8e8e8">sigmoid</text>
+          <circle cx="566" cy="164" r="4" fill="#9fd89f"/><text x="578" y="168" fill="#e8e8e8">tone equalizer</text>
+          <circle cx="566" cy="188" r="4" fill="#555"/><text x="578" y="192" fill="#9a9a9a">color balance rgb</text>
+          <circle cx="566" cy="212" r="4" fill="#555"/><text x="578" y="216" fill="#9a9a9a">color zones</text>
+          <circle cx="566" cy="236" r="4" fill="#555"/><text x="578" y="240" fill="#9a9a9a">denoise (profiled)</text>
+          <circle cx="566" cy="260" r="4" fill="#555"/><text x="578" y="264" fill="#9a9a9a">lens correction</text>
+        </g>
+        <!-- callouts -->
+        <g font-family="IBM Plex Sans Thai" font-size="12" fill="#e0a44a">
+          <text x="8" y="352">◤ แผงซ้าย: snapshots / history · ⊕ กรอบทอง = create style</text>
+          <text x="266" y="352">◤ ภาพที่กำลังแต่ง + filmstrip</text>
+          <text x="520" y="352">◤ แผงขวา: โมดูลทั้งหมด</text>
+          <text x="8" y="374" fill="#5fb6a2">● วงกลมหน้าโมดูล = เปิด/ปิด · หาโมดูลไม่เจอพิมพ์ในช่อง search ได้เลย · UI เป็นภาษาอังกฤษ (ป้ายไทย = คำอธิบาย)</text>
+        </g>
+      </svg>
+    </div>
+
+
+    <div class="setbox reveal">
+      <h3>⚙️ ติดตั้งครั้งแรก (สำคัญกับ G97 โดยเฉพาะ)</h3>
+      <span class="path">darktable.org ► download ► เลือก Windows · ต้องเป็นเวอร์ชัน 5.2 ขึ้นไป (ตัวล่าสุด 5.6 ใช้ได้เลย — คู่มือนี้เทียบกับ 5.6.0)</span>
+      <ol class="steps">
+        <li><b>โหลดเวอร์ชันล่าสุด (≥ 5.2)</b> — การรองรับไฟล์ .RW2 ของ DC-G97 ถูกเพิ่มในเวอร์ชัน 5.2 · เวอร์ชันเก่ากว่านั้นจะขึ้น "not supported" เปิดไฟล์ไม่ได้</li>
+        <li><b>เปิด OpenCL:</b> ไอคอนเฟือง (preferences) ► processing ► ติ๊ก <b>activate OpenCL support</b> — โน้ตบุ๊กคุณมีการ์ดจอ RTX จะประมวลผลเร็วขึ้นหลายเท่า</li>
+        <li><b>Import รูป:</b> แท็บ lighttable ► import ► <b>add to library</b> (ชี้โฟลเดอร์รูป — ไฟล์อยู่ที่เดิม ไม่ถูกย้าย/ก๊อป)</li>
+        <li>ดับเบิลคลิกรูป → เข้าห้อง <b>darkroom</b> เริ่มแต่งได้เลย · โมดูลทั้งหมดอยู่แผงขวา</li>
+      </ol>
+    </div>
+    <div class="tip reveal"><b>เปิดรูปแล้วหน้าจอไม่เหมือนคู่มือ?</b> เช็กมุมล่างขวาแผงโมดูล: <span class="mono gold">module order</span> — ถ้าขึ้น <span class="mono">legacy</span> แปลว่าคุณเปิดไฟล์ <strong>JPEG</strong> อยู่ (โปรแกรมใช้ workflow เก่า จะเห็น base curve และ history เริ่มด้วย orientation/display encoding แทน exposure/sigmoid) — ให้แต่งจากไฟล์ <span class="mono gold">.RW2</span> แล้วทุกอย่างจะเป็น scene-referred ตามคู่มือนี้ · หาโมดูลไม่เจอ พิมพ์ชื่อในช่อง <span class="mono">search modules by name or tag</span> บนแผงขวาได้เสมอ · แถวไอคอนเหนือช่อง search คือ "กลุ่มโมดูล" — เรียงจากซ้าย: <span class="mono">active</span> (โมดูลที่เปิดใช้อยู่) · <span class="mono">base</span> · <span class="mono">tone</span> · <span class="mono">color</span> · <span class="mono">correct</span> · <span class="mono">effect</span> คลิกเพื่อกรองเฉพาะกลุ่มนั้น</div>
+
+
+    <div class="setbox reveal">
+      <h3>🔁 ลำดับการแต่งมาตรฐาน (ใช้ได้เกือบทุกภาพ)</h3>
+      <ol class="steps">
+        <li><b>สีถูกก่อน</b> — ไวท์บาลานซ์ที่โมดูล color calibration</li>
+        <li><b>สว่างพอดี</b> — โมดูล exposure ดู histogram ประกอบ</li>
+        <li><b>วางโทนรวม</b> — sigmoid (คอนทราสต์หลัก)</li>
+        <li><b>เก็บไฮไลต์/เปิดเงา</b> — tone equalizer</li>
+        <li><b>สี</b> — color balance rgb (+ color zones ถ้าจะเจาะรายสี)</li>
+        <li><b>รายละเอียด</b> — denoise (profiled) และ diffuse or sharpen</li>
+        <li><b>เก็บงาน</b> — lens correction · crop · แต่งเฉพาะจุดด้วย mask</li>
+        <li><b>export</b> ตามปลายทาง</li>
+      </ol>
+    </div>
+    <div class="tip reveal"><b>ใจความเดียวที่ต้องจำ:</b> ตัวเลขจากคู่มือ Lightroom ใช้ตรง ๆ ไม่ได้ (สเกลคนละระบบ) — ทำตาม "เจตนา" ของแต่ละขั้นแล้วดูภาพเป็นหลัก ไม่ใช่ตามเลข</div>
   </div>
 </section>
 
+<!-- ================= 02 WHY RAW ================= -->
 <section id="why">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">02</span><h2>ทำไมต้องแต่งจากไฟล์ RAW</h2></div>
-    <p class="slead reveal">RAW คือ "ฟิล์มดิจิทัล" ที่เก็บข้อมูลดิบครบ ทำให้แต่งได้อิสระโดยไม่เสียคุณภาพ — นี่คือเหตุผลที่เราตั้งกล้องเป็น RAW</p>
+    <p class="slead reveal">JPEG คือภาพที่กล้อง "ปรุงเสร็จ" แล้ว — RAW คือวัตถุดิบทั้งหมดที่เซนเซอร์เก็บได้ พื้นที่ให้แต่งต่างกันมหาศาล</p>
     <div class="grid g3">
-      <div class="card reveal"><span class="ic">RECOVER</span><h3>กู้แสงได้</h3><p>ดึงส่วนสว่างที่เกือบโพลน และเปิดเงาที่มืดให้เห็นรายละเอียดกลับมาได้ ซึ่ง JPEG ทำได้น้อยมาก</p></div>
-      <div class="card reveal"><span class="ic">WHITE BALANCE</span><h3>ปรับ WB ฟรี</h3><p>เปลี่ยนอุณหภูมิสีย้อนหลังได้เหมือนตอนถ่าย ไม่เสียคุณภาพ แก้ภาพอมส้ม/อมฟ้าได้สบาย</p></div>
-      <div class="card reveal"><span class="ic">NON-DESTRUCTIVE</span><h3>ไม่ทำลายต้นฉบับ</h3><p>Lightroom เก็บการแก้เป็น "คำสั่ง" ไฟล์ RAW ต้นฉบับไม่ถูกแตะ ย้อนกลับหรือเริ่มใหม่ได้ตลอด</p></div>
+      <div class="card reveal"><span class="ic">RECOVER</span><h3>กู้แสงได้</h3><p>ดึงส่วนสว่างที่เกือบโพลน และเปิดเงาที่มืดให้เห็นรายละเอียดกลับมาได้ ซึ่ง JPEG ทำได้น้อยมาก — เคสหลังขาวที่ Toscana กู้จาก RAW ได้เพราะแบบนี้</p></div>
+      <div class="card reveal"><span class="ic">WHITE BALANCE</span><h3>ปรับ WB ฟรี</h3><p>เปลี่ยนอุณหภูมิสีย้อนหลังได้เหมือนตอนถ่าย ไม่เสียคุณภาพ — เคสวันครึ้มที่ภาพติดเย็น แก้ทีหลังได้ทั้งชุด</p></div>
+      <div class="card reveal"><span class="ic">NON-DESTRUCTIVE</span><h3>ไม่ทำลายต้นฉบับ</h3><p>Darktable เก็บการแก้เป็นไฟล์ข้าง ๆ ชื่อเดียวกันนามสกุล <span class="mono gold">.xmp</span> ไฟล์ RAW ไม่ถูกแตะเลย ลบ .xmp = กลับค่าเดิมทั้งหมด</p></div>
     </div>
-    <div class="tip reveal">ไฟล์ RAW ของ G97 คือนามสกุล <span class="mono gold">.RW2</span> · วิธีตั้งกล้องเป็น RAW ดูได้ที่ <a href="index.html#raw" style="color:var(--gold);text-decoration:underline">คู่มือถ่ายภาพ หัวข้อ RAW vs JPEG</a></div>
+    <div class="tip reveal">ไฟล์ RAW ของ G97 คือนามสกุล <span class="mono gold">.RW2</span> · วิธีตั้งกล้องเป็น RAW+Fine ดูได้ที่ <a href="index.html#raw" style="color:var(--gold);text-decoration:underline">คู่มือถ่ายภาพ หัวข้อ RAW vs JPEG</a></div>
   </div>
 </section>
 
+<!-- ================= 03 CORE MODULES ================= -->
 <section id="basic">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">03</span><h2>แผง Basic · เครื่องมือพื้นฐาน</h2></div>
-    <p class="slead reveal">90% ของงานแต่งภาพอยู่ในแผงนี้ รู้จักสไลเดอร์แต่ละตัวว่าทำอะไร แล้วคุณแต่งภาพได้เกือบทุกแบบ</p>
-    <div class="svgwrap reveal" style="max-width:540px;margin-left:auto;margin-right:auto"><svg viewBox="0 0 520 420" role="img" aria-label="ภาพจำลองแผง Basic ของ Lightroom">
-<rect x="10" y="10" width="500" height="400" rx="14" fill="#1e1a15" stroke="rgba(240,230,210,.12)"/>
-<text x="28" y="42" fill="#f2c982" font-family="Noto Serif Thai" font-size="16">Basic · แผงพื้นฐาน</text>
-<line x1="28" y1="52" x2="492" y2="52" stroke="rgba(240,230,210,.1)"/>
-<text x="28" y="74" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Temp / อุณหภูมิสี</text>
-<line x1="180" y1="70" x2="490" y2="70" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="66" x2="335" y2="74" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="366" cy="70" r="6" fill="#e0a44a"/>
-<text x="28" y="100" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Tint</text>
-<line x1="180" y1="96" x2="490" y2="96" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="92" x2="335" y2="100" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="330" cy="96" r="6" fill="#e0a44a"/>
-<text x="28" y="126" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Exposure</text>
-<line x1="180" y1="122" x2="490" y2="122" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="118" x2="335" y2="126" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="354" cy="122" r="6" fill="#e0a44a"/>
-<text x="28" y="152" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Contrast</text>
-<line x1="180" y1="148" x2="490" y2="148" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="144" x2="335" y2="152" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="345" cy="148" r="6" fill="#e0a44a"/>
-<text x="28" y="178" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Highlights</text>
-<line x1="180" y1="174" x2="490" y2="174" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="170" x2="335" y2="178" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="276" cy="174" r="6" fill="#e0a44a"/>
-<text x="28" y="204" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Shadows</text>
-<line x1="180" y1="200" x2="490" y2="200" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="196" x2="335" y2="204" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="390" cy="200" r="6" fill="#e0a44a"/>
-<text x="28" y="230" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Whites</text>
-<line x1="180" y1="226" x2="490" y2="226" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="222" x2="335" y2="230" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="360" cy="226" r="6" fill="#e0a44a"/>
-<text x="28" y="256" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Blacks</text>
-<line x1="180" y1="252" x2="490" y2="252" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="248" x2="335" y2="256" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="306" cy="252" r="6" fill="#e0a44a"/>
-<text x="28" y="282" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Texture</text>
-<line x1="180" y1="278" x2="490" y2="278" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="274" x2="335" y2="282" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="348" cy="278" r="6" fill="#e0a44a"/>
-<text x="28" y="308" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Clarity</text>
-<line x1="180" y1="304" x2="490" y2="304" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="300" x2="335" y2="308" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="342" cy="304" r="6" fill="#e0a44a"/>
-<text x="28" y="334" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Dehaze</text>
-<line x1="180" y1="330" x2="490" y2="330" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="326" x2="335" y2="334" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="330" cy="330" r="6" fill="#e0a44a"/>
-<text x="28" y="360" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Vibrance</text>
-<line x1="180" y1="356" x2="490" y2="356" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="352" x2="335" y2="360" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="378" cy="356" r="6" fill="#e0a44a"/>
-<text x="28" y="386" fill="#b6aa96" font-family="IBM Plex Sans Thai" font-size="12">Saturation</text>
-<line x1="180" y1="382" x2="490" y2="382" stroke="rgba(240,230,210,.18)" stroke-width="2"/>
-<line x1="335" y1="378" x2="335" y2="386" stroke="rgba(240,230,210,.3)" stroke-width="1"/>
-<circle cx="330" cy="382" r="6" fill="#e0a44a"/>
-</svg></div>
+    <div class="shead reveal"><span class="snum">03</span><h2>โมดูลพื้นฐาน · หัวใจ 5 ตัว</h2></div>
+    <p class="slead reveal">Darktable มีโมดูลเป็นร้อย แต่งานจริง 90% จบด้วย 5 ตัวนี้ — เทียบกับแผง Basic ของ Lightroom ได้ตรง ๆ</p>
     <div class="grid g2">
-      <div class="card reveal"><span class="ic">WHITE BALANCE</span><h3>Temp / Tint</h3><p>Temp ปรับอุ่น–เย็น (ส้ม↔ฟ้า) · Tint ปรับเขียว↔ม่วง ใช้แก้สีที่เพี้ยนหรือสร้างอารมณ์</p></div>
-      <div class="card reveal"><span class="ic">EXPOSURE</span><h3>Exposure / Contrast</h3><p>Exposure = ความสว่างรวมของภาพ · Contrast = ความต่างระหว่างส่วนสว่างกับมืด</p></div>
-      <div class="card reveal"><span class="ic">RECOVERY</span><h3>Highlights / Shadows</h3><p>Highlights ลง = ดึงส่วนสว่าง/ฟ้ากลับมา · Shadows ขึ้น = เปิดเงาให้เห็นรายละเอียด คู่นี้ใช้บ่อยสุด</p></div>
-      <div class="card reveal"><span class="ic">POINTS</span><h3>Whites / Blacks</h3><p>กำหนดจุดขาวสุดและดำสุดของภาพ ช่วยให้ภาพมีน้ำหนักครบช่วง (กด Alt/Option ขณะลากเพื่อดูจุดที่เริ่มตัด)</p></div>
-      <div class="card reveal"><span class="ic">PRESENCE</span><h3>Texture / Clarity / Dehaze</h3><p>Texture = เนื้อผิวละเอียด · Clarity = คอนทราสต์กลางภาพ (ระวังใช้เยอะกับผิวคน) · Dehaze = ลด/เพิ่มหมอก</p></div>
-      <div class="card reveal"><span class="ic">COLOR</span><h3>Vibrance / Saturation</h3><p>Vibrance เพิ่มเฉพาะสีที่ซีดอย่างนุ่มนวล (ดีกับสีผิว) · Saturation เพิ่มทุกสีเท่ากัน (ระวังเกินจนเฝือ)</p></div>
+      <div class="card reveal"><span class="ic">EXPOSURE</span><h3>exposure</h3><p>ความสว่างรวมของภาพ (เทียบ Exposure ของ LR) — สไลเดอร์เดียวจบ ปรับก่อนเพื่อให้ histogram อยู่กลาง ๆ แล้วค่อยไปเล่นโทน</p></div>
+      <div class="card reveal"><span class="ic">WHITE BALANCE</span><h3>color calibration</h3><p>ไวท์บาลานซ์ยุคใหม่ (เทียบ Temp/Tint) — ใช้หลอดดูดสี (color picker) จิ้มจุดที่ควรเป็นสีเทา/ขาวในภาพ ให้โปรแกรมคำนวณ WB ให้เอง แม่นและเร็วมาก</p></div>
+      <div class="card reveal"><span class="ic">TONE ENGINE</span><h3>sigmoid</h3><p>ตัววางโทน/คอนทราสต์หลักของภาพ (แนะนำแทน filmic rgb สำหรับมือใหม่ — ผลลัพธ์ใกล้ความเคยชินจาก LR กว่า) · สไลเดอร์ contrast กับ skew พอสำหรับงานส่วนใหญ่</p></div>
+      <div class="card reveal"><span class="ic">HL / SHADOWS</span><h3>tone equalizer</h3><p>ตัวเดียวแทน Highlights / Shadows / Whites / Blacks ทั้งสี่ — ภาพถูกแบ่งเป็นโซนสว่าง-มืด แล้วดัน/กดแต่ละโซนอิสระ · ใช้แท็บ masking ก่อนถ้าโซนแบ่งไม่ตรง</p></div>
+      <div class="card reveal"><span class="ic">COLOR</span><h3>color balance rgb</h3><p>ศูนย์รวมงานสี — แท็บ master มี <b>vibrance</b>/chroma (เทียบ Vibrance/Saturation) และแท็บ 4 ways คือ Split Toning เต็มรูปแบบ (แต้มสีเงา/กลาง/ไฮไลต์แยกกัน)</p></div>
+      <div class="card reveal"><span class="ic">SPEED</span><h3>quick access panel</h3><p>แผงรวมสไลเดอร์ที่ใช้บ่อย (ไอคอนหัวใจเหนือแผงโมดูล) — งานเร็ว ๆ ไม่ต้องไล่เปิดทีละโมดูล ปรับ exposure/contrast/saturation จากที่เดียว</p></div>
+    </div>
+
+    
+    <div class="grid g2 reveal" style="margin:0 0 34px">
+      <div class="svgwrap" style="margin:0">
+        <svg viewBox="0 0 340 300" role="img" aria-label="หน้าตาแผงโมดูล exposure และ sigmoid พร้อมสไลเดอร์">
+          <rect x="6" y="6" width="328" height="132" rx="6" fill="#232323" stroke="#3a3a3a"/>
+          <circle cx="24" cy="24" r="5" fill="#9fd89f"/>
+          <text x="36" y="28" fill="#e8e8e8" font-family="Space Mono" font-size="10">exposure</text>
+          <text x="284" y="28" fill="#8a8a8a" font-family="Space Mono" font-size="10">⧉ ↺ ≡</text>
+          <text x="20" y="54" fill="#9a9a9a" font-family="Space Mono" font-size="9">exposure</text>
+          <rect x="20" y="60" width="300" height="10" rx="5" fill="#161616"/>
+          <rect x="20" y="60" width="190" height="10" rx="5" fill="#6a6a6a"/>
+          <text x="312" y="86" text-anchor="end" fill="#e8e8e8" font-family="Space Mono" font-size="9">+0.65 EV</text>
+          <text x="20" y="108" fill="#9a9a9a" font-family="Space Mono" font-size="9">black level correction</text>
+          <rect x="20" y="114" width="300" height="10" rx="5" fill="#161616"/>
+          <rect x="164" y="112" width="4" height="14" fill="#aaa"/>
+          <rect x="6" y="150" width="328" height="106" rx="6" fill="#232323" stroke="#3a3a3a"/>
+          <circle cx="24" cy="168" r="5" fill="#9fd89f"/>
+          <text x="36" y="172" fill="#e8e8e8" font-family="Space Mono" font-size="10">sigmoid</text>
+          <text x="20" y="196" fill="#9a9a9a" font-family="Space Mono" font-size="9">contrast</text>
+          <rect x="20" y="202" width="300" height="10" rx="5" fill="#161616"/>
+          <rect x="20" y="202" width="165" height="10" rx="5" fill="#6a6a6a"/>
+          <text x="312" y="200" text-anchor="end" fill="#e8e8e8" font-family="Space Mono" font-size="9">1.50</text>
+          <text x="20" y="234" fill="#9a9a9a" font-family="Space Mono" font-size="9">skew</text>
+          <rect x="20" y="240" width="300" height="10" rx="5" fill="#161616"/>
+          <rect x="168" y="238" width="4" height="14" fill="#aaa"/>
+          <g font-family="IBM Plex Sans Thai" font-size="11.5" fill="#e0a44a">
+            <text x="10" y="280">● วงกลม=เปิด/ปิด · ⧉ instance · ↺ reset · ≡ presets</text>
+            <text x="10" y="296" fill="#5fb6a2">ลากสไลเดอร์ หรือคลิกขวาเพื่อพิมพ์ตัวเลขตรง ๆ</text>
+          </g>
+        </svg>
+      </div>
+      <div class="svgwrap" style="margin:0">
+        <svg viewBox="0 0 340 300" role="img" aria-label="หน้าตาโมดูล tone equalizer กราฟโซนแสงและโหนด">
+          <rect x="6" y="6" width="328" height="250" rx="6" fill="#232323" stroke="#3a3a3a"/>
+          <circle cx="24" cy="24" r="5" fill="#9fd89f"/>
+          <text x="36" y="28" fill="#e8e8e8" font-family="Space Mono" font-size="10">tone equalizer</text>
+          <g font-family="Space Mono" font-size="8.5">
+            <text x="70" y="50" fill="#8a8a8a">simple</text>
+            <rect x="118" y="38" width="62" height="16" rx="3" fill="#2e2e2e" stroke="#4a4a4a"/>
+            <text x="127" y="50" fill="#e8e8e8">advanced</text>
+            <text x="196" y="50" fill="#8a8a8a">masking</text>
+          </g>
+          <rect x="24" y="64" width="292" height="140" fill="#161616" stroke="#333"/>
+          <path d="M24 204 L60 204 90 200 130 190 170 176 210 162 250 150 290 142 316 140 L316 204 Z" fill="#2b2b2b"/>
+          <line x1="24" y1="134" x2="316" y2="134" stroke="#3a3a3a" stroke-dasharray="3 3"/>
+          <path d="M30 134 C 90 132, 150 130, 200 134 S 280 158, 310 166" fill="none" stroke="#d8d8d8" stroke-width="2"/>
+          <g fill="#e8e8e8"><circle cx="30" cy="134" r="4"/><circle cx="66" cy="133" r="4"/><circle cx="102" cy="132" r="4"/><circle cx="138" cy="131" r="4"/><circle cx="174" cy="132" r="4"/><circle cx="210" cy="134" r="4"/></g>
+          <g fill="#e0a44a"><circle cx="246" cy="146" r="5"/><circle cx="282" cy="158" r="5"/><circle cx="312" cy="166" r="5"/></g>
+          <g font-family="Space Mono" font-size="8" fill="#7a7a7a">
+            <text x="24" y="218">-8EV</text><text x="160" y="218">-4EV</text><text x="300" y="218">0EV</text>
+          </g>
+          <text x="170" y="244" text-anchor="middle" fill="#9a9a9a" font-family="Space Mono" font-size="8.5">เงา ←——————————→ ไฮไลต์</text>
+          <g font-family="IBM Plex Sans Thai" font-size="11.5" fill="#e0a44a">
+            <text x="10" y="280">● โหนดสีทองฝั่งขวา = โซนไฮไลต์ ลากลงเพื่อกู้ฟ้า</text>
+            <text x="10" y="296" fill="#5fb6a2">ลากโหนดฝั่งซ้ายขึ้น = เปิดเงาให้สว่าง</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="tablewrap reveal">
+      <table>
+        <thead><tr><th>เคยใช้ใน Lightroom</th><th>ใน Darktable ใช้</th><th>หมายเหตุ</th></tr></thead>
+        <tbody>
+          <tr><td class="sit">Exposure / Contrast</td><td><span class="v">exposure · sigmoid</span></td><td>แยกกันคนละโมดูล</td></tr>
+          <tr><td class="sit">Highlights / Shadows / Whites / Blacks</td><td><span class="v">tone equalizer</span></td><td>ตัวเดียวคุมทุกโซน</td></tr>
+          <tr><td class="sit">Temp / Tint</td><td><span class="v">color calibration</span></td><td>มีหลอดดูดสีอัตโนมัติ</td></tr>
+          <tr><td class="sit">Clarity / Texture</td><td><span class="v">local contrast</span></td><td>ติดลบ = ฟุ้ง matte</td></tr>
+          <tr><td class="sit">Dehaze</td><td><span class="v">haze removal</span></td><td>—</td></tr>
+          <tr><td class="sit">Vibrance / Saturation</td><td><span class="v">color balance rgb</span></td><td>แท็บ master</td></tr>
+          <tr><td class="sit">Tone Curve</td><td><span class="v">tone curve / rgb curve</span></td><td>ยกจุดดำ = matte เหมือนกัน</td></tr>
+          <tr><td class="sit">HSL</td><td><span class="v">color zones</span></td><td>—</td></tr>
+          <tr><td class="sit">Split Toning</td><td><span class="v">color balance rgb (4 ways)</span></td><td>—</td></tr>
+          <tr><td class="sit">Sharpening</td><td><span class="v">diffuse or sharpen</span></td><td>มีพรีเซตสำเร็จ</td></tr>
+          <tr><td class="sit">Noise Reduction</td><td><span class="v">denoise (profiled)</span></td><td>โปรไฟล์ตามกล้อง/ISO</td></tr>
+          <tr><td class="sit">Lens Corrections</td><td><span class="v">lens correction</span></td><td>รู้จักเลนส์ Lumix ทั้งสองตัว</td></tr>
+          <tr><td class="sit">Masking</td><td><span class="v">drawn + parametric mask</span></td><td>ใส่ได้ทุกโมดูล</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
+<!-- ================= 04 STEP BY STEP ================= -->
 <section id="steps">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">04</span><h2>แต่งทีละขั้น (ทำตามได้เลย)</h2></div>
-    <p class="slead reveal">สูตรลำดับการลากสไลเดอร์ที่ใช้ได้กับเกือบทุกภาพ</p>
+    <p class="slead reveal">ลำดับมาตรฐานสำหรับทุกภาพ + สูตรลุค matte/pastel ประจำตัวของเราแบบกดตามได้</p>
+
     <div class="setbox reveal">
+      <h3>📋 ลำดับมาตรฐาน 10 ขั้น</h3>
       <ol class="steps">
-        <li>ตั้ง <b>White Balance</b> ให้สีถูกต้องก่อน (Temp/Tint)</li>
-        <li>ปรับ <b>Exposure</b> ให้สว่างพอดี โดยดู Histogram ประกอบ</li>
-        <li>ลด <b>Highlights</b> กู้ส่วนสว่าง · เพิ่ม <b>Shadows</b> เปิดเงา</li>
-        <li>ตั้ง <b>Whites &amp; Blacks</b> ให้ครบช่วง (กด Alt ขณะลากดูจุดตัด)</li>
-        <li>เพิ่ม <b>Contrast / Texture / Clarity</b> ตามรสนิยม</li>
-        <li>แต่งสีด้วย <b>Vibrance</b> และแผง <b>HSL</b></li>
-        <li>เพิ่ม <b>ความคม</b> และลด <b>noise</b> ในแผง Detail</li>
-        <li>เปิด <b>Lens Corrections</b> + <b>ครอป/ปรับตรง</b></li>
-        <li>แต่ง <b>เฉพาะจุด</b> ด้วย Mask (ท้องฟ้า/หน้าคน)</li>
-        <li><b>Export</b> ตามปลายทาง (เว็บ/พิมพ์)</li>
+        <li>เปิดภาพใน darkroom → <b>color calibration</b> ใช้หลอดดูดสีจิ้มจุดสีเทา/ขาว ให้สีถูกก่อน</li>
+        <li><b>exposure</b> ปรับความสว่างรวมให้พอดี ดู histogram ประกอบ</li>
+        <li><b>sigmoid</b> ตั้งคอนทราสต์รวม (ค่าเริ่มต้นมักดีอยู่แล้ว ขยับทีละนิด)</li>
+        <li><b>tone equalizer</b> กดโซนไฮไลต์ลงกู้ฟ้า · ยกโซนเงาเปิดรายละเอียด</li>
+        <li><b>color balance rgb</b> เพิ่ม vibrance ตามรสนิยม</li>
+        <li>เจาะรายสีด้วย <b>color zones</b> (เช่น ฟ้าเข้มขึ้น เขียวสดขึ้น)</li>
+        <li><b>denoise (profiled)</b> ถ้า ISO สูง · <b>diffuse or sharpen</b> เพิ่มความคม (ดูที่ซูม 100%)</li>
+        <li><b>lens correction</b> + <b>crop</b> จัดเฟรม/แก้เอียง</li>
+        <li>แต่งเฉพาะจุดด้วย <b>mask</b> (หัวข้อ 09)</li>
+        <li><b>export</b> ตามปลายทาง (หัวข้อ 10)</li>
       </ol>
+    </div>
+
+    <div class="recipe reveal">
+      <h3>🎞️ สูตร "Khao Yai Pastel" ฉบับ Darktable (ลุค matte/faded)</h3>
+      <div class="when">ใช้กับภาพแสงนุ่ม เช้า/เย็น · คู่กับสูตรในกล้องที่ตั้งไว้</div>
+      <div class="chips">
+        <span class="chip"><b>tone curve</b>ยกจุดดำ (ปลายล่างซ้าย) ขึ้นเล็กน้อย</span>
+        <span class="chip"><b>tone equalizer</b>กดโซนไฮไลต์ −0.5 ถึง −1 EV</span>
+        <span class="chip"><b>local contrast</b>ติดลบเล็กน้อย = ฟุ้งนุ่ม</span>
+        <span class="chip"><b>color balance rgb</b>global chroma −5 ถึง −10%</span>
+        <span class="chip"><b>4 ways</b>เงาแต้มฟ้า · ไฮไลต์แต้มอุ่น</span>
+      </div>
+      <p>ทำครบแล้ว <strong>เซฟเป็น style ชื่อ "Khao Yai Pastel"</strong> (หัวข้อ 12) — รูปต่อ ๆ ไปกดใช้ทีเดียวได้ทั้งชุด · อยากได้เวอร์ชันสีอิ่ม (Fresh) ก็สูตรเดียวกันแต่ chroma เป็น <b>+10%</b> และไม่ลด local contrast</p>
     </div>
   </div>
 </section>
 
+<!-- ================= 05 TONE CURVE ================= -->
 <section id="curve">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">05</span><h2>Tone Curve · เส้นโค้งโทน</h2></div>
-    <p class="slead reveal">เครื่องมือคุมความสว่างแบบละเอียดกว่าสไลเดอร์ ปรับเงา–กลาง–ไฮไลต์แยกกันได้</p>
+    <p class="slead reveal">โมดูล tone curve / rgb curve — เครื่องมือคุมความสว่างละเอียดกว่าสไลเดอร์ และเป็นหัวใจของลุค matte</p>
     <div class="grid g2">
       <div class="svgwrap reveal" style="margin:0"><svg viewBox="0 0 300 240" role="img" aria-label="เส้นโค้งโทน S-curve">
 <rect x="40" y="20" width="220" height="200" fill="#16130f" stroke="rgba(240,230,210,.14)"/>
@@ -333,114 +464,358 @@ footer p{color:var(--ink3);font-size:.85rem}
 <text x="120" y="200" fill="#dd8a5e" font-family="IBM Plex Sans Thai" font-size="10">กดเงาลง</text>
 <text x="150" y="50" fill="#5fb6a2" font-family="IBM Plex Sans Thai" font-size="10">ดึงไฮไลต์ขึ้น</text>
 </svg></div>
-      <div class="card reveal" style="display:flex;flex-direction:column;justify-content:center"><span class="ic">S-CURVE</span><h3>เพิ่มคอนทราสต์แบบนุ่ม</h3><p>กดจุดเงาลงเล็กน้อยและดึงไฮไลต์ขึ้น เกิดเป็นรูปตัว S = ภาพมีมิติและคอนทราสต์สวยกว่าการดัน Contrast ตรงๆ · ถ้าอยากได้ "ฟิล์มลุค" ให้ยกปลายล่างซ้าย (จุดดำ) ขึ้นนิดหน่อย เงาจะจางแบบฟิล์ม</p></div>
+      <div class="card reveal" style="display:flex;flex-direction:column;justify-content:center"><span class="ic">S-CURVE &amp; MATTE</span><h3>สองท่าที่ใช้จริง</h3><p><strong>S-curve</strong>: กดจุดเงาลงนิด ดึงไฮไลต์ขึ้นนิด = คอนทราสต์นุ่มมีมิติ (ใช้กับลุค Clean Punch) · <strong>Matte lift</strong>: ลากจุดมุมล่างซ้าย (จุดดำ) <b>ขึ้นตรง ๆ</b> — ดำสุดจะกลายเป็นเทาจาง เกิดลุคฟิล์มซีดทันที นี่คือหัวใจของ Pastel · ใน darktable ใช้ได้ทั้ง tone curve และ rgb curve ผลใกล้กัน</p></div>
     </div>
   </div>
 </section>
 
+<!-- ================= 06 COLOR ZONES ================= -->
 <section id="hsl">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">06</span><h2>HSL / Color · ปรับสีเฉพาะ</h2></div>
-    <p class="slead reveal">ปรับแต่ละสีแยกกันได้ใน 3 มิติ — Hue (เฉดสี), Saturation (ความสด), Luminance (ความสว่างของสีนั้น)</p>
+    <div class="shead reveal"><span class="snum">06</span><h2>Color Zones · ปรับสีเฉพาะ</h2></div>
+    <p class="slead reveal">โมดูล color zones = แผง HSL ของ Darktable — เลือกปรับ 3 มิติของแต่ละสี: hue (เฉด), saturation (ความสด), lightness (ความสว่าง)</p>
     <div class="grid g3">
-      <div class="card reveal"><span class="ic">HUE</span><h3>เปลี่ยนเฉดสี</h3><p>เช่น ดันใบไม้จากเขียวอมเหลืองให้เป็นเขียวสด หรือฟ้าให้ออกฟ้าครามขึ้น</p></div>
-      <div class="card reveal"><span class="ic">SATURATION</span><h3>ความสดของสี</h3><p>เพิ่ม/ลดความสดเฉพาะสี เช่น ลดความแดงของผิวที่จัดเกิน โดยไม่กระทบสีอื่น</p></div>
-      <div class="card reveal"><span class="ic">LUMINANCE</span><h3>ความสว่างของสี</h3><p>เช่น กดความสว่างสีฟ้าให้ท้องฟ้าเข้มดราม่า หรือเพิ่มความสว่างสีผิวให้ดูสุขภาพดี</p></div>
+      <div class="card reveal"><span class="ic">HUE</span><h3>เปลี่ยนเฉดสี</h3><p>เช่น ดันเขียวใบไม้อมเหลืองให้เขียวสด หรือฟ้าให้ออกครามขึ้น — เลือกแท็บ hue แล้วดึงเส้นตรงตำแหน่งสีนั้น</p></div>
+      <div class="card reveal"><span class="ic">SATURATION</span><h3>ความสดของสี</h3><p>เพิ่ม/ลดความสดเฉพาะสี เช่น ลดความแดงของผิวที่จัดเกิน โดยไม่กระทบสีอื่น · มีหลอดดูดสีให้จิ้มจากภาพได้เลย</p></div>
+      <div class="card reveal"><span class="ic">LIGHTNESS</span><h3>ความสว่างของสี</h3><p>กด lightness ของฟ้าลง = ท้องฟ้าเข้มดราม่า · เพิ่ม lightness โซนสีผิว = หน้าสว่างสุขภาพดี</p></div>
     </div>
-    <div class="tip reveal"><b>ตัวอย่างยอดนิยม:</b> ท้องฟ้าซีด → ลด Luminance ฟ้า + เพิ่ม Saturation ฟ้า · สีผิวแดงเกิน → ลด Saturation สีส้ม/แดงเล็กน้อย</div>
+    
+    <div class="svgwrap reveal" style="max-width:560px;margin-left:auto;margin-right:auto">
+      <svg viewBox="0 0 520 250" role="img" aria-label="หน้าตาโมดูล color zones แถบสเปกตรัมและเส้นปรับ">
+        <rect x="6" y="6" width="508" height="200" rx="6" fill="#232323" stroke="#3a3a3a"/>
+        <circle cx="24" cy="24" r="5" fill="#9fd89f"/>
+        <text x="36" y="28" fill="#e8e8e8" font-family="Space Mono" font-size="10">color zones</text>
+        <g font-family="Space Mono" font-size="8.5">
+          <text x="200" y="28" fill="#8a8a8a">lightness</text>
+          <rect x="268" y="16" width="76" height="16" rx="3" fill="#2e2e2e" stroke="#4a4a4a"/>
+          <text x="278" y="28" fill="#e8e8e8">saturation</text>
+          <text x="360" y="28" fill="#8a8a8a">hue</text>
+          <text x="480" y="28" fill="#8a8a8a">🖉</text>
+        </g>
+        <rect x="24" y="44" width="472" height="110" fill="#161616" stroke="#333"/>
+        <line x1="24" y1="99" x2="496" y2="99" stroke="#3a3a3a" stroke-dasharray="3 3"/>
+        <path d="M24 99 C 90 99, 120 99, 160 96 S 220 66, 260 66 S 320 96, 360 99 S 450 99, 496 99" fill="none" stroke="#d8d8d8" stroke-width="2"/>
+        <circle cx="260" cy="66" r="5" fill="#e0a44a"/>
+        <g>
+          <rect x="24" y="158" width="59" height="14" fill="#c2453f"/><rect x="83" y="158" width="59" height="14" fill="#cf8a3d"/>
+          <rect x="142" y="158" width="59" height="14" fill="#c9b93e"/><rect x="201" y="158" width="59" height="14" fill="#5a9e4e"/>
+          <rect x="260" y="158" width="59" height="14" fill="#3f9e8a"/><rect x="319" y="158" width="59" height="14" fill="#3f6ba8"/>
+          <rect x="378" y="158" width="59" height="14" fill="#6b4fa0"/><rect x="437" y="158" width="59" height="14" fill="#a4498a"/>
+        </g>
+        <line x1="253" y1="72" x2="235" y2="156" stroke="#e0a44a" stroke-width="1.2"/>
+        <g font-family="IBM Plex Sans Thai" font-size="11.5" fill="#e0a44a">
+          <text x="10" y="228">● เลือกแท็บ saturation → ยกเส้นเหนือช่วงสีเขียว = เขียวทิวสนสดขึ้นเฉพาะสี (สีอื่นไม่ขยับ)</text>
+          <text x="10" y="244" fill="#5fb6a2">ไอคอนหลอดดูดสีมุมขวา: จิ้มสีจากภาพจริงให้เลือกตำแหน่งบนแถบให้เอง</text>
+        </g>
+      </svg>
+    </div>
+    <div class="tip reveal"><b>สองท่ายอดนิยมของเรา:</b> ฟ้าจืดวันแดดแข็ง (ลุค Clean Punch) → กด lightness ฟ้า + เพิ่ม saturation ฟ้าเล็กน้อย · เขียวทิวสนหม่นวันครึ้ม → เพิ่ม saturation เขียว + ดัน hue ไปทางเขียวสด</div>
   </div>
 </section>
 
+<!-- ================= 07 DETAIL ================= -->
 <section id="detail">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">07</span><h2>Detail · ความคม และ Noise</h2></div>
-    <p class="slead reveal">ขั้นตอนเก็บรายละเอียด ดูที่ระดับซูม 100% เสมอเพื่อให้เห็นผลจริง</p>
+    <div class="shead reveal"><span class="snum">07</span><h2>ความคม และ Noise</h2></div>
+    <p class="slead reveal">เก็บรายละเอียดด้วยสองโมดูล — ดูผลที่ระดับซูม 100% เสมอ</p>
     <div class="grid g2">
-      <div class="card reveal"><span class="ic">SHARPENING</span><h3>เพิ่มความคม</h3><p>Amount = แรง · Radius = ขนาดขอบ · Detail = รายละเอียด · <strong>Masking</strong> = จำกัดให้คมเฉพาะขอบ (กด Alt ขณะลากเพื่อดูพื้นที่สีขาว = ส่วนที่จะถูกเพิ่มความคม) ช่วยกันไม่ให้พื้นเรียบ เช่น ท้องฟ้า/ผิว เกิด noise</p></div>
-      <div class="card reveal"><span class="ic">NOISE REDUCTION</span><h3>ลดเม็ด noise</h3><p>Luminance ลดเม็ดหยาบ (ใช้กับภาพ ISO สูง) · Color ลดจุดสีรบกวน · อย่าลดแรงเกินเพราะภาพจะเนียนจนเสียรายละเอียด · LR รุ่นใหม่มี <strong>Denoise (AI)</strong> ที่ลด noise ได้สะอาดมาก</p></div>
+      <div class="card reveal"><span class="ic">DIFFUSE OR SHARPEN</span><h3>เพิ่มความคม</h3><p>โมดูลอเนกประสงค์ — ไม่ต้องตั้งเอง เปิดเมนู <b>presets</b> แล้วเลือก <span class="mono gold">sharpen demosaicing: AA filter</span> เป็นจุดเริ่มที่ดีสำหรับไฟล์ G97 · อยากคมขึ้นอีกใช้ <span class="mono gold">local contrast</span> ค่าบวกเสริม (ตัวเดียวกับที่ติดลบทำลุคฟุ้ง)</p></div>
+      <div class="card reveal"><span class="ic">DENOISE (PROFILED)</span><h3>ลดเม็ด noise</h3><p>จุดแข็งของ Darktable — มี "โปรไฟล์ noise" ของกล้องแต่ละรุ่นแต่ละ ISO เปิดโมดูลแล้วมันเลือกให้อัตโนมัติ ค่าเริ่มต้นมักดีเลย · ภาพกองไฟ/ดาว ISO 1600–3200 ของทริปเราคือลูกค้าประจำของโมดูลนี้</p></div>
     </div>
-    <div class="tip reveal">ภาพจากเซนเซอร์ M4/3 อย่าง G97 ที่ ISO สูง (3200+) จะได้ประโยชน์จากการลด noise มากเป็นพิเศษ</div>
+    <div class="tip reveal">เซนเซอร์ M4/3 อย่าง G97 ที่ ISO สูง (1600+) ได้ประโยชน์จาก denoise (profiled) มากเป็นพิเศษ — เปิดเป็นนิสัยกับภาพกลางคืนทุกใบ แล้วค่อยลดแรงถ้ารายละเอียดหาย</div>
   </div>
 </section>
 
+<!-- ================= 08 LENS/CROP ================= -->
 <section id="lens">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">08</span><h2>แก้เลนส์ · ครอป · ปรับตรง</h2></div>
     <p class="slead reveal">เก็บงานให้เนี้ยบ — แก้ความบิดเบี้ยวของเลนส์ และจัดเฟรมให้ลงตัว</p>
     <div class="grid g3">
-      <div class="card reveal"><span class="ic">LENS PROFILE</span><h3>แก้บิด/ขอบมืด</h3><p>เปิด Enable Profile Corrections โปรแกรมจะแก้ภาพบิดและขอบมืดอัตโนมัติตามรุ่นเลนส์ + ติ๊ก Remove Chromatic Aberration ลบขอบสีม่วง/เขียว</p></div>
-      <div class="card reveal"><span class="ic">GEOMETRY</span><h3>แก้เส้นเอียง</h3><p>เครื่องมือ Upright/Geometry ดึงเส้นตึก เสา ให้ตั้งตรง เหมาะภาพสถาปัตยกรรมและภาพมุมกว้าง</p></div>
-      <div class="card reveal"><span class="ic">CROP</span><h3>ครอป &amp; ปรับตรง</h3><p>จัดองค์ประกอบใหม่ ปรับเส้นขอบฟ้าให้ตรง เลือกอัตราส่วน และเปิด overlay กฎสามส่วนช่วยจัดเฟรม</p></div>
+      <div class="card reveal"><span class="ic">LENS CORRECTION</span><h3>แก้บิด/ขอบมืด</h3><p>เปิดโมดูลแล้วโปรแกรมอ่านรุ่นเลนส์จาก EXIF เอง (ฐานข้อมูล lensfun รู้จักทั้ง 12–60 และ 25 f/1.7) แก้ภาพบิด ขอบมืด และ chromatic aberration ให้อัตโนมัติ</p></div>
+      <div class="card reveal"><span class="ic">ROTATE &amp; PERSPECTIVE</span><h3>แก้เส้นเอียง/ตึกล้ม</h3><p>โมดูล rotate and perspective — ปุ่ม automatic ดึงเส้นตึกให้ตั้งตรงเอง เหมาะภาพสถาปัตย์ Toscana มุมกว้างที่เส้นลู่</p></div>
+      <div class="card reveal"><span class="ic">CROP</span><h3>ครอป &amp; ปรับตรง</h3><p>จัดองค์ประกอบใหม่ เลือกอัตราส่วน (1:1 สำหรับ IG) เปิด guide กฎสามส่วนช่วยจัดเฟรม — ถ่าย 4:3 มาแล้วครอปทีหลังยืดหยุ่นสุด</p></div>
     </div>
   </div>
 </section>
 
+<!-- ================= 09 MASKING ================= -->
 <section id="mask">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">09</span><h2>แต่งเฉพาะจุด · Masking</h2></div>
-    <p class="slead reveal">แทนการแต่งทั้งภาพ คุณเลือกแต่งเฉพาะบางส่วนได้ — นี่คือก้าวที่ทำให้ภาพดูโปรขึ้นชัดเจน</p>
+    <p class="slead reveal">ทุกโมดูลใน Darktable ใส่ mask ได้หมด (แถบไอคอนล่างของโมดูล) — ยืดหยุ่นกว่า LR ด้วยซ้ำ แค่ไม่มีปุ่ม AI คลิกเดียว</p>
     <div class="grid g2">
-      <div class="card reveal"><span class="ic">BRUSH</span><h3>แปรงทาเลือกจุด</h3><p>ระบายเลือกพื้นที่เอง เช่น เพิ่มความสว่าง/คมเฉพาะดวงตา ลดแสงจุดที่สว่างเกิน</p></div>
-      <div class="card reveal"><span class="ic">GRADIENT</span><h3>ไล่ระดับ (Linear/Radial)</h3><p>Linear เหมาะดึงท้องฟ้าให้เข้มลงจากบน · Radial เหมาะเน้นแสงรอบตัวแบบ (สปอตไลต์)</p></div>
-      <div class="card reveal"><span class="ic">AI SELECT</span><h3>เลือกอัตโนมัติ</h3><p>Select Subject / Select Sky / เลือกวัตถุ — LR รุ่นใหม่ตรวจจับให้เอง คลิกเดียวได้ mask ท้องฟ้าหรือตัวแบบทันที</p></div>
-      <div class="card reveal"><span class="ic">EXAMPLES</span><h3>ตัวอย่างใช้จริง</h3><p>ดึงท้องฟ้าให้เข้มดราม่า · เปิดหน้าคนที่ย้อนแสง · เพิ่มความคมที่ตา · ลดแสงฉากหลังให้ตัวแบบเด่น</p></div>
+      <div class="card reveal"><span class="ic">DRAWN MASK</span><h3>วาดเลือกเอง</h3><p>brush (แปรงทา) · ellipse/circle (วงรี — เหมาะครอบตัวคน) · gradient (ไล่ระดับ — เหมาะกดฟ้าจากด้านบน) · path (วาดเส้นรอบวัตถุ)</p></div>
+      <div class="card reveal"><span class="ic">PARAMETRIC MASK</span><h3>เลือกตามค่าภาพ</h3><p>เลือกพื้นที่จากความสว่าง/สี เช่น "เฉพาะโซนสว่างสุด" หรือ "เฉพาะสีฟ้า" — นี่คือตัวแทน Select Sky ของ LR: parametric เลือกโทนฟ้า + gradient จากบน = mask ท้องฟ้าแม่น ๆ</p></div>
+      <div class="card reveal"><span class="ic">COMBINE</span><h3>ผสมสองแบบ</h3><p>drawn ∩ parametric = วาดคร่าว ๆ แล้วให้เงื่อนไขค่าแสงเก็บขอบให้ เช่น วงรีครอบหน้าคน + จำกัดเฉพาะโทนผิว — ขอบเนียนไม่ต้องวาดเป๊ะ</p></div>
+      <div class="card reveal"><span class="ic">REAL CASE</span><h3>เคสจริง: ดึงหน้าคืน</h3><p>ช็อต Toscana ที่ถ่าย EV ติดลบรักษาฉากหลัง → เปิดโมดูล exposure <b>ตัวที่สอง</b> (คลิกขวา ► new instance) + ellipse mask ครอบตัวแบบ + ดัน exposure ขึ้น ~1 EV = หน้าสว่างคืน ฉากหลังไม่ขาวเพิ่ม</p></div>
     </div>
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 720 270" role="img" aria-label="แถบเครื่องมือ mask ท้ายโมดูล และตัวอย่าง ellipse mask ครอบตัวแบบ">
+        <rect x="6" y="6" width="366" height="216" rx="6" fill="#232323" stroke="#3a3a3a"/>
+        <text x="20" y="28" fill="#e8e8e8" font-family="Space Mono" font-size="10">exposure ②  (instance ใหม่)</text>
+        <text x="20" y="54" fill="#9a9a9a" font-family="Space Mono" font-size="9">exposure</text>
+        <rect x="20" y="60" width="336" height="10" rx="5" fill="#161616"/>
+        <rect x="20" y="60" width="240" height="10" rx="5" fill="#6a6a6a"/>
+        <text x="350" y="56" text-anchor="end" fill="#e8e8e8" font-family="Space Mono" font-size="9">+1.00 EV</text>
+        <line x1="20" y1="86" x2="356" y2="86" stroke="#333"/>
+        <text x="20" y="106" fill="#9a9a9a" font-family="Space Mono" font-size="9">blend · drawn mask ▾</text>
+        <g transform="translate(20 120)">
+          <rect x="0" y="0" width="40" height="26" rx="4" fill="#2e2e2e" stroke="#4a4a4a"/><text x="20" y="17" text-anchor="middle" fill="#c8c8c8" font-family="Space Mono" font-size="10">✎</text>
+          <rect x="46" y="0" width="40" height="26" rx="4" fill="#2e2e2e" stroke="#4a4a4a"/><circle cx="66" cy="13" r="7" fill="none" stroke="#c8c8c8" stroke-width="1.6"/>
+          <rect x="92" y="0" width="40" height="26" rx="4" fill="#3a3a3a" stroke="#e0a44a" stroke-width="1.6"/><ellipse cx="112" cy="13" rx="10" ry="6.5" fill="none" stroke="#e0a44a" stroke-width="1.8"/>
+          <rect x="138" y="0" width="40" height="26" rx="4" fill="#2e2e2e" stroke="#4a4a4a"/><path d="M148 19 L158 7 L168 19" fill="none" stroke="#c8c8c8" stroke-width="1.6"/>
+          <rect x="184" y="0" width="40" height="26" rx="4" fill="#2e2e2e" stroke="#4a4a4a"/><g stroke="#c8c8c8" stroke-width="1.4"><line x1="192" y1="8" x2="216" y2="8"/><line x1="192" y1="13" x2="216" y2="13" opacity=".6"/><line x1="192" y1="18" x2="216" y2="18" opacity=".3"/></g>
+        </g>
+        <g font-family="Space Mono" font-size="8" fill="#8a8a8a">
+          <text x="26" y="162">brush</text><text x="70" y="162">circle</text><text x="112" y="162">ellipse</text><text x="158" y="162">path</text><text x="200" y="162">gradient</text>
+        </g>
+        <text x="20" y="188" fill="#9a9a9a" font-family="Space Mono" font-size="9">parametric: L [▮▮▮——]  C [—▮▮——]  h [———]</text>
+        <text x="20" y="208" fill="#5fb6a2" font-family="IBM Plex Sans Thai" font-size="11">แถบ blend/รูปทรงนี้อยู่ "ท้ายทุกโมดูล"</text>
+        <rect x="388" y="6" width="326" height="216" rx="6" fill="#111" stroke="#3a3a3a"/>
+        <rect x="388" y="6" width="326" height="216" rx="6" fill="#22384d" opacity=".25"/>
+        <circle cx="540" cy="96" r="26" fill="#3a2f26"/>
+        <path d="M498 222 Q500 150 540 138 Q580 150 582 222 Z" fill="#4a3b2c"/>
+        <ellipse cx="540" cy="150" rx="86" ry="96" fill="rgba(224,164,74,.12)" stroke="#e0a44a" stroke-width="2" stroke-dasharray="6 5"/>
+        <circle cx="540" cy="54" r="4" fill="#e0a44a"/><circle cx="626" cy="150" r="4" fill="#e0a44a"/>
+        <text x="551" y="240" text-anchor="middle" fill="#e0a44a" font-family="IBM Plex Sans Thai" font-size="11.5">ellipse ครอบตัวแบบ → ดัน exposure เฉพาะในวง</text>
+        <text x="10" y="252" fill="#e0a44a" font-family="IBM Plex Sans Thai" font-size="11.5">● เคส Toscana: กดไฮไลต์ทั้งภาพด้วย tone equalizer แล้วใช้ instance ที่สองของ exposure + ellipse ดึงหน้าคืน</text>
+      </svg>
+    </div>
+
   </div>
 </section>
 
+<!-- ================= 10 EXPORT ================= -->
 <section id="export">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">10</span><h2>Export · ตั้งค่าเซฟไฟล์</h2></div>
-    <p class="slead reveal">เลือกค่าให้ตรงปลายทาง — ลงเว็บ/โซเชียล กับ สั่งพิมพ์ ใช้ค่าต่างกัน</p>
+    <p class="slead reveal">กลับไปห้อง lighttable ► แผง export selected (ขวาล่าง) — เลือกค่าให้ตรงปลายทาง</p>
     <div class="tablewrap reveal">
       <table>
         <thead><tr><th>ค่า</th><th>ลงเว็บ / โซเชียล</th><th>สั่งพิมพ์</th></tr></thead>
         <tbody>
-          <tr><td class="sit">รูปแบบไฟล์</td><td>JPEG · คุณภาพ 80–90</td><td>JPEG/TIFF · คุณภาพ 100</td></tr>
-          <tr><td class="sit">ขนาด (ด้านยาว)</td><td>~2048 px</td><td>ขนาดเต็ม</td></tr>
-          <tr><td class="sit">Resolution</td><td>72 ppi (ไม่สำคัญบนจอ)</td><td>300 ppi</td></tr>
-          <tr><td class="sit">Color Space</td><td>sRGB</td><td>sRGB / Adobe RGB</td></tr>
-          <tr><td class="sit">Sharpen for</td><td>Screen</td><td>Matte/Glossy Paper</td></tr>
+          <tr><td class="sit">รูปแบบไฟล์</td><td>JPEG · quality 90</td><td>JPEG/TIFF · quality 100</td></tr>
+          <tr><td class="sit">ขนาด (max size)</td><td>~2048 px ด้านยาว</td><td>0 = ขนาดเต็ม</td></tr>
+          <tr><td class="sit">Profile</td><td>sRGB (web-safe)</td><td>sRGB / Adobe RGB</td></tr>
+          <tr><td class="sit">Metadata (EXIF)</td><td><span class="v">คงไว้ — ห้ามตัด</span></td><td>ตามสะดวก</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="tip reveal"><b>สำคัญ:</b> ลงเว็บให้ใช้ <span class="mono gold">sRGB</span> เสมอ ไม่งั้นสีจะเพี้ยน (ซีด) บนเบราว์เซอร์/มือถือ</div>
+    
+    <div class="svgwrap reveal" style="max-width:460px;margin-left:auto;margin-right:auto">
+      <svg viewBox="0 0 420 300" role="img" aria-label="แผง export selected ของ lighttable">
+        <rect x="6" y="6" width="408" height="288" rx="6" fill="#232323" stroke="#3a3a3a"/>
+        <text x="20" y="30" fill="#e8e8e8" font-family="Space Mono" font-size="11">export selected</text>
+        <g font-family="Space Mono" font-size="9">
+          <text x="20" y="58" fill="#9a9a9a">storage</text>
+          <rect x="150" y="46" width="250" height="18" rx="3" fill="#161616" stroke="#3a3a3a"/><text x="158" y="59" fill="#c8c8c8">file on disk ▾</text>
+          <text x="20" y="90" fill="#9a9a9a">format</text>
+          <rect x="150" y="78" width="250" height="18" rx="3" fill="#161616" stroke="#3a3a3a"/><text x="158" y="91" fill="#c8c8c8">JPEG (8-bit) ▾</text>
+          <text x="20" y="122" fill="#9a9a9a">quality</text>
+          <rect x="150" y="114" width="250" height="10" rx="5" fill="#161616"/><rect x="150" y="114" width="225" height="10" rx="5" fill="#6a6a6a"/>
+          <text x="400" y="108" text-anchor="end" fill="#c8c8c8">90</text>
+          <text x="20" y="154" fill="#9a9a9a">max size</text>
+          <rect x="150" y="142" width="118" height="18" rx="3" fill="#161616" stroke="#3a3a3a"/><text x="158" y="155" fill="#c8c8c8">2048</text>
+          <rect x="282" y="142" width="118" height="18" rx="3" fill="#161616" stroke="#3a3a3a"/><text x="290" y="155" fill="#c8c8c8">2048</text>
+          <text x="20" y="186" fill="#9a9a9a">profile</text>
+          <rect x="150" y="174" width="250" height="18" rx="3" fill="#161616" stroke="#3a3a3a"/><text x="158" y="187" fill="#c8c8c8">sRGB (web-safe) ▾</text>
+          <text x="20" y="218" fill="#9a9a9a">metadata</text>
+          <rect x="150" y="206" width="250" height="18" rx="3" fill="#161616" stroke="#e0a44a" stroke-width="1.8"/><text x="158" y="219" fill="#f2c982">all metadata ▾</text>
+          <rect x="150" y="238" width="250" height="24" rx="4" fill="#2e2e2e" stroke="#4a4a4a"/><text x="275" y="254" text-anchor="middle" fill="#e8e8e8">export</text>
+        </g>
+        <text x="14" y="286" fill="#e0a44a" font-family="IBM Plex Sans Thai" font-size="11.5">● กรอบทอง = จุดที่ห้ามพลาด: คง all metadata ไว้ให้แอปเฟรม "Shot on LUMIX" อ่าน EXIF ได้</text>
+      </svg>
+    </div>
+    <div class="tip reveal"><b>สองจุดที่พลาดบ่อย:</b> ① ลงเว็บใช้ <span class="mono gold">sRGB</span> เสมอ ไม่งั้นสีซีดบนมือถือ · ② ในหน้า export มีตัวเลือก metadata — <b>อย่าเลือกตัด EXIF ทิ้ง</b> เพราะแอปทำเฟรม "Shot on LUMIX" (Fotorgear ฯลฯ) ต้องอ่านค่ากล้อง/เลนส์/f/ISO จากตรงนั้น ถ้าตัดทิ้งเฟรมจะว่างเปล่า</div>
   </div>
 </section>
 
-<section id="apps">
+<!-- ================= 11 REAL CASES ================= -->
+<section id="cases">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">11</span><h2>โปรแกรมแต่งภาพ (ฟรี &amp; เสียเงิน)</h2></div>
-    <p class="slead reveal">ไม่จำเป็นต้องจ่ายก็แต่ง RAW ได้ — ไฟล์ .RW2 ของ G97 รองรับทุกตัวด้านล่าง</p>
-    <div class="grid g3">
-      <div class="card reveal"><span class="ic">PAID · มาตรฐาน</span><h3>Adobe Lightroom</h3><p>Classic (เครื่อง) / CC (คลาวด์) มาตรฐานอุตสาหกรรม จัดการไฟล์ + แต่งครบ จ่ายรายเดือน</p></div>
-      <div class="card reveal"><span class="ic">FREE · มือถือ</span><h3>Lightroom Mobile</h3><p>ฟีเจอร์พื้นฐานฟรีบนมือถือ/แท็บเล็ต แต่ง RAW ได้ ซิงค์กับ desktop ได้</p></div>
-      <div class="card reveal"><span class="ic">FREE · เปิดซอร์ส</span><h3>Darktable</h3><p>ฟรี ครบเครื่อง คล้าย Lightroom มาก เหมาะคนอยากได้ของฟรีที่ทำงานจริงจัง</p></div>
-      <div class="card reveal"><span class="ic">FREE</span><h3>RawTherapee</h3><p>ฟรี เน้นจัดการไฟล์ RAW ละเอียดลึก ปรับได้เยอะ เรียนรู้สักหน่อย</p></div>
-      <div class="card reveal"><span class="ic">FREE · มือถือ</span><h3>Snapseed</h3><p>โดย Google ฟรี ใช้ง่าย เร็ว แต่งบนมือถือได้ผลดีเกินตัว เหมาะแต่งไว</p></div>
-      <div class="card reveal"><span class="ic">FREE · เว็บ</span><h3>Photopea</h3><p>คล้าย Photoshop ทำงานบนเบราว์เซอร์ ไม่ต้องติดตั้ง เหมาะงานรีทัชเล็กๆ</p></div>
+    <div class="shead reveal"><span class="snum">11</span><h2>สถานการณ์จริง · 4 เคสจากทริปเรา</h2></div>
+    <p class="slead reveal">ปัญหาที่เจอมาแล้วจริง ๆ กับวิธีแก้ใน darkroom ทีละโมดูล</p>
+
+    <div class="recipe reveal">
+      <h3>☁️ เคส 1 · วันครึ้มภาพจืด+ติดเย็น (ช็อตเนินหญ้า SOL)</h3>
+      <div class="when">อาการ: เขียวหม่นเทา ภาพแบน โทนอมฟ้า — Pastel ในกล้อง + เมฆหนา = จืดสองชั้น</div>
+      <div class="chips">
+        <span class="chip"><b>1 · color calibration</b>อุ่นขึ้น ~5500–6000K</span>
+        <span class="chip"><b>2 · sigmoid</b>เพิ่ม contrast เล็กน้อย</span>
+        <span class="chip"><b>3 · color balance rgb</b>vibrance +10–15%</span>
+        <span class="chip"><b>4 · color zones</b>เพิ่ม sat เขียว</span>
+        <span class="chip"><b>5 · tone equalizer</b>ยกโซนตัวแบบขึ้นนิด</span>
+      </div>
+      <p>ตัวการหลักคือ WB — แก้ให้อุ่นก่อนแล้วภาพจะ "หายป่วย" ไปครึ่งทาง ที่เหลือคือคืนชีวิตให้สีเขียว</p>
+    </div>
+
+    <div class="recipe reveal">
+      <h3>🏛️ เคส 2 · คนในร่ม ฉากหลังขาวโพลน (Toscana f/3.x)</h3>
+      <div class="when">อาการ: ฟ้า/หอเอนหลุดขาว หน้าตัวแบบมืด — แสงต่างกัน ~2 สต็อป</div>
+      <div class="chips">
+        <span class="chip"><b>1 · tone equalizer</b>กดโซนไฮไลต์ −1 ถึง −1.5 EV</span>
+        <span class="chip"><b>2 · exposure (instance ใหม่)</b>+ ellipse mask ครอบคน ดัน +1 EV</span>
+        <span class="chip"><b>3 · highlight reconstruction</b>ถ้าฟ้าหลุดสนิท เลือกโหมด inpaint</span>
+      </div>
+      <p>นี่คือเหตุผลที่ถ่ายรักษาฉากหลัง (EV ลบ) แล้วมาดึงหน้าคืนใน RAW — ถ้าถ่ายให้หน้าสว่างแต่แรก ฟ้าที่ขาวสนิทจะกู้ไม่ได้เลย · กันเกิดซ้ำหน้างาน: เช็กเลข f หลังสลับช่อง C ทุกครั้ง</p>
+    </div>
+
+    <div class="recipe reveal">
+      <h3>🌙 เคส 3 · กลางคืน/กองไฟ ISO สูง</h3>
+      <div class="when">อาการ: noise เม็ดหยาบ + ภาพอมส้มจากไฟวอร์ม (ISO 1600–3200)</div>
+      <div class="chips">
+        <span class="chip"><b>1 · denoise (profiled)</b>เปิด — ค่าอัตโนมัติมักพอดี</span>
+        <span class="chip"><b>2 · color calibration</b>ลากเย็นลง ~3900K แก้ส้มเกิน</span>
+        <span class="chip"><b>3 · color zones</b>ลด sat ส้ม/แดงของไฟเล็กน้อย</span>
+        <span class="chip"><b>4 · diffuse or sharpen</b>เบามือ — ความคมกับ noise มาคู่กัน</span>
+      </div>
+      <p>ลำดับสำคัญ: ลด noise ก่อนค่อยเพิ่มความคม ไม่งั้นจะคมทั้งเม็ด noise · ภาพดาวจาก C3 ใช้สูตรเดียวกันแต่ยก exposure ก่อนแล้วค่อย denoise</p>
+    </div>
+
+    <div class="recipe reveal">
+      <h3>🏙️ เคส 4 · อยากได้ลุค "Clean Punch" (แบบช็อต Tsingtao)</h3>
+      <div class="when">โจทย์: สีอิ่มสะอาด เงาดำจริง คมกลาง WB ตรง — ขั้วตรงข้ามของ matte</div>
+      <div class="chips">
+        <span class="chip"><b>1 · sigmoid</b>contrast ปกติ–เพิ่มนิด (ไม่ยกจุดดำ!)</span>
+        <span class="chip"><b>2 · color balance rgb</b>vibrance +10%</span>
+        <span class="chip"><b>3 · color zones</b>กด lightness ฟ้า + sat ฟ้าเล็กน้อย</span>
+        <span class="chip"><b>4 · local contrast</b>ค่าบวกเบา ๆ</span>
+      </div>
+      <p>หัวใจคือ "สิ่งที่ไม่ทำ": ไม่ยกจุดดำ ไม่ลด local contrast ไม่แต้ม split tone — ปล่อยให้เงาดำสนิทแล้วภาพจะ "กรอบ" เอง · เหมาะเที่ยวเมือง ตึก แดดจัดฟ้าใส</p>
     </div>
   </div>
 </section>
 
+<!-- ================= 12 TIPS + STYLES ================= -->
 <section id="tips" style="border-bottom:none">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">12</span><h2>เคล็ดลับ &amp; ข้อควรระวัง</h2></div>
-    <div class="check reveal" style="margin-top:28px">
-      <div><b>01</b> อย่าแต่งเกิน — เทียบ Before/After เป็นระยะ (กด \ ใน LR) ภาพดีมักดู "เป็นธรรมชาติ"</div>
-      <div><b>02</b> ดูภาพบนจอที่สีเที่ยง อย่าตัดสินจากมือถือกลางแดด</div>
-      <div><b>03</b> เก็บไฟล์ RAW ต้นฉบับเสมอ — การแต่งใน LR ไม่ทำลายต้นฉบับ</div>
-      <div><b>04</b> สำรองไฟล์อย่างน้อย 2 ที่ (เครื่อง + คลาวด์/ฮาร์ดดิสก์)</div>
-      <div><b>05</b> ตั้ง WB และ Exposure ให้ดีตั้งแต่ถ่าย จะแต่งง่ายขึ้นมาก</div>
-      <div><b>06</b> สร้าง/ใช้ Preset เพื่อให้ลุคภาพในชุดเดียวกันสม่ำเสมอและทำงานเร็ว</div>
+    <div class="shead reveal"><span class="snum">12</span><h2>เคล็ดลับ &amp; ทำสูตรอัตโนมัติ (Styles)</h2></div>
+    <p class="slead reveal">จุดที่ Darktable เข้าทางสาย automation ที่สุด — สูตรที่ทำครั้งเดียว ใช้ซ้ำได้ทั้งทริป</p>
+
+    <div class="setbox reveal">
+      <h3>⚡ เซฟสูตรเป็น Style (ทำครั้งเดียว ใช้ตลอด)</h3>
+      <span class="path">darkroom ► แผงซ้าย history ► ไอคอน ⊕ create style (อยู่ข้างปุ่ม compress history stack) ► ตั้งชื่อ เช่น "Khao Yai Pastel" ► เลือกเฉพาะโมดูลที่เป็น "ลุค" (tone curve, tone equalizer, color balance rgb, local contrast) — ไม่รวม exposure/crop ที่ต่างกันรายรูป</span>
+      <ol class="steps">
+        <li>แต่งรูปตัวแทน 1 ใบให้จบตามสูตรหัวข้อ 04</li>
+        <li>กดไอคอน <b>⊕ create style</b> ข้างปุ่ม compress history stack ตามพาธด้านบน</li>
+        <li>เรียกใช้: ใน lighttable เลือกหลายรูปพร้อมกัน ► แผง <b>styles</b> ► ดับเบิลคลิกชื่อสูตร = ติดทั้งชุดในคลิกเดียว</li>
+        <li>ขั้นเทพ: หน้า import ตั้ง <b>apply style on import</b> — รูปเข้ามาปุ๊บติดลุค Pastel อัตโนมัติทุกใบ แล้วค่อยจูนรายรูป</li>
+      </ol>
     </div>
+
+    
+    <div class="svgwrap reveal">
+      <svg viewBox="0 0 720 240" role="img" aria-label="ขั้นตอนสร้าง style จาก history stack ไปใช้ในแผง styles">
+        <rect x="6" y="6" width="200" height="190" rx="6" fill="#232323" stroke="#3a3a3a"/>
+        <text x="18" y="28" fill="#e8e8e8" font-family="Space Mono" font-size="10">history</text>
+        <g font-family="Space Mono" font-size="8.5" fill="#c8c8c8">
+          <text x="18" y="52">4 · color balance rgb</text>
+          <text x="18" y="70">3 · local contrast</text>
+          <text x="18" y="88">2 · tone equalizer</text>
+          <text x="18" y="106">1 · tone curve</text>
+          <text x="18" y="124" fill="#8a8a8a">0 · original</text>
+        </g>
+        <rect x="16" y="140" width="180" height="26" rx="4" fill="#3a3a3a" stroke="#e0a44a" stroke-width="1.8"/>
+        <text x="106" y="157" text-anchor="middle" fill="#f2c982" font-family="Space Mono" font-size="9.5">⊕ create style</text>
+        <text x="236" y="105" fill="#e0a44a" font-family="Space Mono" font-size="16">→</text>
+        <rect x="266" y="6" width="220" height="190" rx="6" fill="#232323" stroke="#3a3a3a"/>
+        <text x="278" y="28" fill="#e8e8e8" font-family="Space Mono" font-size="10">new style</text>
+        <rect x="278" y="40" width="196" height="18" rx="3" fill="#161616" stroke="#3a3a3a"/>
+        <text x="286" y="53" fill="#f2c982" font-family="Space Mono" font-size="9">Khao Yai Pastel</text>
+        <g font-family="Space Mono" font-size="8.5" fill="#c8c8c8">
+          <text x="278" y="82">☑ tone curve</text>
+          <text x="278" y="100">☑ tone equalizer</text>
+          <text x="278" y="118">☑ local contrast</text>
+          <text x="278" y="136">☑ color balance rgb</text>
+          <text x="278" y="154" fill="#dd8a5e">☐ exposure · ☐ crop</text>
+        </g>
+        <text x="278" y="182" fill="#5fb6a2" font-family="IBM Plex Sans Thai" font-size="11">ติ๊กเฉพาะโมดูล "ลุค" — ไม่รวมค่ารายรูป</text>
+        <text x="510" y="105" fill="#e0a44a" font-family="Space Mono" font-size="16">→</text>
+        <rect x="540" y="6" width="174" height="190" rx="6" fill="#232323" stroke="#3a3a3a"/>
+        <text x="552" y="28" fill="#e8e8e8" font-family="Space Mono" font-size="10">styles (lighttable)</text>
+        <rect x="550" y="40" width="156" height="20" rx="3" fill="#2e2e2e" stroke="#e0a44a"/>
+        <text x="558" y="54" fill="#f2c982" font-family="Space Mono" font-size="8.5">Khao Yai Pastel</text>
+        <g font-family="Space Mono" font-size="8.5" fill="#c8c8c8">
+          <text x="558" y="80">Fresh</text><text x="558" y="98">Golden Hour Rich</text>
+          <text x="558" y="116">Clean Punch</text><text x="558" y="134">Night Denoise</text>
+        </g>
+        <text x="552" y="168" fill="#5fb6a2" font-family="IBM Plex Sans Thai" font-size="11">เลือกหลายรูป → ดับเบิลคลิกสูตร</text>
+        <text x="10" y="226" fill="#e0a44a" font-family="IBM Plex Sans Thai" font-size="12">● ทำสูตรครั้งเดียวใน darkroom → กลับ lighttable กดใช้กับรูปทั้งทริปได้ในคลิกเดียว (หรือ apply ตั้งแต่ตอน import)</text>
+      </svg>
+    </div>
+    <div class="check reveal" style="margin-top:28px">
+      <div><b>01</b> เทียบก่อน/หลังเป็นระยะ — กดปุ่ม <span class="mono">take snapshot</span> (แผงซ้าย) เก็บสถานะไว้ แล้วคลิกชื่อ snapshot เพื่อสลับเทียบสองเวอร์ชันบนจอเดียว</div>
+      <div><b>02</b> อยากลองสองลุคกับรูปเดียว — คลิกขวาใน lighttable ► duplicate ได้สำเนาเสมือน (ไม่เปลืองพื้นที่) แต่งแยกกันได้อิสระ เช่น Pastel หนึ่ง Clean Punch หนึ่ง</div>
+      <div><b>03</b> เก็บไฟล์ .RW2 ต้นฉบับ + ไฟล์ .xmp คู่กันเสมอ — ย้ายเครื่อง/ลงใหม่ การแต่งทั้งหมดตามไปด้วย</div>
+      <div><b>04</b> สำรอง 2 ที่เสมอ — และจากที่เคยตรวจกัน อย่าเพิ่งใช้ไดรฟ์ E: (SSD ที่เขียนช้าผิดปกติ) เก็บรูปทริปจนกว่าจะยืนยันว่าเสถียร</div>
+      <div><b>05</b> ถ่ายให้ดีตั้งแต่กล้อง (WB/EV ตามเช็กลิสต์) — RAW กู้ได้เยอะแต่ไม่ใช่เวทมนตร์ ฟ้าที่ขาวสนิทกู้ไม่กลับ</div>
+      <div><b>06</b> ดูภาพบนจอโน้ตบุ๊กตอนแต่งจริง อย่าตัดสินสีจากจอมือถือกลางแดด · แต่งเสร็จลองเปิดบนมือถือดูอีกรอบก่อนโพสต์</div>
+    </div>
+
+    <div class="tip reveal"><b>ไอเดียต่อยอด:</b> ทำ style แยกตามทริป/ลุคให้ครบชุด — "Khao Yai Pastel" · "Fresh" · "Golden Hour Rich" · "Clean Punch" · "Night Denoise" (denoise+WB 3900K) แล้วชีวิตหลังทริปจะเหลือแค่ import → apply style → จูนนิดหน่อย → export เฟรม EXIF → โพสต์</div>
+  </div>
+</section>
+
+
+<!-- ================= 13 FULL WALKTHROUGH ================= -->
+<section id="walk" style="border-bottom:none">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">13</span><h2>แต่งจริงทีละคลิก · 3 สถานการณ์</h2></div>
+    <p class="slead reveal">จำลองว่าเพิ่งกลับจากถ่ายมา เปิด .RW2 ขึ้นมาแล้ว — ไล่ทำจริงตั้งแต่คลิกแรกจนกด export ตามลำดับโมดูลในแผงขวา (ชื่อตรงกับ Darktable 5.6.0)</p>
+
+    <div class="recipe reveal">
+      <h3>① คู่ในคาเฟ่ Toscana — คนในร่ม ฉากหลังแดดจ้า</h3>
+      <div class="when">ปัญหา: หน้ามืด ฟ้า/ตึกหลังสว่างเกือบขาว · ไฟล์ 25mm f/1.7</div>
+      <ol class="steps">
+        <li>เปิดไฟล์ .RW2 ใน darkroom → เช็กมุมล่างขวาต้องเป็น <b>scene-referred</b> (ไม่ใช่ legacy)</li>
+        <li><b>white balance</b> — ปกติ "camera reference" ตั้งมาดีแล้ว ถ้าอมสีค่อยแตะ</li>
+        <li><b>exposure</b> — ลากขึ้นจนหน้าคนพอดี (ตอนนี้ฟ้าหลังจะโอเวอร์ ไม่เป็นไร)</li>
+        <li><b>tone equalizer</b> → แท็บ advanced → ลากโหนดฝั่งขวา (ไฮไลต์) ลง <b>−1 ถึง −1.5 EV</b> ดึงฟ้า/ตึกกลับมา</li>
+        <li>ถ้าฟ้าบางจุดขาวสนิท เปิด <b>highlight reconstruction</b> → mode: <b>inpaint opposed</b></li>
+        <li><b>color balance rgb</b> → global chroma <b>+8%</b> ให้ตึกพาสเทลมีสี</li>
+        <li><b>crop</b> → เปิด guide กฎสามส่วน จัดคนไว้เส้นซ้าย</li>
+        <li>เก็บงานถ้าต้องดึงหน้าเพิ่ม: <b>exposure</b> คลิก <b>⧉ (new instance)</b> → ท้ายโมดูลเลือก drawn mask → <b>ellipse</b> ครอบตัวคน → ดัน +0.7 EV เฉพาะในวง</li>
+      </ol>
+      <p>หัวใจ: กดไฮไลต์ทั้งภาพก่อน แล้วค่อย mask ดึงเฉพาะหน้า — ได้ทั้งฟ้าและหน้าในภาพเดียว</p>
+    </div>
+
+    <div class="recipe reveal">
+      <h3>② เนินหญ้า SOL — วันครึ้มฟ้าเทา ภาพจืดติดเย็น</h3>
+      <div class="when">ปัญหา: เขียวหม่น โทนอมฟ้า แบนไร้มิติ · ไฟล์ 12–60</div>
+      <ol class="steps">
+        <li><b>color calibration</b> → เปิด → ใช้ CAT ดัน temperature อุ่นขึ้นราว <b>+800 ถึง +1200K</b> (แก้ตัวการหลัก)</li>
+        <li><b>sigmoid</b> → contrast <b>1.4–1.6</b> คืนมิติที่แสงครึ้มไม่มี</li>
+        <li><b>color balance rgb</b> → global chroma <b>+12%</b></li>
+        <li><b>color zones</b> → แท็บ saturation → ยกเส้นช่วง <b>เขียว</b> ขึ้น (ใช้หลอดดูดสีจิ้มหญ้า)</li>
+        <li><b>tone equalizer</b> → ยกโซนกลาง (ตัวแบบ) ขึ้นเล็กน้อยให้เด่นจากฉาก</li>
+        <li><b>haze removal</b> → ค่าน้อย ๆ 15–25% ถ้าวันนั้นหมอกหนาจนภาพมัว</li>
+      </ol>
+      <p>WB คือยา 80% ของเคสนี้ — แก้ให้อุ่นก่อนภาพจะหายป่วยทันที ที่เหลือคือคืนชีวิตให้สีเขียว</p>
+    </div>
+
+    <div class="recipe reveal">
+      <h3>③ กองไฟกลางคืน — noise เยอะ อมส้ม</h3>
+      <div class="when">ปัญหา: เม็ด noise หยาบ (ISO 1600+) ไฟวอร์มอมส้มเกิน · ไฟล์ 25mm</div>
+      <ol class="steps">
+        <li><b>denoise (profiled)</b> → เปิด → โปรไฟล์ตามกล้อง/ISO ขึ้นอัตโนมัติ ค่าเริ่มต้นมักพอดี (ทำก่อนเสมอ)</li>
+        <li><b>exposure</b> → ยกให้พอเห็นรายละเอียด อย่าฝืนสว่างจน noise โผล่</li>
+        <li><b>color calibration</b> → ลาก temperature <b>เย็นลง</b> (~3900K) แก้ส้มเกิน</li>
+        <li><b>color zones</b> → ลด saturation ช่วง <b>ส้ม/แดง</b> ของเปลวไฟลงนิด กันสีเลอะ</li>
+        <li><b>diffuse or sharpen</b> → presets → <b>sharpen demosaicing</b> เบา ๆ (คมมากจะดึง noise กลับ)</li>
+        <li><b>tone equalizer</b> → กดไฮไลต์ดวงไฟที่แตกโพลนลงเล็กน้อย</li>
+      </ol>
+      <p>ลำดับตายตัว: ลด noise → ปรับแสง/สี → เพิ่มคม (นิดเดียว) · ถ้าเป็นภาพดาว C3 ยก exposure ก่อน denoise</p>
+    </div>
+
+    <div class="tip reveal"><b>ปิดจ๊อบเหมือนกันทั้ง 3 เคส:</b> lens correction (แก้ขอบมืด/บิด) → เทียบ take snapshot กับต้นฉบับ → กลับ lighttable → (ครั้งแรกเซฟเป็น style) → export JPEG · sRGB · คง all metadata → เข้าแอปเฟรม EXIF → โพสต์ · จากนั้นรูปที่เหลือในทริปกดใช้ style เดียวจบแล้วจูนรายรูป</div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <div class="ft">ถ่ายดี + แต่งเป็น = ภาพในใจ</div>
-    <p>คู่มือแต่งภาพ · คู่กับ <a href="index.html" style="color:var(--gold);text-decoration:underline">คู่มือถ่ายภาพ Lumix G97</a><br>หลักการแต่งใช้ได้กับทุกโปรแกรม · ไฟล์ RAW ของ G97 = .RW2</p>
+    <p>คู่มือแต่งภาพฉบับ Darktable (ฟรี open-source) · คู่กับ <a href="index.html" style="color:var(--gold);text-decoration:underline">คู่มือถ่ายภาพ Lumix G97</a> · <a href="sol-glamping-checklist.html" style="color:var(--gold);text-decoration:underline">เช็กลิสต์ SOL</a> · <a href="filter-guide.html" style="color:var(--gold);text-decoration:underline">คู่มือฟิลเตอร์</a><br>ไฟล์ RAW ของ G97 = .RW2 · ต้องใช้ darktable 5.2 ขึ้นไป (เทียบหน้าจอกับ 5.6.0)</p>
   </div>
 </footer>
 

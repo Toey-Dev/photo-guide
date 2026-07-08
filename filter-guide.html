@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16130f">
+<meta name="description" content="คู่มือใช้ฟิลเตอร์ K&F Nano-X 3-in-1 และ UV กับ Lumix G97 — ลำดับประกอบ กติกา และค่ากล้องทุกช่วงเวลา">
+<title>คู่มือฟิลเตอร์ · G97 + K&F Nano-X</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chonburi&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#16130f; --bg2:#1e1a15; --bg3:#241f18;
+    --line:rgba(240,230,210,.14); --line2:rgba(240,230,210,.28);
+    --ink:#f2ebdd; --ink2:#cdbfa6; --ink3:#8a8170;
+    --gold:#e0a44a; --gold-soft:#f2c982; --teal:#5fb6a2; --coral:#e08a6a;
+    --lever:#e0822a; /* สีคันโยกส้มของ 3-in-1 = สีเน้นประจำหน้านี้ */
+    --morning:#9bb0c4; --day:#e6c98a; --eve:#e08a6a; --night:#6a78b0;
+    --serif:'Chonburi',serif; --sans:'IBM Plex Sans Thai',sans-serif; --mono:'Space Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:15px;
+    background-image:radial-gradient(ellipse 90% 40% at 50% -5%,rgba(224,130,42,.09),transparent),
+                     radial-gradient(circle at 15% 30%,rgba(224,164,74,.05),transparent 40%)}
+  ::selection{background:var(--lever);color:#16130f}
+
+  /* progress + back-to-top */
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--lever));z-index:99}
+  .totop{position:fixed;right:16px;bottom:16px;width:42px;height:42px;border-radius:50%;background:var(--bg2);
+    border:1px solid var(--line2);color:var(--gold);font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;
+    transition:opacity .3s;z-index:98;display:flex;align-items:center;justify-content:center;text-decoration:none}
+  .totop.show{opacity:1;pointer-events:auto}
+
+  .wrap{max-width:520px;margin:0 auto;padding:0 16px 70px}
+
+  /* ===== HERO ===== */
+  .hero{padding:44px 0 30px;text-align:center;position:relative}
+  .hero .kick{font-family:var(--mono);font-size:.7rem;letter-spacing:.35em;color:var(--lever);text-transform:uppercase}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,7vw,2.7rem);line-height:1.25;
+    margin:12px 0 10px;color:var(--ink)}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero .sub{color:var(--ink2);font-size:.95rem;max-width:40ch;margin:0 auto}
+  .hero .gear{font-family:var(--mono);font-size:.7rem;color:var(--ink3);margin-top:14px;letter-spacing:.03em}
+  .stackhero{margin:26px auto 4px;max-width:680px}
+  .stackhero svg{display:block;width:100%;height:auto}
+
+  /* nav */
+  .navrow{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:14px 0 6px;border-top:1px solid var(--line)}
+  .navrow a{font-size:.78rem;color:var(--ink2);text-decoration:none;border:1px solid var(--line);
+    padding:7px 13px;border-radius:99px;background:var(--bg2);transition:.2s}
+  .navrow a:hover{border-color:var(--lever);color:var(--gold-soft)}
+  .navrow a.ext{color:var(--teal)}
+
+  /* ===== SECTION HEAD ===== */
+  section{padding:34px 0 6px}
+  .shead{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line2);padding-bottom:12px;margin-bottom:20px}
+  .snum{font-family:var(--mono);font-size:.82rem;color:var(--lever);letter-spacing:.1em}
+  .shead h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.3}
+  .slead{color:var(--ink2);font-size:.92rem;margin:-8px 0 18px;max-width:60ch}
+
+  /* ===== GEAR GRID ===== */
+  .gear-grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .gcard{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;transition:.25s}
+  .gcard:hover{border-color:var(--line2);transform:translateY(-2px)}
+  .gcard .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--lever);display:block;margin-bottom:7px}
+  .gcard h3{font-size:1rem;margin-bottom:6px;font-weight:600}
+  .gcard p{font-size:.84rem;color:var(--ink2)}
+  .gcard p b{color:var(--gold-soft);font-weight:600}
+
+  /* ===== ASSEMBLY CHAINS ===== */
+  .chain{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+  .chain .who{font-family:var(--mono);font-size:.7rem;color:var(--ink3);letter-spacing:.08em;margin-bottom:11px;display:block}
+  .chain .who b{color:var(--gold-soft)}
+  .parts{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+  .part{border:1px solid var(--line2);border-radius:9px;padding:7px 11px;font-size:.78rem;background:var(--bg3);white-space:nowrap}
+  .part.hold{border-color:rgba(95,182,162,.5);color:var(--teal)}
+  .part.fx{border-color:var(--lever);color:var(--gold-soft)}
+  .arw{color:var(--ink3);font-family:var(--mono);font-size:.8rem}
+  .chain .alt{font-size:.76rem;color:var(--ink3);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+  .chain .alt b{color:var(--ink2)}
+
+  /* ===== RULES ===== */
+  .rules{display:grid;grid-template-columns:1fr;gap:12px}
+  .rule{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--lever);
+    border-radius:0 12px 12px 0;padding:13px 15px}
+  .rule b{color:var(--gold-soft)}
+  .rule p{font-size:.85rem;color:var(--ink2)}
+  .rule .n{font-family:var(--mono);color:var(--lever);font-size:.75rem;margin-right:8px}
+
+  /* ===== QUICK TABLE ===== */
+  .qtable{width:100%;border-collapse:collapse;background:var(--bg2);border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;margin-bottom:8px;font-size:.8rem}
+  .qtable caption{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-align:left;padding:11px 13px 2px;letter-spacing:.06em}
+  .qtable th,.qtable td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
+  .qtable th{color:var(--ink3);font-weight:600;font-family:var(--mono);font-size:.66rem}
+  .qtable td:first-child{text-align:left;color:var(--ink2);font-weight:600}
+  .qtable tr:last-child td{border-bottom:none}
+  .yes{color:var(--teal)} .no{color:var(--coral)} .mid{color:var(--gold-soft)}
+  .fnote{font-size:.73rem;color:var(--ink3);margin:0 2px 20px}
+
+  /* ===== TIME CARDS ===== */
+  .cards{display:grid;grid-template-columns:1fr;gap:18px}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s}
+  .card:hover{border-color:var(--line2)}
+  .card.morning{border-top:3px solid var(--morning)}
+  .card.day{border-top:3px solid var(--day)}
+  .card.eve{border-top:3px solid var(--eve)}
+  .card.night{border-top:3px solid var(--night)}
+  .cardhead{display:flex;align-items:center;gap:12px;padding:16px 16px 12px}
+  .cardhead .emoji{font-size:1.7rem;line-height:1}
+  .cardhead h3{font-family:var(--serif);font-weight:400;font-size:1.3rem}
+  .cardhead .time{font-family:var(--mono);font-size:.7rem;color:var(--ink3);display:block;margin-top:2px}
+  .scene{position:relative}
+  .scene img{width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;display:block;background:#0c0a08;
+    filter:saturate(.92) contrast(.98)}
+  .scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,19,15,.25),transparent 30%,transparent 75%,rgba(22,19,15,.4))}
+  .scene .cap{position:absolute;right:8px;bottom:6px;z-index:2;font-family:var(--mono);font-size:.56rem;
+    color:rgba(242,235,221,.6);background:rgba(0,0,0,.4);padding:2px 6px;border-radius:5px}
+  .cbody{padding:14px 16px 16px}
+  .block{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .block:first-child{margin-top:0;padding-top:0;border-top:none}
+  .block h4{font-size:.84rem;color:var(--gold);margin-bottom:9px;font-weight:600}
+  .rows{display:flex;flex-direction:column;gap:7px}
+  .r{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:.82rem}
+  .r span{color:var(--ink3);flex-shrink:0}
+  .r b{color:var(--ink);font-family:var(--mono);font-size:.77rem;text-align:right;font-weight:400}
+  .r b em{color:var(--gold-soft);font-style:normal}
+  .fchips{display:flex;gap:8px;flex-wrap:wrap}
+  .fchip{flex:1;min-width:86px;border-radius:10px;padding:9px;text-align:center;font-size:.74rem;border:1px solid var(--line)}
+  .fchip .n{display:block;font-family:var(--mono);font-size:.64rem;color:var(--ink3);margin-bottom:3px}
+  .fchip .s{font-weight:700}
+  .fchip.on{background:rgba(95,182,162,.12);border-color:rgba(95,182,162,.4)} .fchip.on .s{color:var(--teal)}
+  .fchip.mid{background:rgba(242,201,130,.1);border-color:rgba(242,201,130,.35)} .fchip.mid .s{color:var(--gold-soft)}
+  .fchip.off{background:rgba(224,138,106,.08);border-color:rgba(224,138,106,.3)} .fchip.off .s{color:var(--coral)}
+  .note{font-size:.74rem;color:var(--ink3);margin-top:9px}
+  .note b{color:var(--ink2)}
+
+  /* ===== CARE ===== */
+  .care li{font-size:.86rem;color:var(--ink2);margin-bottom:10px;list-style:none;padding-left:22px;position:relative}
+  .care li::before{content:"›";position:absolute;left:7px;color:var(--lever)}
+  .care li b{color:var(--gold-soft)}
+  .warnbox{font-size:.8rem;color:var(--gold-soft);margin-top:16px;background:rgba(224,130,42,.08);
+    border:1px solid rgba(224,130,42,.3);border-radius:12px;padding:13px 15px}
+  .warnbox b{color:var(--ink)}
+
+  footer{text-align:center;color:var(--ink3);font-size:.74rem;font-family:var(--mono);
+    padding:34px 0 0;margin-top:30px;border-top:1px solid var(--line)}
+  footer a{color:var(--teal);text-decoration:none}
+  footer a:hover{color:var(--gold-soft)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lever);outline-offset:2px;border-radius:6px}
+
+  /* ===== DESKTOP ===== */
+  @media(min-width:760px){
+    body{font-size:16px}
+    .wrap{max-width:1020px;padding:0 28px 90px}
+    .hero{padding:64px 0 36px}
+    .hero .gear{font-size:.78rem}
+    .gear-grid{grid-template-columns:1fr 1fr}
+    .rules{grid-template-columns:1fr 1fr}
+    .cards{grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+    .qtable{font-size:.88rem}
+    .shead h2{font-size:1.8rem}
+  }
+  @media(min-width:1120px){.wrap{max-width:1080px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<a class="totop" id="totop" href="#top" aria-label="กลับขึ้นบนสุด">↑</a>
+
+<div class="wrap" id="top">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <span class="kick">Filter Field Guide</span>
+    <h1>กระจกซ้อนเกลียว<br><em>G97 × K&amp;F Nano-X</em></h1>
+    <p class="sub">คู่มือใช้ 3-in-1 (VND + CPL + Black Mist) และ UV กับเลนส์สองตัว — ลำดับประกอบ กติกา และค่ากล้องทุกช่วงเวลา</p>
+    <p class="gear">LUMIX G97 · 12–60mm Ø58 · 25mm f/1.7 Ø46 · STEP-UP 46→58 · UV NANO-X Ø46 · CAP Ø58</p>
+
+    <!-- signature: exploded stack of the 25mm setup -->
+    <div class="stackhero" aria-hidden="false">
+      <svg viewBox="0 0 720 190" role="img" aria-label="ไดอะแกรมการซ้อนชั้น: เลนส์ 25mm → UV 46 → แหวน 46 เป็น 58 → ฟิลเตอร์ 3-in-1 คันโยกส้ม → ฝาปิด 58">
+        <defs>
+          <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a4a52"/><stop offset=".5" stop-color="#22303a"/><stop offset="1" stop-color="#141c22"/>
+          </linearGradient>
+          <linearGradient id="glassG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2f4a3c"/><stop offset=".5" stop-color="#1e3a2e"/><stop offset="1" stop-color="#12221c"/>
+          </linearGradient>
+        </defs>
+        <!-- dashed optical axis -->
+        <line x1="20" y1="95" x2="700" y2="95" stroke="rgba(240,230,210,.18)" stroke-dasharray="3 6"/>
+
+        <!-- LENS 25mm -->
+        <g transform="translate(60 95)">
+          <ellipse cx="0" cy="0" rx="26" ry="52" fill="#1a1712" stroke="#3a3128" stroke-width="2"/>
+          <ellipse cx="0" cy="0" rx="16" ry="38" fill="url(#glass)"/>
+          <ellipse cx="-4" cy="-12" rx="4" ry="10" fill="rgba(242,235,221,.18)"/>
+          <text y="76" text-anchor="middle" fill="#cdbfa6" font-family="IBM Plex Sans Thai" font-size="12">เลนส์ 25mm</text>
+          <text y="92" text-anchor="middle" fill="#8a8170" font-family="Space Mono" font-size="9">Ø46</text>
+        </g>
+
+        <!-- UV -->
+        <g transform="translate(190 95)">
+          <ellipse cx="0" cy="0" rx="14" ry="50" fill="none" stroke="#e0a44a" stroke-width="3"/>
+          <ellipse cx="0" cy="0" rx="9" ry="42" fill="url(#glassG)" opacity=".85"/>
+          <text y="76" text-anchor="middle" fill="#f2c982" font-family="IBM Plex Sans Thai" font-size="12">UV ใส่ค้าง</text>
+          <text y="92" text-anchor="middle" fill="#8a8170" font-family="Space Mono" font-size="9">NANO-X Ø46</text>
+        </g>
+
+        <!-- STEP-UP -->
+        <g transform="translate(310 95)">
+          <path d="M -8 -46 L 8 -60 L 8 60 L -8 46 Z" fill="#241f18" stroke="#5a4d3a" stroke-width="2"/>
+          <text y="80" text-anchor="middle" fill="#cdbfa6" font-family="IBM Plex Sans Thai" font-size="12">แหวน</text>
+          <text y="96" text-anchor="middle" fill="#8a8170" font-family="Space Mono" font-size="9">46→58</text>
+        </g>
+
+        <!-- 3-IN-1 -->
+        <g transform="translate(460 95)">
+          <ellipse cx="0" cy="0" rx="20" ry="62" fill="none" stroke="#e0822a" stroke-width="4"/>
+          <ellipse cx="0" cy="0" rx="12" ry="52" fill="url(#glassG)"/>
+          <ellipse cx="-3" cy="-16" rx="4" ry="12" fill="rgba(242,235,221,.14)"/>
+          <!-- orange lever -->
+          <rect x="10" y="-70" width="26" height="9" rx="4.5" fill="#e0822a" transform="rotate(24)"/>
+          <text y="88" text-anchor="middle" fill="#f2c982" font-family="IBM Plex Sans Thai" font-size="12">3-in-1 · VND+CPL+Mist</text>
+          <text y="104" text-anchor="middle" fill="#8a8170" font-family="Space Mono" font-size="9">NANO-X Ø58 · คันโยกส้ม = ND</text>
+        </g>
+
+        <!-- CAP -->
+        <g transform="translate(620 95)">
+          <ellipse cx="0" cy="0" rx="12" ry="56" fill="#12100c" stroke="#3a3128" stroke-width="2"/>
+          <line x1="-3" y1="-14" x2="-3" y2="14" stroke="#3a3128" stroke-width="3"/>
+          <text y="82" text-anchor="middle" fill="#cdbfa6" font-family="IBM Plex Sans Thai" font-size="12">ฝา Ares</text>
+          <text y="98" text-anchor="middle" fill="#8a8170" font-family="Space Mono" font-size="9">Ø58</text>
+        </g>
+
+        <!-- thread ticks between parts -->
+        <g stroke="rgba(224,164,74,.5)" stroke-width="1.5">
+          <line x1="105" y1="88" x2="160" y2="88"/><line x1="105" y1="102" x2="160" y2="102"/>
+          <line x1="218" y1="88" x2="288" y2="88"/><line x1="218" y1="102" x2="288" y2="102"/>
+          <line x1="332" y1="88" x2="424" y2="88"/><line x1="332" y1="102" x2="424" y2="102"/>
+          <line x1="494" y1="88" x2="596" y2="88"/><line x1="494" y1="102" x2="596" y2="102"/>
+        </g>
+      </svg>
+    </div>
+
+    <nav class="navrow" aria-label="สารบัญ">
+      <a href="#gear">01 อุปกรณ์</a>
+      <a href="#assembly">02 ประกอบ</a>
+      <a href="#rules">03 กติกา</a>
+      <a href="#times">04 ตามช่วงเวลา</a>
+      <a href="#care">05 ดูแล</a>
+      <a class="ext" href="index.html">← คู่มือหลัก</a>
+      <a class="ext" href="sol-glamping-checklist.html">เช็กลิสต์ SOL</a>
+    </nav>
+  </header>
+
+  <!-- ================= 01 GEAR ================= -->
+  <section id="gear">
+    <div class="shead reveal"><span class="snum">01</span><h2>อุปกรณ์ในชุด</h2></div>
+    <p class="slead reveal">ห้าชิ้น สามภารกิจ — เอฟเฟกต์ · ป้องกัน · ดูแลรักษา</p>
+    <div class="gear-grid">
+      <div class="gcard reveal"><span class="tag">EFFECT · Ø58</span><h3>K&amp;F Nano-X 3-in-1</h3><p>ฟิลเตอร์เอฟเฟกต์ตัวเดียวรวม 3 อย่าง: <b>VND ND2-32</b> (คันโยกส้ม หรี่แสง 1–5 สต็อป) · <b>CPL</b> (วงแหวนนอก ตัดสะท้อน/เพิ่มฟ้า) · <b>Black Mist 1/4</b> (ฝังในกระจก ฟุ้งตลอด ปิดไม่ได้)</p></div>
+      <div class="gcard reveal"><span class="tag">PROTECT · Ø46</span><h3>Nano-X MRC UV</h3><p>กระจกกันเลนส์ 25mm <b>ใส่ค้างถาวร</b> — เคลือบ 28 ชั้น ถ่ายย้อนแสงได้โดยไม่ต้องถอดบ่อย กันรอย กันละออง เช็ดง่าย</p></div>
+      <div class="gcard reveal"><span class="tag">BRIDGE · 46→58</span><h3>แหวน Step-Up</h3><p>สะพานให้ 25mm ใช้ 3-in-1 ตัวเดียวกับเลนส์คิตได้ — แหวนโลหะเปล่าไม่มีกระจก <b>คุณภาพภาพไม่ลด</b> (เลนส์มุมแคบใช้แต่ใจกลางกระจก ยิ่งเนียน)</p></div>
+      <div class="gcard reveal"><span class="tag">CAP + CLEAN</span><h3>ฝา Ares Ø58 · ชุด 23-in-1</h3><p>ฝาปิดหน้าชุดฟิลเตอร์ทั้งสองเลนส์ · ชุดทำความสะอาดมีลูกยางเป่า น้ำยา ผ้าไมโครไฟเบอร์ — <b>เป่าก่อนใส่ฟิลเตอร์ทุกครั้ง</b></p></div>
+    </div>
+  </section>
+
+  <!-- ================= 02 ASSEMBLY ================= -->
+  <section id="assembly">
+    <div class="shead reveal"><span class="snum">02</span><h2>ลำดับการประกอบ</h2></div>
+    <p class="slead reveal">จำสองสูตร — ขันทุกเกลียวแค่ <b style="color:var(--gold-soft)">พอตึงมือ</b> ขันแน่นเกินเกลียวติด</p>
+
+    <div class="chain reveal">
+      <span class="who">เลนส์คิต <b>12–60mm</b> (Ø58 ตรงรุ่น)</span>
+      <div class="parts">
+        <span class="part">เลนส์ 12–60</span><span class="arw">›</span>
+        <span class="part fx">3-in-1 Ø58</span><span class="arw">›</span>
+        <span class="part">ฝา Ares</span>
+      </div>
+      <p class="alt"><b>วันไม่ใช้ฟิลเตอร์:</b> ฮูดกลีบดอกไม้ + ฝาเดิม 58 — ทรงกลีบจำเป็นที่ 12mm อย่าใช้ฮูดทรงกระบอก</p>
+    </div>
+
+    <div class="chain reveal">
+      <span class="who">เลนส์ฟิกซ์ <b>25mm f/1.7</b> (Ø46 + สะพาน)</span>
+      <div class="parts">
+        <span class="part">เลนส์ 25mm</span><span class="arw">›</span>
+        <span class="part hold">UV 46 ค้างตลอด</span><span class="arw">›</span>
+        <span class="part">แหวน 46→58</span><span class="arw">›</span>
+        <span class="part fx">3-in-1 Ø58</span><span class="arw">›</span>
+        <span class="part">ฝา Ares</span>
+      </div>
+      <p class="alt"><b>วันไม่ใช้เอฟเฟกต์:</b> ถอดแค่แหวน + 3-in-1 → เหลือ UV ค้างไว้ · ซ้อนครบชุดแบบนี้<b>ไม่เกิดขอบดำ</b> (เลนส์มุมแคบ) · เกลียวหน้าฮูดใช้ไม่ได้ขณะมีแหวน</p>
+    </div>
+  </section>
+
+  <!-- ================= 03 RULES ================= -->
+  <section id="rules">
+    <div class="shead reveal"><span class="snum">03</span><h2>กติกา 3-in-1</h2></div>
+    <p class="slead reveal">สี่ข้อที่ต้องท่องก่อนหมุนอะไรทั้งนั้น</p>
+    <div class="rules">
+      <div class="rule reveal"><p><span class="n">R1</span><b>Mist ติดตลอด</b> — ใส่ฟิลเตอร์ = ได้ลุคฟุ้งเสมอ อยากคมกริบ (เช่นถ่ายดาว) ต้องถอดทั้งตัว</p></div>
+      <div class="rule reveal"><p><span class="n">R2</span><b>VND ต่ำสุด = ND2 (~1 สต็อป)</b> — ปิดเป็นศูนย์ไม่ได้ ใส่เมื่อไหร่เสียแสงอย่างน้อย 1 สต็อปเสมอ (โหมด A กล้องชดเชยให้เอง)</p></div>
+      <div class="rule reveal"><p><span class="n">R3</span><b>ห้ามฝืนคันโยกเกินช่วง</b> — เกิน ND32 เกิดรอยกากบาท (X) กลางภาพทันที</p></div>
+      <div class="rule reveal"><p><span class="n">R4</span><b>CPL ไม่มีปุ่มปิด</b> — "เบา" คือหมุนไปตำแหน่งผลน้อยสุด · ช็อตสะท้อนน้ำอย่าหมุนสุด เดี๋ยวเงาสะท้อนหาย</p></div>
+    </div>
+  </section>
+
+  <!-- ================= 04 BY TIME ================= -->
+  <section id="times">
+    <div class="shead reveal"><span class="snum">04</span><h2>ใช้งานตามช่วงเวลา</h2></div>
+
+    <table class="qtable reveal">
+      <caption>⚡ สรุปเร็ว: ฟิลเตอร์ + เลนส์</caption>
+      <thead><tr><th>ช่วง</th><th>VND</th><th>CPL</th><th>Mist</th><th>UV(25mm)</th><th>เลนส์เด่น</th></tr></thead>
+      <tbody>
+        <tr><td>🌅 เช้า</td><td class="mid">ต่ำ–2สต็อป</td><td class="no">เบาสุด</td><td class="yes">✓</td><td class="yes">ค้าง</td><td>12mm / 25</td></tr>
+        <tr><td>☀️ กลางวัน</td><td class="mid">3–5 สต็อป*</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">ค้าง</td><td>12–60</td></tr>
+        <tr><td>🌇 เย็น</td><td class="mid">กลาง</td><td class="mid">เบา</td><td class="yes">✓</td><td class="yes">ค้าง</td><td>12–60 / 25</td></tr>
+        <tr><td>🌙 กลางคืน</td><td class="no" colspan="3">ถอด 3-in-1 ทั้งตัว</td><td class="mid">ถอดตอนถ่ายดาว</td><td>25mm f/1.7</td></tr>
+      </tbody>
+    </table>
+    <p class="fnote reveal">* VND สูงเฉพาะช็อตลากชัตเตอร์บนขาตั้ง · ถือถ่ายปกติล็อกต่ำสุด (ND2) · 3-in-1 เป็นตัวเดียว ถอดแยกฟังก์ชันไม่ได้ — "ถอด" = ถอดทั้งตัว</p>
+
+    <div class="cards">
+
+    <div class="card morning reveal">
+      <div class="cardhead"><span class="emoji">🌅</span><div><h3>เช้า</h3><span class="time">06:00–09:00 · หมอก แสงนุ่ม น้ำ/ลมนิ่ง</span></div></div>
+      <div class="scene"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1000&q=60" alt="หมอกลอยเหนือหุบเขายามเช้า" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+      <div class="cbody">
+        <div class="block"><h4>🎛️ ฟิลเตอร์</h4><div class="fchips">
+          <div class="fchip mid"><span class="n">VND</span><span class="s">ต่ำสุด–2สต็อป</span></div>
+          <div class="fchip off"><span class="n">CPL</span><span class="s">เบาสุด</span></div>
+          <div class="fchip on"><span class="n">MIST</span><span class="s">เสริมหมอกจริง</span></div>
+        </div><p class="note">อยากได้น้ำ/หมอกไหลเนียน: ขาตั้ง + ดัน VND จนชัตเตอร์ <b>1/2–2s</b> · CPL หมุนเบาสุด อย่าตัดเงาสะท้อนผิวน้ำ</p></div>
+        <div class="block"><h4>📷 ตั้งกล้อง (Pastel · C1/C2)</h4><div class="rows">
+          <div class="r"><span>สไตล์ภาพ</span><b><em>ธรรมชาติ (NAT)</em> · −2/−1/−3/−2</b></div>
+          <div class="r"><span>เงาไฮไลท์ / i.Dynamic</span><b>H−2·S+3 · Low</b></div>
+          <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>5000–5200K (ครึ้ม→5500–6000K)</b></div>
+          <div class="r"><span>ชดเชยแสง [EV]</span><b>+0.3 ถึง +0.7</b></div>
+          <div class="r"><span>ค่าถ่าย</span><b>f/7–8 · ISO 200 · ขาตั้ง + 2-sec</b></div>
+        </div></div>
+        <div class="block"><h4>📸 ตัวอย่างช็อต</h4><div class="rows">
+          <div class="r"><span>หมอก+ทิวสน (12mm)</span><b>VND→1s · Mist ฟุ้งสองชั้น</b></div>
+          <div class="r"><span>กาแฟ+คน (25mm+UV)</span><b>ถอด 3-in-1 · f/1.7 โบเก้</b></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card day reveal">
+      <div class="cardhead"><span class="emoji">☀️</span><div><h3>กลางวัน</h3><span class="time">10:00–15:00 · แดดแรง — ฟิลเตอร์ทำงานเต็มระบบ</span></div></div>
+      <div class="scene"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=60" alt="คาเฟ่โทนขาวกลางแสงกลางวัน" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+      <div class="cbody">
+        <div class="block"><h4>🎛️ ฟิลเตอร์ · ลำดับ 5 ขั้น</h4><div class="rows">
+          <div class="r"><span>1 · ขาตั้ง</span><b>A/M · f/8 · ISO 200</b></div>
+          <div class="r"><span>2 · ND ต่ำสุดก่อน แล้วล็อกคันโยก</span><b>ND2</b></div>
+          <div class="r"><span>3 · หมุน CPL ดูจอ</span><b>ลดประกาย/ฟ้าอิ่ม คงเงาสะท้อน</b></div>
+          <div class="r"><span>4 · ดัน VND จนชัตเตอร์</span><b>1/4–2s</b></div>
+          <div class="r"><span>5 · ลั่นด้วย</span><b>2-sec timer · ดู "ไฮไลต์"</b></div>
+        </div><p class="note">ถือถ่ายปกติ: ล็อก VND ต่ำสุด ใช้ CPL+Mist — <b>CPL คือของจริงที่แต่งทีหลังไม่ได้</b>: ฟ้าอิ่มขึ้น ผนัง/กระจกหายสะท้อน</p></div>
+        <div class="block"><h4>📷 ตั้งกล้อง (Fresh)</h4><div class="rows">
+          <div class="r"><span>สไตล์ภาพ</span><b><em>NAT</em> · −1/+1/−2/−2</b></div>
+          <div class="r"><span>เงาไฮไลท์ / i.Dynamic</span><b>H−3·S+3 · High</b></div>
+          <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>5300K</b></div>
+          <div class="r"><span>ชดเชยแสง [EV]</span><b>−0.3 (ฉากหลังสว่าง → −0.7)</b></div>
+        </div></div>
+        <div class="block"><h4>📸 ตัวอย่างช็อต</h4><div class="rows">
+          <div class="r"><span>คน+ตึก (Toscana)</span><b>f/8 · CPL ช่วยฟ้า · EV−0.7</b></div>
+          <div class="r"><span>น้ำพุ/ธงไหวเนียน</span><b>VND 4–5 สต็อป · 1s</b></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card eve reveal">
+      <div class="cardhead"><span class="emoji">🌇</span><div><h3>เย็น</h3><span class="time">16:30–19:00 · golden → blue hour</span></div></div>
+      <div class="scene"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=60" alt="พระอาทิตย์ตกฟ้าทองเหนือทุ่ง" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+      <div class="cbody">
+        <div class="block"><h4>🎛️ ฟิลเตอร์</h4><div class="fchips">
+          <div class="fchip mid"><span class="n">VND</span><span class="s">กลาง 2–3 สต็อป</span></div>
+          <div class="fchip mid"><span class="n">CPL</span><span class="s">เบา</span></div>
+          <div class="fchip on"><span class="n">MIST</span><span class="s">แสงทองฟุ้ง ★</span></div>
+        </div><p class="note">นาทีทองของ Mist — ไฟ/ดวงอาทิตย์ต่ำ ๆ บลูมฟุ้งสวยสุดของวัน · แสงหมดเร็ว: เช็กชัตเตอร์ทุก 5 นาที ถือถ่ายอย่าให้ต่ำกว่า 1/60 (ลด VND ตาม)</p></div>
+        <div class="block"><h4>📷 ตั้งกล้อง (Golden Hour Rich)</h4><div class="rows">
+          <div class="r"><span>สไตล์ภาพ</span><b><em>STD.</em> · −1/+1/−1/−2</b></div>
+          <div class="r"><span>เงาไฮไลท์ / i.Dynamic</span><b>H−2·S+1 · Standard</b></div>
+          <div class="r"><span>ไวท์บาลานซ์ [WB]</span><b>5600–5900K (คงทอง)</b></div>
+          <div class="r"><span>ชดเชยแสง [EV]</span><b>+0.3 · silhouette → −1</b></div>
+          <div class="r"><span>ค่าถ่าย</span><b>f/8 วิว · ISO 200–400</b></div>
+        </div></div>
+        <div class="block"><h4>📸 ตัวอย่างช็อต</h4><div class="rows">
+          <div class="r"><span>ซันเซ็ตย้อนแสง (12–60)</span><b>Mist ทำแฟลร์ทองฟุ้ง</b></div>
+          <div class="r"><span>คู่ silhouette (25mm)</span><b>ถอด 3-in-1 → f/1.7 โบเก้ตะวัน</b></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card night reveal">
+      <div class="cardhead"><span class="emoji">🌙</span><div><h3>กลางคืน</h3><span class="time">หลังตะวันตก · กองไฟ ไฟสตริง ดาว</span></div></div>
+      <div class="scene"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1000&q=60" alt="เต็นท์ กองไฟ และฟ้าเต็มดาว" loading="lazy" width="1000" height="438"><span class="cap">photo: Unsplash</span></div>
+      <div class="cbody">
+        <div class="block"><h4>🎛️ ฟิลเตอร์</h4><div class="fchips">
+          <div class="fchip off" style="flex:1 1 100%"><span class="n">3-IN-1 · ตัวเดียวรวมสามฟังก์ชัน</span><span class="s">ถอดทั้งตัว — แสงน้อย ห้ามเสียสต็อป</span></div>
+        </div><p class="note"><b>ข้อยกเว้นเดียว:</b> อยากได้ไฟกองไฟ/สตริงฟุ้งเป็นดวง → คงไว้ได้ (VND ต่ำสุด · CPL กลาง) ยอมเสีย 1 สต็อป · <b>UV บน 25mm:</b> คน/กองไฟใส่ค้างได้ แต่<b>ถ่ายดาวจริงจังถอดออก</b> กัน ghost ดวงไฟซ้อน</p></div>
+        <div class="block"><h4>📷 คน / กองไฟ</h4><div class="rows">
+          <div class="r"><span>เลนส์ / ค่า</span><b>25mm · f/1.7 · ISO 800–1600 · 1/100</b></div>
+          <div class="r"><span>สไตล์ / WB</span><b>ธรรมชาติ (หรือ CNEV ลุคหนัง) · ~3900K</b></div>
+        </div></div>
+        <div class="block"><h4>🌌 ดาว (C3 · ขาตั้ง)</h4><div class="rows">
+          <div class="r"><span>ค่า</span><b>12mm · f/3.5 · ISO 1600 · 10–15s</b></div>
+          <div class="r"><span>โฟกัส / ลั่น</span><b>MF ∞ · 2-sec timer</b></div>
+          <div class="r"><span>เสริม</span><b>เปิดชัตเตอร์ NR · ปิดกันสั่น · ถอดฟิลเตอร์ทุกชิ้น</b></div>
+        </div></div>
+      </div>
+    </div>
+
+    </div><!-- /cards -->
+  </section>
+
+  <!-- ================= 05 CARE ================= -->
+  <section id="care">
+    <div class="shead reveal"><span class="snum">05</span><h2>ดูแลรักษา</h2></div>
+    <p class="slead reveal">ใช้ชุด 23-in-1 ให้ถูกจังหวะ — กระจกสะอาดคือครึ่งหนึ่งของความคม</p>
+    <ul class="care">
+      <li class="reveal"><b>ก่อนใส่ฟิลเตอร์ทุกครั้ง:</b> ลูกยางเป่าหน้าเลนส์ + ฟิลเตอร์ทั้งสองด้าน — ฝุ่นที่ค้างระหว่างชั้นกระจกคือตัวสร้างจุดฟุ้งแปลก ๆ</li>
+      <li class="reveal"><b>คราบ/รอยนิ้ว:</b> เป่าก่อนเสมอ → น้ำยา 1–2 หยดบนผ้า (ไม่หยดบนกระจกตรง ๆ) → เช็ดวนจากกลางออกนอก — เคลือบ MRC เช็ดผ่านเดียวออก</li>
+      <li class="reveal"><b>ละอองหมอกเช้า:</b> เกาะบนฟิลเตอร์ = เช็ดที่ฟิลเตอร์ ไม่ต้องแตะหน้าเลนส์เลย (ข้อดีของ UV ค้าง)</li>
+      <li class="reveal"><b>เกลียวติด:</b> ใช้ผ้ายาง/แผ่นกันลื่นในชุดช่วยจับหมุน — ครั้งหน้าขันแค่พอตึงมือ</li>
+      <li class="reveal"><b>เก็บ:</b> ฟิลเตอร์ลงซองเดิม → กล้อง+เลนส์ลงกล่องกันชื้น ~45–55%RH — จุดฝุ่นภายในเลนส์ 25mm แค่เฝ้าดูเดือนละครั้ง ไม่ต้องทำอะไร</li>
+    </ul>
+    <div class="warnbox reveal">⚡ <b>กันพลาดหน้างาน:</b> สลับช่อง C แล้วเช็กเลข f ที่แถบล่างจอทุกครั้ง (บทเรียน f/3.x ที่ Toscana) · ใส่ 3-in-1 แล้วภาพมืดลง ~1 สต็อปเป็นเรื่องปกติ · ก่อนเก็บกล้องทุกคืน: ถอด 3-in-1 เก็บซอง เหลือ UV ค้างบน 25mm พอ</div>
+  </section>
+
+  <footer>
+    <a href="index.html">คู่มือถ่ายภาพหลัก</a> · <a href="sol-glamping-checklist.html">เช็กลิสต์ SOL เขาใหญ่</a> · <a href="editing-guide.html">คู่มือแต่งภาพ</a><br><br>
+    LUMIX G97 · K&amp;F NANO-X 3-IN-1 Ø58 + UV Ø46<br>ค่ากล้องอิงเมนูไทยที่ตรวจกับเครื่องจริง
+  </footer>
+</div>
+
+<script>
+(function(){
+  // reveal on scroll
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // progress + back-to-top
+  var bar=document.getElementById('progress'), top=document.getElementById('totop');
+  function onScroll(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+    top.classList.toggle('show', h.scrollTop>600);
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
