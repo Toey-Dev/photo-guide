@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="96" viewBox="0 0 380 96">
+  <text x="376" y="34" text-anchor="end" font-family="Segoe UI, sans-serif"
+        font-size="22" letter-spacing="4" fill="#ffffff" opacity="0.92">$(WATERMARK_TEXT)</text>
+  <line x1="236" y1="46" x2="376" y2="46" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+  <text x="376" y="66" text-anchor="end" font-family="Segoe UI, sans-serif"
+        font-size="13" letter-spacing="2" fill="#ffffff" opacity="0.62">$(EXIF.MODEL) · $(EXIF.LENS)</text>
+  <text x="376" y="86" text-anchor="end" font-family="Segoe UI, sans-serif"
+        font-size="13" letter-spacing="2" fill="#ffffff" opacity="0.62">$(EXIF.FOCAL.LENGTH)mm · f/$(EXIF.APERTURE) · $(EXIF.EXPOSURE)s · ISO $(EXIF.ISO)</text>
+</svg>

@@ -40,7 +40,7 @@ nav .brand{font-family:var(--display);color:var(--gold);font-size:1.05rem;margin
 .menubtn .ar{display:inline-block;transition:transform .3s;font-size:.7rem}
 .menubtn[aria-expanded="true"] .ar{transform:rotate(180deg)}
 .menupanel{position:absolute;left:0;right:0;top:60px;max-height:0;overflow:hidden;background:rgba(20,17,13,.98);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:max-height .35s ease}
-.menupanel.open{max-height:640px;border-bottom-color:var(--line2)}
+.menupanel.open{max-height:780px;border-bottom-color:var(--line2)}
 .menugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:4px;padding:16px 28px 22px;max-width:1060px;margin:0 auto}
 .menugrid a{font-size:.9rem;color:var(--ink2);padding:10px 12px;border-radius:9px;border:1px solid transparent;transition:.2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .menugrid a:hover{color:var(--ink);background:var(--bg2);border-color:var(--line2)}
@@ -151,6 +151,13 @@ td .v{font-family:var(--mono);color:var(--gold-soft);font-size:.86rem}
 .tip{background:rgba(95,182,162,.07);border:1px solid rgba(95,182,162,.25);border-radius:12px;padding:18px 22px;margin:24px 0;font-size:.95rem;color:var(--ink)}
 .tip b{color:var(--teal)}
 
+/* code box */
+.codebox{background:#100e0b;border:1px solid var(--line2);border-radius:12px;margin:20px 0;overflow:hidden}
+.codebox .cbh{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--bg3);padding:9px 14px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.75rem;color:var(--gold-soft)}
+.copybtn{font-family:var(--sans);font-size:.78rem;color:var(--ink2);background:var(--bg2);border:1px solid var(--line2);border-radius:20px;padding:4px 14px;cursor:pointer;transition:.2s;flex-shrink:0}
+.copybtn:hover{color:var(--gold-soft);border-color:var(--gold)}
+.codebox pre{margin:0;padding:16px 18px;overflow-x:auto;font-family:var(--mono);font-size:.74rem;line-height:1.75;color:#cfc6b2}
+
 footer{padding:70px 0 60px;text-align:center}
 footer .ft{font-family:var(--display);color:var(--gold);font-size:1.6rem;margin-bottom:10px}
 footer p{color:var(--ink3);font-size:.85rem}
@@ -184,6 +191,10 @@ footer p{color:var(--ink3);font-size:.85rem}
       <a href="#cases"><span class="n">11</span>สถานการณ์จริง</a>
       <a href="#tips"><span class="n">12</span>เคล็ดลับ &amp; Styles</a>
       <a href="#walk"><span class="n">13</span>แต่งจริงทีละคลิก</a>
+      <a href="#post"><span class="n">14</span>เช็กลิสต์หลังถ่าย</a>
+      <a href="#looks"><span class="n">15</span>คลังลุค 8 สไตล์</a>
+      <a href="#tune"><span class="n">16</span>ปรับ DT ให้ลื่น</a>
+      <a href="#wm"><span class="n">17</span>Watermark สวย ๆ</a>
       <a class="back" href="index.html"><span class="n">←</span>คู่มือถ่ายภาพ</a>
       <a class="back" href="sol-glamping-checklist.html"><span class="n">→</span>เช็กลิสต์ SOL</a>
       <a class="back" href="filter-guide.html"><span class="n">→</span>คู่มือฟิลเตอร์</a>
@@ -688,7 +699,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 </section>
 
 <!-- ================= 12 TIPS + STYLES ================= -->
-<section id="tips" style="border-bottom:none">
+<section id="tips">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">12</span><h2>เคล็ดลับ &amp; ทำสูตรอัตโนมัติ (Styles)</h2></div>
     <p class="slead reveal">จุดที่ Darktable เข้าทางสาย automation ที่สุด — สูตรที่ทำครั้งเดียว ใช้ซ้ำได้ทั้งทริป</p>
@@ -759,7 +770,7 @@ footer p{color:var(--ink3);font-size:.85rem}
 
 
 <!-- ================= 13 FULL WALKTHROUGH ================= -->
-<section id="walk" style="border-bottom:none">
+<section id="walk">
   <div class="wrap">
     <div class="shead reveal"><span class="snum">13</span><h2>แต่งจริงทีละคลิก · 3 สถานการณ์</h2></div>
     <p class="slead reveal">จำลองว่าเพิ่งกลับจากถ่ายมา เปิด .RW2 ขึ้นมาแล้ว — ไล่ทำจริงตั้งแต่คลิกแรกจนกด export ตามลำดับโมดูลในแผงขวา (ชื่อตรงกับ Darktable 5.6.0)</p>
@@ -812,6 +823,287 @@ footer p{color:var(--ink3);font-size:.85rem}
   </div>
 </section>
 
+<!-- ================= 14 POST-SHOOT CHECKLIST ================= -->
+<section id="post">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">14</span><h2>เช็กลิสต์หลังถ่าย · กลับมาแล้วทำอะไรก่อน</h2></div>
+    <p class="slead reveal">ถ่ายเสร็จไม่ต้องคิดเยอะ — เดินตามผังเดียวกันทุกทริป: <strong>คัดก่อน แต่งทีหลัง</strong> แล้วรูปจะเสร็จเป็นชุด ไม่ค้างเป็นกองในฮาร์ดดิสก์</p>
+
+    <div class="setbox reveal">
+      <h3>🗂️ ผังงานหลังทริป 6 ขั้น (ทำครั้งเดียวต่อทริป)</h3>
+      <ol class="steps">
+        <li><b>Import</b> — lighttable ► import ► add to library (ถ้าตั้ง apply style on import ไว้ ลุคพื้นฐานจะติดมาตั้งแต่ต้น)</li>
+        <li><b>คัดรอบแรก · เร็ว ๆ อย่าคิดนาน</b> — กด <b>w ค้าง</b> ดูเต็มจอทีละใบ: ใบเสีย (หลุดโฟกัส/หลับตา/ถ่ายซ้ำ) กด <b>r</b> = reject · ใบที่ชอบกด <b>1–5</b> ให้ดาว</li>
+        <li><b>คัดรอบสอง</b> — ตั้งตัวกรองด้านบนให้โชว์เฉพาะ ≥ ★3 · เป้าหมายเหลือ 20–40 ใบต่อทริป พอสำหรับโพสต์จริง</li>
+        <li><b>แต่ง "ตัวแทนซีน" ก่อน</b> — เลือก 1 ใบต่อสถานการณ์ (เช้าครึ้ม/คาเฟ่/กลางคืน) แต่งให้จบตามเช็กลิสต์ 8 ข้อด้านล่าง → เซฟเป็น style</li>
+        <li><b>ตามด้วยทั้งซีน</b> — เลือกรูปซีนเดียวกันทั้งหมดใน lighttable ► ดับเบิลคลิก style ► จูนรายใบเฉพาะ exposure/crop</li>
+        <li><b>Export + เช็กจอมือถือ</b> — JPEG · sRGB · คง metadata (หัวข้อ 10) → เปิดดูบนมือถือก่อนโพสต์เสมอ</li>
+      </ol>
+    </div>
+
+    <div class="setbox reveal">
+      <h3>✅ เช็กลิสต์ต่อรูป 8 ข้อ — ไล่บนลงล่าง ครบแล้วกด export ได้เลย</h3>
+      <div class="check" style="margin-top:8px">
+        <div><b>01</b> <span><strong>WB ตรงไหม</strong> — ของที่ควรขาวต้องขาวจริง ไม่อมฟ้า/ส้ม → <span class="mono">color calibration</span> ใช้หลอดดูดสี</span></div>
+        <div><b>02</b> <span><strong>แสงรวมพอดี</strong> — histogram ไม่กองชิดซ้ายหรือชนขวา → <span class="mono">exposure</span></span></div>
+        <div><b>03</b> <span><strong>ไฮไลต์ยังมีเนื้อ</strong> — ฟ้า/เสื้อขาว/แก้มไม่หลุดขาว → <span class="mono">tone equalizer</span> กดโซนขวา · หลุดสนิทใช้ highlight reconstruction</span></div>
+        <div><b>04</b> <span><strong>เงายังมีรายละเอียด</strong> — ส่วนมืดเห็นเนื้อภาพ ไม่จมดำ (ยกเว้นตั้งใจ) → <span class="mono">tone equalizer</span> โซนซ้าย</span></div>
+        <div><b>05</b> <span><strong>สีสดพอดี · ผิวคนไม่ส้ม</strong> — vibrance รวมก่อน แล้วเจาะรายสี → <span class="mono">color balance rgb · color zones</span></span></div>
+        <div><b>06</b> <span><strong>noise และความคม (ดูที่ 100%)</strong> — ลด noise ก่อนค่อยเพิ่มคมเสมอ → <span class="mono">denoise (profiled) → diffuse or sharpen</span></span></div>
+        <div><b>07</b> <span><strong>เส้นตรง เฟรมลงตัว</strong> — ขอบฟ้าไม่เอียง ตึกไม่ล้ม ครอปไม่ตัดข้อต่อคน → <span class="mono">rotate &amp; perspective · crop · lens correction</span></span></div>
+        <div><b>08</b> <span><strong>จุดกวนตา</strong> — เศษขยะ สายไฟ สิว → <span class="mono">retouch</span> · ปิดท้ายกวาดตาขอบภาพทั้ง 4 ด้าน</span></div>
+      </div>
+    </div>
+
+    <div class="tablewrap reveal">
+      <table>
+        <thead><tr><th>สถานการณ์พื้นฐาน</th><th>อาการประจำ</th><th>แต่งอะไร (เรียงตามลำดับ)</th><th>ลุคที่เข้ากัน</th></tr></thead>
+        <tbody>
+          <tr><td class="sit">วิวแดดดี ฟ้าใส</td><td>ฟ้าในรูปจืดกว่าตาเห็น</td><td><span class="v">color zones กด lightness ฟ้า → vibrance +10%</span></td><td>Clean Punch</td></tr>
+          <tr><td class="sit">วิววันครึ้ม / หมอก</td><td>ติดเย็น แบน เขียวหม่น</td><td><span class="v">WB อุ่นขึ้น → sigmoid contrast → sat เขียว</span></td><td>Fresh · Pastel</td></tr>
+          <tr><td class="sit">Golden hour เช้า/เย็น</td><td>สีทองอ่อนกว่าตาเห็น</td><td><span class="v">WB อุ่น +300–500K → 4 ways แต้มทองไฮไลต์</span></td><td>Golden Hour Rich</td></tr>
+          <tr><td class="sit">Portrait กลางแจ้งแดดแข็ง</td><td>เงาหน้าแรง ผิวแดง</td><td><span class="v">tone equalizer เปิดเงา → ลด sat ส้มนิด</span></td><td>Bright &amp; Airy</td></tr>
+          <tr><td class="sit">Portrait ย้อนแสง / ในร่ม</td><td>หน้ามืด ฉากหลังโพลน</td><td><span class="v">กดไฮไลต์ → exposure instance + ellipse mask</span></td><td>ดูเคส ① หัวข้อ 13</td></tr>
+          <tr><td class="sit">คาเฟ่ / สถาปัตย์</td><td>เส้นเอียง ไฟผสมหลายสี</td><td><span class="v">rotate &amp; perspective → WB → crop</span></td><td>Clean Punch · Pastel</td></tr>
+          <tr><td class="sit">กลางคืน / กองไฟ</td><td>noise หยาบ อมส้ม</td><td><span class="v">denoise → WB เย็นลง → คมเบา ๆ</span></td><td>Night Denoise</td></tr>
+          <tr><td class="sit">ของกิน / บนโต๊ะ</td><td>ไฟร้านอมเหลือง เงาแข็ง</td><td><span class="v">WB → ยกเงา → sat แดง-ส้มให้น่ากิน</span></td><td>Fresh</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip reveal"><b>กติกาเดียวที่ห้ามแหก:</b> คัดรูปให้จบก่อนเริ่มแต่ง — แต่งไปคัดไปคือสาเหตุอันดับหนึ่งที่รูปทริปค้างเป็นเดือน · รูปที่ reject ไม่ต้องลบทันที ซ่อนด้วยตัวกรองพอ กลับมาดูอีกทีตอนจบทริปแล้วค่อยลบยกชุด</div>
+  </div>
+</section>
+
+<!-- ================= 15 LOOK LIBRARY ================= -->
+<section id="looks">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">15</span><h2>คลังลุค 8 สไตล์ · เลือกตามอารมณ์ภาพ</h2></div>
+    <p class="slead reveal">สูตรลุคยอดนิยมฉบับ Darktable — แต่ละลุคทำครั้งเดียวกับรูปตัวแทน แล้ว<strong>เซฟเป็น style ชื่อเดียวกัน</strong> (วิธีทำหัวข้อ 12) · เลือกลุคให้ตรงซีนด้วยตารางหัวข้อ 14</p>
+
+    <div class="grid g2">
+      <div class="recipe reveal">
+        <h3>🌫️ 1 · Khao Yai Pastel</h3>
+        <div class="when">matte ฟิล์มจาง แสงนุ่ม — ลุคประจำตัวของเรา</div>
+        <div class="chips">
+          <span class="chip"><b>tone curve</b>ยกจุดดำ</span>
+          <span class="chip"><b>tone equalizer</b>ไฮไลต์ −0.5–1 EV</span>
+          <span class="chip"><b>local contrast</b>ติดลบนิด</span>
+          <span class="chip"><b>cb rgb</b>chroma −5–10%</span>
+        </div>
+        <p>สูตรเต็ม + split tone เงาฟ้า/ไฮไลต์อุ่น อยู่หัวข้อ 04 — เหมาะเช้าครึ้ม ทุ่งหญ้า คาเฟ่ไม้</p>
+      </div>
+
+      <div class="recipe reveal">
+        <h3>🌿 2 · Fresh</h3>
+        <div class="when">สดใสธรรมชาติ สีตรงตาเห็นแต่มีชีวิต</div>
+        <div class="chips">
+          <span class="chip"><b>sigmoid</b>contrast ค่าปกติ</span>
+          <span class="chip"><b>cb rgb</b>vibrance +10–12%</span>
+          <span class="chip"><b>color zones</b>sat เขียว/ฟ้าขึ้นนิด</span>
+        </div>
+        <p>ไม่ยกจุดดำ ไม่แต้ม split tone — ลุคเซฟสุดใช้ได้เกือบทุกซีน รวมถึงรูปอาหาร</p>
+      </div>
+
+      <div class="recipe reveal">
+        <h3>🔷 3 · Clean Punch</h3>
+        <div class="when">คมสะอาด สีอิ่ม เงาดำจริง — เที่ยวเมือง แดดจัด</div>
+        <div class="chips">
+          <span class="chip"><b>sigmoid</b>contrast เพิ่มนิด</span>
+          <span class="chip"><b>cb rgb</b>vibrance +10%</span>
+          <span class="chip"><b>color zones</b>กด lightness ฟ้า</span>
+          <span class="chip"><b>local contrast</b>บวกเบา ๆ</span>
+        </div>
+        <p>หัวใจคือสิ่งที่ "ไม่ทำ": ไม่ยกจุดดำ ไม่ฟุ้ง — รายละเอียดเต็มอยู่เคส 4 หัวข้อ 11</p>
+      </div>
+
+      <div class="recipe reveal">
+        <h3>🌇 4 · Golden Hour Rich</h3>
+        <div class="when">ขับสีทองชั่วโมงทองให้อิ่มเหมือนตาเห็น</div>
+        <div class="chips">
+          <span class="chip"><b>color calibration</b>อุ่นขึ้น +300–500K</span>
+          <span class="chip"><b>4 ways</b>ไฮไลต์แต้มทอง · เงาอมม่วงจาง</span>
+          <span class="chip"><b>cb rgb</b>chroma +8%</span>
+          <span class="chip"><b>tone eq</b>กันดวงอาทิตย์หลุดขาว</span>
+        </div>
+        <p>ระวังผิวคนส้มเกิน — ถ้ามีคนในเฟรม ลด sat ส้มเฉพาะโซนผิวด้วย color zones</p>
+      </div>
+
+      <div class="recipe reveal">
+        <h3>🎬 5 · Cinema Teal-Orange</h3>
+        <div class="when">โทนหนัง — เงาอมเขียวน้ำทะเล ไฮไลต์ส้มอุ่น</div>
+        <div class="chips">
+          <span class="chip"><b>4 ways</b>เงา→teal เบา ๆ · ไฮไลต์→ส้ม</span>
+          <span class="chip"><b>cb rgb</b>chroma −5% (หนังไม่สดแสบ)</span>
+          <span class="chip"><b>sigmoid</b>contrast กลาง–สูงนิด</span>
+          <span class="chip"><b>crop</b>16:9 เสริมอารมณ์</span>
+        </div>
+        <p>เหมาะ street กลางคืน ไฟเมือง มีคนในเฟรม · เช็กสีผิวเสมอ — ถ้าผิวเขียวแปลว่าแต้ม teal แรงไป</p>
+      </div>
+
+      <div class="recipe reveal">
+        <h3>🎞️ 6 · Film Classic</h3>
+        <div class="when">ฟิล์มอุ่นย้อนยุค มีเกรน — สตรีท คาเฟ่ vintage</div>
+        <div class="chips">
+          <span class="chip"><b>tone curve</b>ยกจุดดำ + กดจุดขาวลงนิด</span>
+          <span class="chip"><b>color calibration</b>อุ่นขึ้นเล็กน้อย</span>
+          <span class="chip"><b>cb rgb</b>chroma −5–8%</span>
+          <span class="chip"><b>grain</b>ISO 400 · แรงปานกลาง</span>
+          <span class="chip"><b>vignetting</b>ขอบมืดจาง ๆ</span>
+        </div>
+        <p>ต่างจาก Pastel ตรงช่วงโทน "แคบทั้งสองฝั่ง" + เกรน — ดูมีอายุกว่า นุ่มกว่า</p>
+      </div>
+
+      <div class="recipe reveal">
+        <h3>⚫ 7 · Mono Classic</h3>
+        <div class="when">ขาวดำคอนทราสต์จัด — แสงแข็ง เงาชัด รูปทรง/เส้น</div>
+        <div class="chips">
+          <span class="chip"><b>color calibration</b>แท็บ gray = ขาวดำ</span>
+          <span class="chip"><b>gray tab</b>ดัน red ผิวสว่าง · ดัน blue ฟ้าเข้ม</span>
+          <span class="chip"><b>sigmoid</b>contrast สูงขึ้น</span>
+          <span class="chip"><b>grain</b>นิดเดียว</span>
+        </div>
+        <p>แปลงขาวดำที่ถูกต้องคือแท็บ gray ของ color calibration (ไม่ใช่ลด saturation เป็นศูนย์) — คุมน้ำหนักแต่ละสีได้เหมือนใส่ฟิลเตอร์สีหน้าเลนส์ยุคฟิล์ม</p>
+      </div>
+
+      <div class="recipe reveal">
+        <h3>🤍 8 · Bright &amp; Airy</h3>
+        <div class="when">portrait โปร่งสว่าง ผิวใส — แสงหน้าต่าง คาเฟ่ขาว</div>
+        <div class="chips">
+          <span class="chip"><b>exposure</b>+0.3–0.7 EV</span>
+          <span class="chip"><b>tone equalizer</b>ยกเงาขึ้น</span>
+          <span class="chip"><b>sigmoid</b>contrast ลดนิด</span>
+          <span class="chip"><b>color zones</b>lightness โทนผิวขึ้น · sat ส้มลงนิด</span>
+        </div>
+        <p>ห้ามใส่ local contrast บวก — ผิวจะกร้าน · ฉากหลังสว่างหลุดนิดหน่อยยอมได้ ลุคนี้ตั้งใจโปร่ง</p>
+      </div>
+    </div>
+    <div class="tip reveal"><b>เก็บสูตรไว้ใช้ยาว:</b> ทำครบแล้วไปที่ lighttable ► แผง styles ► เลือกทุกสูตร ► <span class="mono gold">export</span> ได้ไฟล์ .dtstyle สำรองเก็บใน cloud — เครื่องใหม่/ลงโปรแกรมใหม่ import กลับมาได้ทั้งชุด</div>
+  </div>
+</section>
+
+<!-- ================= 16 TUNE DARKTABLE ================= -->
+<section id="tune">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">16</span><h2>ปรับ Darktable 5.6 ให้ใช้ง่ายขึ้น</h2></div>
+    <p class="slead reveal">ตั้งค่าครั้งเดียวแล้วโปรแกรมทำงานแทนเราครึ่งหนึ่ง — จุดแข็งที่สุดของ Darktable คือระบบ preset อัตโนมัติกับคีย์ลัดที่ตั้งเองได้ทุกอย่าง</p>
+
+    <div class="setbox reveal">
+      <h3>⚙️ Preferences ที่ควรเช็ก (ไอคอนเฟือง)</h3>
+      <ol class="steps">
+        <li><b>processing ► auto-apply pixel workflow defaults = scene-referred (sigmoid)</b> — ทุก RAW เปิดมาพร้อม sigmoid ตามคู่มือนี้ (5.6 มักตั้งให้แล้ว เช็กไว้ให้ชัวร์)</li>
+        <li><b>processing ► activate OpenCL support</b> — ใช้การ์ดจอ RTX ช่วยประมวลผล (ทวนจากหัวข้อ 01)</li>
+        <li><b>shortcuts ► ค้นหา "styles"</b> — ผูกสูตรเป็นปุ่มเดียว เช่น <span class="mono gold">ctrl+1 = Khao Yai Pastel · ctrl+2 = Clean Punch</span> อยู่ darkroom กดปุ่มเดียวเปลี่ยนลุคทั้งภาพ</li>
+      </ol>
+    </div>
+
+    <div class="setbox reveal">
+      <h3>🤖 Auto-apply preset ตามกล้อง/ISO — รูป G97 ตั้งต้นให้เองทุกใบ</h3>
+      <span class="path">โมดูลใดก็ได้ ► ปรับค่าที่ต้องการ ► ไอคอน ≡ (presets) ► store new preset ► ติ๊ก "auto apply this preset to matching images" ► ใส่เงื่อนไข</span>
+      <ol class="steps">
+        <li><b>lens correction อัตโนมัติ:</b> เปิดโมดูล ► store new preset ► auto apply ► ช่อง camera พิมพ์ <b>DC-G97</b> — จากนี้ทุกไฟล์ G97 แก้เลนส์เองตั้งแต่เปิด</li>
+        <li><b>denoise อัตโนมัติเฉพาะภาพกลางคืน:</b> denoise (profiled) ► store new preset ► auto apply ► เงื่อนไข ISO <b>1600 – 25600</b> — ภาพ ISO ต่ำไม่โดนแตะ ภาพกลางคืนลด noise ให้เอง</li>
+        <li><b>quick access panel จัดเอง:</b> แผงหัวใจ ► ไอคอนดินสอ (edit) มุมบน ► เพิ่ม/ลบสไลเดอร์ — ใส่แค่ exposure · contrast · chroma · โซน tone eq ที่ใช้จริง งานไวขึ้นมาก</li>
+      </ol>
+    </div>
+
+    <div class="tablewrap reveal">
+      <table>
+        <thead><tr><th>คีย์ลัด</th><th>ทำอะไร</th><th>ใช้ที่ห้อง</th></tr></thead>
+        <tbody>
+          <tr><td class="sit"><span class="v">w</span> (กดค้าง)</td><td>ดูภาพเต็มจอชั่วคราว — พระเอกตอนคัดรูป</td><td>lighttable</td></tr>
+          <tr><td class="sit"><span class="v">1–5 · 0</span></td><td>ให้ดาว / ล้างดาว</td><td>ทั้งสองห้อง</td></tr>
+          <tr><td class="sit"><span class="v">r</span></td><td>reject รูปเสีย</td><td>ทั้งสองห้อง</td></tr>
+          <tr><td class="sit"><span class="v">F1–F5</span></td><td>ป้ายสี — ใช้เป็นสถานะงาน: แดง=รอแต่ง เหลือง=กำลังแต่ง เขียว=เสร็จ</td><td>ทั้งสองห้อง</td></tr>
+          <tr><td class="sit"><span class="v">d · l</span></td><td>สลับ darkroom ↔ lighttable</td><td>—</td></tr>
+          <tr><td class="sit"><span class="v">tab</span></td><td>ซ่อน/โชว์แผงข้าง ดูภาพเต็ม ๆ</td><td>ทั้งสองห้อง</td></tr>
+          <tr><td class="sit"><span class="v">ctrl+z</span></td><td>ย้อนขั้นตอนล่าสุด</td><td>darkroom</td></tr>
+          <tr><td class="sit"><span class="v">ctrl+b</span></td><td>โหมดประเมินสี (ขอบเทากลาง) — เช็กโทนก่อน export</td><td>darkroom</td></tr>
+          <tr><td class="sit">คลิกเมาส์กลาง</td><td>ซูม 100% ทันที — คู่กับขั้นเช็ก noise/ความคม</td><td>darkroom</td></tr>
+          <tr><td class="sit"><span class="v">ctrl+e</span></td><td>export ด่วนด้วยค่าล่าสุด ไม่ต้องกลับ lighttable</td><td>darkroom</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip reveal"><b>ขั้นสูงไว้ค่อยลอง:</b> เมนู tools ► script manager มีสคริปต์ Lua เสริม (เช่น export ไปแอปอื่น, จัดไฟล์อัตโนมัติ) · คีย์ลัดทุกตัวเปลี่ยนเองได้ที่ preferences ► shortcuts — จำของเดิมไม่ได้ก็ตั้งใหม่ให้เข้ามือตัวเอง</div>
+  </div>
+</section>
+
+<!-- ================= 17 WATERMARK ================= -->
+<section id="wm" style="border-bottom:none">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">17</span><h2>Watermark สวย ๆ · เลิกใช้ตัวเริ่มต้น</h2></div>
+    <p class="slead reveal">Watermark "simple exif" ที่ติดมากับโปรแกรมคือหน้าตา debug — โลโก้สีจัด + timestamp + เวอร์ชันโปรแกรม ซึ่งไม่ควรอยู่บนภาพจริง · ข่าวดีคือโมดูล watermark รับไฟล์ <strong>SVG ที่เราออกแบบเอง</strong> และดึงค่า EXIF มาแสดงได้เหมือนกันเป๊ะ</p>
+
+    <div class="grid g2">
+      <div class="card reveal"><span class="ic">IDEA 01</span><h3>EXIF strip มินิมอล</h3><p>ชื่อเรา 1 บรรทัด + ค่ากล้อง 1 บรรทัด กลางล่างภาพ ตัวบาง โปร่งแสง — ให้ข้อมูลแบบเดียวกับ watermark เดิมแต่เงียบและแพงกว่า</p></div>
+      <div class="card reveal"><span class="ic">IDEA 02</span><h3>ลายเซ็นแบรนด์</h3><p>ชื่อแบบ serif ตัวใหญ่ + เส้นคั่น + "SHOT ON DC-G97" — เหมาะภาพ portrait/portfolio ที่อยากให้จำชื่อช่างภาพ ไม่เน้นค่ากล้อง</p></div>
+      <div class="card reveal"><span class="ic">IDEA 03</span><h3>Badge มุมภาพ</h3><p>บล็อกเล็กชิดมุมขวาล่าง: ชื่อ + กล้อง/เลนส์ + ค่าถ่าย เรียง 3 บรรทัดชิดขวา — รบกวนภาพน้อยสุด เหมาะภาพวิวที่องค์ประกอบแน่น</p></div>
+      <div class="card reveal"><span class="ic">IDEA 04</span><h3>กรอบแล็บฟิล์ม</h3><p>เปิดโมดูล <span class="mono gold">framing</span> ทำขอบขาว ~10% แล้ววาง watermark ชิดล่าง = ตัวหนังสือไปอยู่ในขอบขาว เหมือนอัดรูปจากแล็บ · หรือทางลัด: export เปล่า ๆ แล้วใช้แอปเฟรม EXIF บนมือถือแบบที่ทำอยู่</p></div>
+    </div>
+
+    <div class="setbox reveal">
+      <h3>📦 ติดตั้ง watermark ของตัวเอง (ครั้งเดียวจบ)</h3>
+      <span class="path">วางไฟล์ .svg ที่ C:\Users\&lt;ชื่อคุณ&gt;\AppData\Local\darktable\watermarks (ถ้ายังไม่มีโฟลเดอร์ watermarks ให้สร้างเอง) ► ปิด-เปิด darktable ใหม่</span>
+      <ol class="steps">
+        <li>ก๊อปโค้ด SVG ด้านล่าง (หรือใช้ไฟล์ในโฟลเดอร์ <b>watermarks/</b> ของ repo นี้) วางเป็นไฟล์ .svg ในโฟลเดอร์ตามพาธข้างบน</li>
+        <li>เปิด darkroom ► โมดูล <b>watermark</b> (กลุ่ม effect) ► ช่อง <b>marker</b> เลือกไฟล์ของเรา</li>
+        <li>ช่อง <b>text</b> ในโมดูล = ชื่อที่จะโชว์ (เช่น TOEY VARAT) — ไฟล์ทั้งสามอ่านค่านี้ผ่าน $(WATERMARK_TEXT) ไม่ต้องแก้ไฟล์</li>
+        <li>ตั้ง <b>opacity 60–80% · scale ~15–25% · alignment</b> ตามแบบ (strip/ลายเซ็น = กลางล่าง · badge = ขวาล่าง) แล้วเซฟเป็น preset ของโมดูล ใช้ซ้ำทุกรูป</li>
+      </ol>
+    </div>
+
+    <div class="codebox reveal">
+      <div class="cbh"><span>toey-exif-line.svg — EXIF strip มินิมอล (วางกลางล่าง)</span><button class="copybtn">คัดลอก</button></div>
+      <pre>&lt;svg xmlns="http://www.w3.org/2000/svg" width="900" height="76" viewBox="0 0 900 76"&gt;
+  &lt;text x="450" y="32" text-anchor="middle" font-family="Segoe UI, Leelawadee UI, sans-serif"
+        font-size="24" letter-spacing="7" fill="#ffffff" opacity="0.92"&gt;$(WATERMARK_TEXT)&lt;/text&gt;
+  &lt;text x="450" y="62" text-anchor="middle" font-family="Segoe UI, Leelawadee UI, sans-serif"
+        font-size="15" letter-spacing="3" fill="#ffffff" opacity="0.6"&gt;$(EXIF.FOCAL.LENGTH)mm · f/$(EXIF.APERTURE) · $(EXIF.EXPOSURE)s · ISO $(EXIF.ISO)&lt;/text&gt;
+&lt;/svg&gt;</pre>
+    </div>
+
+    <div class="codebox reveal">
+      <div class="cbh"><span>toey-signature.svg — ลายเซ็นแบรนด์ (วางกลางล่าง)</span><button class="copybtn">คัดลอก</button></div>
+      <pre>&lt;svg xmlns="http://www.w3.org/2000/svg" width="700" height="130" viewBox="0 0 700 130"&gt;
+  &lt;text x="350" y="52" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="40" letter-spacing="12" fill="#ffffff" opacity="0.95"&gt;$(WATERMARK_TEXT)&lt;/text&gt;
+  &lt;line x1="270" y1="76" x2="430" y2="76" stroke="#ffffff" stroke-width="1" opacity="0.5"/&gt;
+  &lt;text x="350" y="104" text-anchor="middle" font-family="Segoe UI, sans-serif"
+        font-size="16" letter-spacing="5" fill="#ffffff" opacity="0.7"&gt;SHOT ON $(EXIF.MODEL)&lt;/text&gt;
+&lt;/svg&gt;</pre>
+    </div>
+
+    <div class="codebox reveal">
+      <div class="cbh"><span>toey-corner-badge.svg — badge มุมภาพ (วางขวาล่าง)</span><button class="copybtn">คัดลอก</button></div>
+      <pre>&lt;svg xmlns="http://www.w3.org/2000/svg" width="380" height="96" viewBox="0 0 380 96"&gt;
+  &lt;text x="376" y="34" text-anchor="end" font-family="Segoe UI, sans-serif"
+        font-size="22" letter-spacing="4" fill="#ffffff" opacity="0.92"&gt;$(WATERMARK_TEXT)&lt;/text&gt;
+  &lt;line x1="236" y1="46" x2="376" y2="46" stroke="#ffffff" stroke-width="1" opacity="0.4"/&gt;
+  &lt;text x="376" y="66" text-anchor="end" font-family="Segoe UI, sans-serif"
+        font-size="13" letter-spacing="2" fill="#ffffff" opacity="0.62"&gt;$(EXIF.MODEL) · $(EXIF.LENS)&lt;/text&gt;
+  &lt;text x="376" y="86" text-anchor="end" font-family="Segoe UI, sans-serif"
+        font-size="13" letter-spacing="2" fill="#ffffff" opacity="0.62"&gt;$(EXIF.FOCAL.LENGTH)mm · f/$(EXIF.APERTURE) · $(EXIF.EXPOSURE)s · ISO $(EXIF.ISO)&lt;/text&gt;
+&lt;/svg&gt;</pre>
+    </div>
+
+    <div class="tablewrap reveal">
+      <table>
+        <thead><tr><th>ตัวแปรในไฟล์ SVG</th><th>แสดงเป็น (ตัวอย่างจากรูป Tellus)</th></tr></thead>
+        <tbody>
+          <tr><td class="sit"><span class="v">$(WATERMARK_TEXT)</span></td><td>ข้อความจากช่อง text ของโมดูล เช่น TOEY VARAT</td></tr>
+          <tr><td class="sit"><span class="v">$(EXIF.EXPOSURE)</span></td><td>1/250</td></tr>
+          <tr><td class="sit"><span class="v">$(EXIF.APERTURE)</span></td><td>5.6</td></tr>
+          <tr><td class="sit"><span class="v">$(EXIF.FOCAL.LENGTH)</span></td><td>25</td></tr>
+          <tr><td class="sit"><span class="v">$(EXIF.ISO)</span></td><td>200</td></tr>
+          <tr><td class="sit"><span class="v">$(EXIF.MAKER) · $(EXIF.MODEL)</span></td><td>Panasonic · DC-G97</td></tr>
+          <tr><td class="sit"><span class="v">$(EXIF.LENS)</span></td><td>LUMIX G 25/F1.7</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip reveal"><b>หลักออกแบบ watermark ที่ดูแพง:</b> ① สีขาวโปร่ง 60–80% วางบนโซนมืดของภาพ (หรือดำโปร่งบนโซนสว่าง — แก้ fill ในไฟล์) · ② ขนาดเล็กพอที่ต้อง "มองหา" ถึงเห็น · ③ ตำแหน่งเดิมทุกรูปให้เป็นลายเซ็น · ④ ไม่ใส่ timestamp และเวอร์ชันโปรแกรมเด็ดขาด · ⑤ อยากพิมพ์ภาษาไทยในชื่อ ใช้ฟอนต์ Leelawadee UI (มีใน Windows อยู่แล้ว) · ⑥ เช็กทั้งรูปแนวตั้งและแนวนอนก่อนเซฟ preset</div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="ft">ถ่ายดี + แต่งเป็น = ภาพในใจ</div>
@@ -822,6 +1114,8 @@ footer p{color:var(--ink3);font-size:.85rem}
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*0.07)+'s';io.observe(el)});
+
+document.querySelectorAll('.codebox').forEach(box=>{const b=box.querySelector('.copybtn'),p=box.querySelector('pre');if(b&&p)b.addEventListener('click',()=>{navigator.clipboard.writeText(p.textContent).then(()=>{b.textContent='คัดลอกแล้ว ✓';setTimeout(()=>{b.textContent='คัดลอก'},1600)})})});
 
 const mb=document.getElementById('menuBtn'),mp=document.getElementById('menuPanel');
 if(mb&&mp){mb.addEventListener('click',e=>{e.stopPropagation();const o=mp.classList.toggle('open');mb.setAttribute('aria-expanded',o);});mp.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mp.classList.remove('open');mb.setAttribute('aria-expanded','false');}));document.addEventListener('click',e=>{if(!e.target.closest('nav')){mp.classList.remove('open');mb.setAttribute('aria-expanded','false');}});}

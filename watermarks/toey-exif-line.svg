@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="76" viewBox="0 0 900 76">
+  <text x="450" y="32" text-anchor="middle" font-family="Segoe UI, Leelawadee UI, sans-serif"
+        font-size="24" letter-spacing="7" fill="#ffffff" opacity="0.92">$(WATERMARK_TEXT)</text>
+  <text x="450" y="62" text-anchor="middle" font-family="Segoe UI, Leelawadee UI, sans-serif"
+        font-size="15" letter-spacing="3" fill="#ffffff" opacity="0.6">$(EXIF.FOCAL.LENGTH)mm · f/$(EXIF.APERTURE) · $(EXIF.EXPOSURE)s · ISO $(EXIF.ISO)</text>
+</svg>
