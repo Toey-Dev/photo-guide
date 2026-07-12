@@ -220,7 +220,7 @@ footer p{color:var(--ink3);font-size:.85rem}
     <div class="shead reveal"><span class="snum">01</span><h2>เริ่มต้นใช้งาน + ลำดับการแต่ง</h2></div>
     <p class="slead reveal">Darktable แบ่งเป็น 2 ห้อง: <strong>lighttable</strong> (คลังรูป · เหมือน Library ของ LR) และ <strong>darkroom</strong> (ห้องแต่ง · เหมือน Develop) — ตั้งค่า 2 อย่างนี้ให้เสร็จก่อนเริ่ม</p>
     <div class="svgwrap reveal">
-      <svg viewBox="0 0 720 400" role="img" aria-label="ผังหน้าจอห้อง darkroom ของ Darktable">
+      <svg viewBox="0 0 720 424" role="img" aria-label="ผังหน้าจอห้อง darkroom ของ Darktable">
         <rect x="0" y="0" width="720" height="330" rx="8" fill="#1c1c1c" stroke="#3a3a3a"/>
         <rect x="0" y="0" width="720" height="24" rx="8" fill="#242424"/>
         <text x="12" y="16" fill="#c8c8c8" font-family="Space Mono" font-size="10">darktable 5.6 — darkroom</text>
@@ -274,9 +274,8 @@ footer p{color:var(--ink3);font-size:.85rem}
         <!-- callouts -->
         <g font-family="IBM Plex Sans Thai" font-size="12" fill="#e0a44a">
           <text x="8" y="352">◤ แผงซ้าย: snapshots / history · ⊕ กรอบทอง = create style</text>
-          <text x="266" y="352">◤ ภาพที่กำลังแต่ง + filmstrip</text>
-          <text x="520" y="352">◤ แผงขวา: โมดูลทั้งหมด</text>
-          <text x="8" y="374" fill="#5fb6a2">● วงกลมหน้าโมดูล = เปิด/ปิด · หาโมดูลไม่เจอพิมพ์ในช่อง search ได้เลย · UI เป็นภาษาอังกฤษ (ป้ายไทย = คำอธิบาย)</text>
+          <text x="8" y="374">◤ กลางจอ: ภาพที่กำลังแต่ง + filmstrip · ◤ แผงขวา: โมดูลทั้งหมด</text>
+          <text x="8" y="398" fill="#5fb6a2">● วงกลมหน้าโมดูล = เปิด/ปิด · หาโมดูลไม่เจอพิมพ์ในช่อง search ได้เลย · UI เป็นภาษาอังกฤษ (ป้ายไทย = คำอธิบาย)</text>
         </g>
       </svg>
     </div>
@@ -615,7 +614,7 @@ footer p{color:var(--ink3);font-size:.85rem}
     </div>
     
     <div class="svgwrap reveal" style="max-width:460px;margin-left:auto;margin-right:auto">
-      <svg viewBox="0 0 420 300" role="img" aria-label="แผง export selected ของ lighttable">
+      <svg viewBox="0 0 420 318" role="img" aria-label="แผง export selected ของ lighttable">
         <rect x="6" y="6" width="408" height="288" rx="6" fill="#232323" stroke="#3a3a3a"/>
         <text x="20" y="30" fill="#e8e8e8" font-family="Space Mono" font-size="11">export selected</text>
         <g font-family="Space Mono" font-size="9">
@@ -635,7 +634,8 @@ footer p{color:var(--ink3);font-size:.85rem}
           <rect x="150" y="206" width="250" height="18" rx="3" fill="#161616" stroke="#e0a44a" stroke-width="1.8"/><text x="158" y="219" fill="#f2c982">all metadata ▾</text>
           <rect x="150" y="238" width="250" height="24" rx="4" fill="#2e2e2e" stroke="#4a4a4a"/><text x="275" y="254" text-anchor="middle" fill="#e8e8e8">export</text>
         </g>
-        <text x="14" y="286" fill="#e0a44a" font-family="IBM Plex Sans Thai" font-size="11.5">● กรอบทอง = จุดที่ห้ามพลาด: คง all metadata ไว้ให้แอปเฟรม "Shot on LUMIX" อ่าน EXIF ได้</text>
+        <text x="14" y="286" fill="#e0a44a" font-family="IBM Plex Sans Thai" font-size="11.5">● กรอบทอง = จุดที่ห้ามพลาด: คง all metadata ไว้เสมอ</text>
+        <text x="14" y="306" fill="#e0a44a" font-family="IBM Plex Sans Thai" font-size="11.5">ให้แอปเฟรม "Shot on LUMIX" อ่านค่ากล้อง/เลนส์จาก EXIF ได้</text>
       </svg>
     </div>
     <div class="tip reveal"><b>สองจุดที่พลาดบ่อย:</b> ① ลงเว็บใช้ <span class="mono gold">sRGB</span> เสมอ ไม่งั้นสีซีดบนมือถือ · ② ในหน้า export มีตัวเลือก metadata — <b>อย่าเลือกตัด EXIF ทิ้ง</b> เพราะแอปทำเฟรม "Shot on LUMIX" (Fotorgear ฯลฯ) ต้องอ่านค่ากล้อง/เลนส์/f/ISO จากตรงนั้น ถ้าตัดทิ้งเฟรมจะว่างเปล่า</div>
